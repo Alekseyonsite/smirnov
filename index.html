@@ -931,31 +931,5 @@
 </div>
 
 <script src="/assets/js/main.js"></script>
-<script>
-/* Dynamic bar animation — triggers when case-body opens */
-(function(){
-  // Override case accordion to animate bars on open
-  document.querySelectorAll('.case-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const body   = header.nextElementSibling;
-      const toggle = header.querySelector('.case-toggle');
-      const isOpen = body.classList.contains('open');
-      body.classList.toggle('open', !isOpen);
-      if (toggle) toggle.classList.toggle('open', !isOpen);
-      if (!isOpen) {
-        // Reset bars first, then animate
-        body.querySelectorAll('.bar-fill').forEach(b => { b.style.width = '0'; });
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            body.querySelectorAll('.bar-fill').forEach(b => {
-              setTimeout(() => { b.style.width = b.dataset.w || '0%'; }, 120);
-            });
-          });
-        });
-      }
-    });
-  });
-})();
-</script>
 </body>
 </html>
