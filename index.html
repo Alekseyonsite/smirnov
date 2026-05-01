@@ -148,7 +148,7 @@
     /* ===== LANG SWITCHER ===== */
     .lang-sw{display:flex;gap:2px;background:var(--bg3);border-radius:8px;padding:3px}
     .lang-sw a{font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;color:var(--text2);transition:all .18s;font-family:var(--font-body)}
-    .lang-sw a.active{background:#f0a500;color:#111110}
+    .lang-sw a.active,.lang-sw a:hover{background:#f0a500;color:#111110}
 
     /* ===== CTA ===== */
     .cta-section{background:var(--bg2);padding:80px 0;text-align:center}
@@ -202,7 +202,7 @@
     <div class="nav-links">
       <a href="#geography">География</a>
       <a href="#niches">Ниши</a>
-      <a href="#cases" style="color:var(--text);border-bottom:2px solid var(--accent);padding-bottom:2px">Кейсы</a>
+      <a href="#cases">Кейсы</a>
       <a href="#advantages">Преимущества</a>
       <a href="/blog/">Блог</a>
       <a href="#contacts">Контакты</a>
@@ -424,7 +424,7 @@
             </div>
             <div class="case-title-text">Продажа недвижимости в ОАЭ</div>
             <div class="case-desc-text">Снижение CPQL и рост доли квалифицированных лидов при масштабировании бюджета</div>
-            <div class="case-badges"><span class="badge badge-green">CPQL −16.7%</span><span class="badge badge-green">Qual leads +80%</span><span class="badge badge-green">Бюджет +50%</span></div>
+            <div class="case-badges"><span class="badge badge-green">CPQL −16.7%</span><span class="badge badge-green">Qual leads +50%</span><span class="badge badge-gray">Бюджет +50%</span></div>
           </div>
           <div class="case-toggle">⌃</div>
         </div>
@@ -448,14 +448,14 @@
           <div class="results-2col">
             <div class="result-row">Бюджет: +50%</div>
             <div class="result-row">CPQL: −16.7%</div>
-            <div class="result-row">Доля квал. лидов: +80%</div>
+            <div class="result-row">Доля квал. лидов: +50%</div>
             <div class="result-row">Лиды: +20%</div>
           </div>
           <div class="metrics-block">
             <div class="metrics-hd">Изменение метрик<div class="metrics-legend"><span><span class="legend-dot" style="background:var(--green)"></span>улучшение</span></div></div>
             <div class="metric-row"><div class="metric-top"><span class="metric-name">Бюджет <span class="metric-type">объём</span></span><span class="metric-val pos">↗ +50%</span></div><div class="bar-bg"><div class="bar-fill" data-w="50%"></div></div></div>
             <div class="metric-row"><div class="metric-top"><span class="metric-name">CPQL <span class="metric-type">стоимость</span></span><span class="metric-val pos">↘ −16.7%</span></div><div class="bar-bg"><div class="bar-fill" data-w="40%"></div></div></div>
-            <div class="metric-row"><div class="metric-top"><span class="metric-name">Qual leads <span class="metric-type">объём</span></span><span class="metric-val pos">↗ +80%</span></div><div class="bar-bg"><div class="bar-fill" data-w="100%"></div></div></div>
+            <div class="metric-row"><div class="metric-top"><span class="metric-name">Qual leads <span class="metric-type">объём</span></span><span class="metric-val pos">↗ +50%</span></div><div class="bar-bg"><div class="bar-fill" data-w="100%"></div></div></div>
             <div class="metric-row"><div class="metric-top"><span class="metric-name">Leads <span class="metric-type">объём</span></span><span class="metric-val pos">↗ +20%</span></div><div class="bar-bg"><div class="bar-fill" data-w="60%"></div></div></div>
             <p style="font-size:11px;color:var(--text3);margin-top:10px;font-family:var(--font-body)">Длина полосы — реальное процентное изменение метрики.</p>
           </div>
@@ -531,7 +531,7 @@
             </div>
             <div class="case-title-text">B2B / страхование логистики</div>
             <div class="case-desc-text">Снижение стоимости квалифицированных и успешных сделок при росте их объёма</div>
-            <div class="case-badges"><span class="badge badge-green">CPQL −54.5%</span><span class="badge badge-green">CAC −32.7%</span><span class="badge badge-green">Qual сделки +47%</span></div>
+            <div class="case-badges"><span class="badge badge-green">CPQL −54.5%</span><span class="badge badge-green">Cost per Sale −32.7%</span><span class="badge badge-green">Qual сделки +47%</span></div>
           </div>
           <div class="case-toggle">⌃</div>
         </div>
@@ -540,7 +540,7 @@
             <div class="case-meta-cell"><div class="case-cell-label">Ниша</div><div class="case-cell-val">B2B</div></div>
             <div class="case-meta-cell"><div class="case-cell-label">Гео</div><div class="case-cell-val">🇷🇺 Россия</div></div>
             <div class="case-meta-cell"><div class="case-cell-label">Платформа</div><div class="case-cell-val">Яндекс.Директ</div></div>
-            <div class="case-meta-cell"><div class="case-cell-label">KPI</div><div class="case-cell-val">CPQL, CAC, количество квал. сделок</div></div>
+            <div class="case-meta-cell"><div class="case-cell-label">KPI</div><div class="case-cell-val">CPQL, Cost per Sale, количество квал. сделок</div></div>
           </div>
           <div class="case-h4">Задача</div>
           <p class="case-p">Привлечь целевых клиентов по страхованию грузоперевозок по России и миру, для которых важны качество услуг и надёжность, а не только цена.</p>
@@ -556,14 +556,14 @@
           <div class="results-2col">
             <div class="result-row">Расход: −32.8%</div>
             <div class="result-row">CPQL: −54.5%</div>
-            <div class="result-row">CAC: −32.7%</div>
+            <div class="result-row">Cost per Sale: −32.7%</div>
             <div class="result-row">Квалифицированные сделки: +47%</div>
           </div>
           <div class="metrics-block">
             <div class="metrics-hd">Изменение метрик<div class="metrics-legend"><span><span class="legend-dot" style="background:var(--green)"></span>улучшение</span></div></div>
             <div class="metric-row"><div class="metric-top"><span class="metric-name">Расход <span class="metric-type">стоимость</span></span><span class="metric-val pos">↘ −32.8%</span></div><div class="bar-bg"><div class="bar-fill" data-w="55%"></div></div></div>
             <div class="metric-row"><div class="metric-top"><span class="metric-name">CPQL <span class="metric-type">стоимость</span></span><span class="metric-val pos">↘ −54.5%</span></div><div class="bar-bg"><div class="bar-fill" data-w="100%"></div></div></div>
-            <div class="metric-row"><div class="metric-top"><span class="metric-name">CAC <span class="metric-type">стоимость</span></span><span class="metric-val pos">↘ −32.7%</span></div><div class="bar-bg"><div class="bar-fill" data-w="55%"></div></div></div>
+            <div class="metric-row"><div class="metric-top"><span class="metric-name">Cost per Sale <span class="metric-type">стоимость</span></span><span class="metric-val pos">↘ −32.7%</span></div><div class="bar-bg"><div class="bar-fill" data-w="55%"></div></div></div>
             <div class="metric-row"><div class="metric-top"><span class="metric-name">Qual сделки <span class="metric-type">объём</span></span><span class="metric-val pos">↗ +47%</span></div><div class="bar-bg"><div class="bar-fill" data-w="80%"></div></div></div>
           </div>
           <div class="main-thought"><div class="thought-label">Главная мысль</div><p style="font-size:14px;color:var(--text2);line-height:1.6;margin:0;font-family:var(--font-body)">За счёт доработки сайта, сквозной аналитики, работы с офлайн-конверсиями и тестирования разных типов посадочных страниц удалось снизить стоимость квалифицированных и успешных сделок и увеличить объём качественных обращений в B2B-страховании.</p></div>
@@ -640,7 +640,7 @@
             </div>
             <div class="case-title-text">B2B / строительство</div>
             <div class="case-desc-text">Multi-channel B2B-воронка с распределением лидов и сделок по каналам</div>
-            <div class="case-badges"><span class="badge badge-green">Воронка multi-channel</span><span class="badge badge-green">Лиды + сделки из рекламы</span></div>
+            <div class="case-badges"><span class="badge badge-gray">Каналы 3</span><span class="badge badge-gray">Воронка multi-channel</span><span class="badge badge-green">Лиды + сделки из рекламы</span></div>
           </div>
           <div class="case-toggle">⌃</div>
         </div>
@@ -693,7 +693,7 @@
             </div>
             <div class="case-title-text">Интернет-магазин мотоэкипировки</div>
             <div class="case-desc-text">Рост обращений и покупателей при улучшении ROMI</div>
-            <div class="case-badges"><span class="badge badge-green">Бюджет +75%</span><span class="badge badge-green">Покупки +125%</span><span class="badge badge-green">CPO −68%</span><span class="badge badge-green">ROAS +36%</span></div>
+            <div class="case-badges"><span class="badge badge-green">Обращения +400%</span><span class="badge badge-green">Покупатели +300%</span><span class="badge badge-green">ROMI +83%</span></div>
           </div>
           <div class="case-toggle">⌃</div>
         </div>
@@ -702,7 +702,7 @@
             <div class="case-meta-cell"><div class="case-cell-label">Ниша</div><div class="case-cell-val">E-commerce</div></div>
             <div class="case-meta-cell"><div class="case-cell-label">Гео</div><div class="case-cell-val">🇷🇺 Россия</div></div>
             <div class="case-meta-cell"><div class="case-cell-label">Платформа</div><div class="case-cell-val">Яндекс.Директ + Яндекс.Бизнес</div></div>
-            <div class="case-meta-cell"><div class="case-cell-label">KPI</div><div class="case-cell-val">Бюджет, Покупки, CPO, ROAS</div></div>
+            <div class="case-meta-cell"><div class="case-cell-label">KPI</div><div class="case-cell-val">Обращения, покупатели, ROMI</div></div>
           </div>
           <div class="case-h4">Задача</div>
           <p class="case-p">Привлечь целевых покупателей в нужном ценовом сегменте — от 20 000 ₽.</p>
@@ -716,19 +716,17 @@
           </ul>
           <div class="case-h4">Результат</div>
           <div class="results-2col">
-            <div class="result-row">Бюджет: +75%</div>
-            <div class="result-row">Покупки: +125%</div>
-            <div class="result-row">CPO: −68%</div>
-            <div class="result-row">ROAS: +36%</div>
+            <div class="result-row">Обращения: +400%</div>
+            <div class="result-row">Покупатели: +300%</div>
+            <div class="result-row">ROMI: +83%</div>
           </div>
           <div class="metrics-block">
             <div class="metrics-hd">Изменение метрик<div class="metrics-legend"><span><span class="legend-dot" style="background:var(--green)"></span>улучшение</span></div></div>
-            <div class="metric-row"><div class="metric-top"><span class="metric-name">Бюджет <span class="metric-type">объём</span></span><span class="metric-val pos">↗ +75%</span></div><div class="bar-bg"><div class="bar-fill" data-w="60%"></div></div></div>
-            <div class="metric-row"><div class="metric-top"><span class="metric-name">Покупки <span class="metric-type">объём</span></span><span class="metric-val pos">↗ +125%</span></div><div class="bar-bg"><div class="bar-fill" data-w="100%"></div></div></div>
-            <div class="metric-row"><div class="metric-top"><span class="metric-name">CPO <span class="metric-type">стоимость</span></span><span class="metric-val pos">↘ −68%</span></div><div class="bar-bg"><div class="bar-fill" data-w="68%"></div></div></div>
-            <div class="metric-row"><div class="metric-top"><span class="metric-name">ROAS <span class="metric-type">коэф.</span></span><span class="metric-val pos">↗ +36%</span></div><div class="bar-bg"><div class="bar-fill" data-w="36%"></div></div></div>
+            <div class="metric-row"><div class="metric-top"><span class="metric-name">Обращения <span class="metric-type">объём</span></span><span class="metric-val pos">↗ +400%</span></div><div class="bar-bg"><div class="bar-fill" data-w="100%"></div></div></div>
+            <div class="metric-row"><div class="metric-top"><span class="metric-name">Покупатели <span class="metric-type">объём</span></span><span class="metric-val pos">↗ +300%</span></div><div class="bar-bg"><div class="bar-fill" data-w="75%"></div></div></div>
+            <div class="metric-row"><div class="metric-top"><span class="metric-name">ROMI <span class="metric-type">коэф.</span></span><span class="metric-val pos">↗ +83%</span></div><div class="bar-bg"><div class="bar-fill" data-w="40%"></div></div></div>
           </div>
-          <div class="main-thought"><div class="thought-label">Главная мысль</div><p style="font-size:14px;color:var(--text2);line-height:1.6;margin:0;font-family:var(--font-body)">За счёт сквозной аналитики, пересборки воронки, работы с сайтом и оптимизации по ценовому сегменту удалось значительно увеличить количество покупок при заметном снижении CPO и росте ROAS.</p></div>
+          <div class="main-thought"><div class="thought-label">Главная мысль</div><p style="font-size:14px;color:var(--text2);line-height:1.6;margin:0;font-family:var(--font-body)">За счёт сквозной аналитики, пересборки воронки, работы с сайтом и оптимизации по ценовому сегменту удалось кратно увеличить количество обращений и покупателей и улучшить экономику рекламы.</p></div>
         </div>
       </article>
 
