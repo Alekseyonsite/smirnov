@@ -60,7 +60,8 @@ p{color:var(--text2)}
 .nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .lang-sw{display:flex;gap:2px;background:var(--bg3);border-radius:8px;padding:3px}
 .lang-sw a{font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;color:var(--text2);transition:all .18s}
-.lang-sw a.active,.lang-sw a:hover{background:#f0a500;color:#111110}
+.lang-sw a.active{background:#f0a500;color:#111110}
+.lang-sw a:not(.active):hover{color:var(--text);background:transparent}
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:1px;transition:all .25s}
 .nav-burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
