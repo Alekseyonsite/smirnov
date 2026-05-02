@@ -20,7 +20,7 @@
     .blog-card-title{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--text);line-height:1.35}
     .blog-card-excerpt{font-size:13px;color:var(--text2);line-height:1.6;flex:1}
     .blog-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px;border-top:1px solid var(--border)}
-    .read-soon{font-size:12px;font-weight:600;color:var(--text3)}
+    .read-soon{font-size:12px;font-weight:700;color:var(--accent)}
     .tag{display:inline-block;border:1px solid var(--border2);border-radius:20px;padding:4px 12px;font-size:11px;color:var(--text2)}
     .cat-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
     .cat-btn{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--text2);background:var(--bg2);cursor:pointer;transition:all .18s;font-family:var(--font-body)}
@@ -58,7 +58,7 @@
     </div>
     <div class="nav-right">
       <div class="lang-sw"><a href="/blog/" class="active">RU</a><a href="/en/">EN</a></div>
-      <a href="/#contacts" class="btn btn-primary">Связаться</a>
+      <a href="#" data-modal class="btn btn-primary">Связаться</a>
     </div>
     <button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
@@ -66,7 +66,7 @@
 <div class="nav-mobile">
   <a href="/">Главная</a><a href="/#geography">География</a><a href="/#niches">Ниши</a>
   <a href="/cases/">Кейсы</a><a href="/#advantages">Преимущества</a><a href="/blog/">Блог</a><a href="/#contacts">Контакты</a>
-  <a href="/#contacts" class="btn btn-primary">Связаться</a>
+  <a href="#" data-modal class="btn btn-primary">Связаться</a>
   <div class="lang-sw"><a href="/blog/" class="active">RU</a><a href="/en/">EN</a></div>
 </div>
 
@@ -85,8 +85,6 @@
 
 <section style="padding-top:0;padding-bottom:96px">
   <div class="container">
-
-    <!-- FEATURED — ведёт на страницу кейса -->
     <a href="/cases/usa-auto-ecommerce/" class="blog-featured fade-up">
       <div class="blog-featured-cover">🛒</div>
       <div class="blog-featured-body">
@@ -97,7 +95,6 @@
       </div>
     </a>
 
-    <!-- CATEGORY FILTERS -->
     <div class="cat-filters" id="cat-filters">
       <button class="cat-btn active" data-cat="all">Все статьи</button>
       <button class="cat-btn" data-cat="google-ads">Google Ads</button>
@@ -107,9 +104,7 @@
       <button class="cat-btn" data-cat="analytics">Аналитика</button>
     </div>
 
-    <!-- BLOG GRID — все карточки "скоро" -->
     <div class="blog-grid" id="blog-grid">
-
       <div class="blog-card fade-up" data-cat="b2b" onclick="showSoon()">
         <div class="blog-card-cover">📉</div>
         <div class="blog-card-body">
@@ -119,7 +114,6 @@
           <div class="blog-card-footer"><span class="tag">B2B</span><span class="read-soon">Скоро →</span></div>
         </div>
       </div>
-
       <div class="blog-card fade-up" data-cat="google-ads" onclick="showSoon()">
         <div class="blog-card-cover">⚙️</div>
         <div class="blog-card-body">
@@ -129,17 +123,15 @@
           <div class="blog-card-footer"><span class="tag">Google Ads</span><span class="read-soon">Скоро →</span></div>
         </div>
       </div>
-
       <div class="blog-card fade-up" data-cat="analytics" onclick="showSoon()">
         <div class="blog-card-cover">🔗</div>
         <div class="blog-card-body">
           <div class="blog-card-meta"><span>Аналитика</span><span>·</span><span>9 мин</span></div>
-          <div class="blog-card-title">Офлайн-конверсии из CRM в Google Ads: как настроить через n8n</div>
-          <div class="blog-card-excerpt">Пошаговый разбор: как передавать данные о реальных сделках из CRM без программиста.</div>
+          <div class="blog-card-title">Офлайн-конверсии из CRM: как настроить передачу данных о сделках</div>
+          <div class="blog-card-excerpt">Пошаговый разбор: как передавать данные о реальных сделках в аналитику без программиста.</div>
           <div class="blog-card-footer"><span class="tag">Аналитика</span><span class="read-soon">Скоро →</span></div>
         </div>
       </div>
-
       <div class="blog-card fade-up" data-cat="yandex b2b" onclick="showSoon()">
         <div class="blog-card-cover">🎯</div>
         <div class="blog-card-body">
@@ -149,7 +141,6 @@
           <div class="blog-card-footer"><span class="tag">Яндекс.Директ</span><span class="read-soon">Скоро →</span></div>
         </div>
       </div>
-
       <div class="blog-card fade-up" data-cat="analytics" onclick="showSoon()">
         <div class="blog-card-cover">📊</div>
         <div class="blog-card-body">
@@ -159,7 +150,6 @@
           <div class="blog-card-footer"><span class="tag">Аналитика</span><span class="read-soon">Скоро →</span></div>
         </div>
       </div>
-
       <div class="blog-card fade-up" data-cat="ecommerce" onclick="showSoon()">
         <div class="blog-card-cover">💡</div>
         <div class="blog-card-body">
@@ -169,7 +159,6 @@
           <div class="blog-card-footer"><span class="tag">E-commerce</span><span class="read-soon">Скоро →</span></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -188,13 +177,30 @@
   </div>
 </div>
 
+<!-- MODAL -->
+<div class="modal-overlay" role="dialog" aria-modal="true" aria-label="Форма заявки">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="Закрыть">✕</button>
+    <form class="lead-form" id="lead-form" novalidate>
+      <div class="form-title">Обсудим ваш проект</div>
+      <p class="form-sub">Расскажите коротко о задаче — отвечу в течение дня</p>
+      <div class="field"><label for="f-name">Имя</label><input type="text" id="f-name" name="name" placeholder="Алексей" required autocomplete="name"></div>
+      <div class="field"><label for="f-contact">Telegram или email</label><input type="text" id="f-contact" name="contact" placeholder="@username или email@example.com" required></div>
+      <div class="field"><label for="f-msg">Расскажите о проекте</label><textarea id="f-msg" name="message" placeholder="Ниша, бюджет, задача — любые детали помогут"></textarea></div>
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Отправить заявку →</button>
+      <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+    </form>
+    <div class="form-success"><div class="s-icon">✅</div><h3>Заявка отправлена!</h3><p>Отвечу в Telegram или email в течение дня</p></div>
+  </div>
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand"><a href="/" class="nav-logo">А. Смирнов</a><p>Специалист по платной рекламе с 2012 года. Помогаю бизнесу получать качественные лиды и сделки.</p></div>
       <div class="footer-col"><h5>Платформы</h5><a href="/cases/">Google Ads</a><a href="/cases/">Яндекс.Директ</a><a href="/cases/">LinkedIn Ads</a></div>
       <div class="footer-col"><h5>Контент</h5><a href="/blog/">Блог</a><a href="/cases/">Кейсы</a><a href="/#geography">География</a><a href="/#advantages">О подходе</a></div>
-      <div class="footer-col"><h5>Контакты</h5><a href="https://t.me/alx_smr" target="_blank" rel="noopener">Telegram</a><a href="https://www.linkedin.com/in/alexey-smirnov-740728200/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:a.smirnov1905@gmail.com">a.smirnov1905@gmail.com</a></div>
+      <div class="footer-col"><h5>Контакты</h5><a href="https://t.me/alx_smr" target="_blank" rel="noopener">Telegram</a><a href="https://www.linkedin.com/in/alexey-smirnov-740728200/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:a.smirnov1905@gmail.com">a.smirnov1905@gmail.com</a><a href="/privacy/">Политика конфиденциальности</a></div>
     </div>
     <div class="footer-bottom">
       <p>© 2025 Алексей Смирнов · smirnovads.com · <a href="/privacy/" style="color:var(--text3)">Политика конфиденциальности</a></p>
@@ -203,28 +209,20 @@
   </div>
 </footer>
 
-<!-- COOKIE BANNER -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--bg2);border-top:1px solid var(--border2);padding:16px 0">
   <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-    <p style="font-size:13px;color:var(--text2);margin:0;max-width:700px;line-height:1.5;font-family:var(--font-body)">
-      Этот сайт использует файлы cookie и аналитику. Продолжая использовать сайт, вы соглашаетесь с <a href="/privacy/" style="color:var(--accent);text-decoration:underline">политикой конфиденциальности</a>.
-    </p>
+    <p style="font-size:13px;color:var(--text2);margin:0;max-width:700px;line-height:1.5;font-family:var(--font-body)">Этот сайт использует файлы cookie и аналитику. Продолжая использовать сайт, вы соглашаетесь с <a href="/privacy/" style="color:var(--accent);text-decoration:underline">политикой конфиденциальности</a>.</p>
     <button onclick="acceptCookies()" style="background:var(--accent);color:#0e0d0d;border:none;border-radius:8px;padding:8px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);flex-shrink:0">Принять</button>
   </div>
 </div>
 
 <script src="/assets/js/main.js"></script>
 <script>
-  // Cookie
   function acceptCookies(){localStorage.setItem('cookies_accepted','1');document.getElementById('cookie-banner').style.display='none';}
   if(!localStorage.getItem('cookies_accepted')){document.getElementById('cookie-banner').style.display='block';}
-
-  // Soon modal
   function showSoon(){document.getElementById('soon-overlay').classList.add('open');}
   document.getElementById('soon-overlay').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('soon-overlay').classList.remove('open');});
-
-  // Category filter
   document.querySelectorAll('.cat-btn').forEach(btn=>{
     btn.addEventListener('click',function(){
       document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
