@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+User-agent: Yandex
+Host: smirnovads.com
+
 Sitemap: https://smirnovads.com/sitemap.xml
