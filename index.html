@@ -117,7 +117,21 @@
     .btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
     .badge-green{color:#4ade80;border-color:rgba(74,222,128,.28);background:rgba(74,222,128,.06)}
     @media(max-width:1100px){.niches-cols{grid-template-columns:repeat(3,1fr) !important}.niches-cols .niche-col:nth-child(4){display:none !important}.niches-cols .niche-col:nth-child(5){display:none !important}}
-    @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:32px}.hero-photo-box{max-width:360px;margin:0 auto;aspect-ratio:3/2}.adv-grid{grid-template-columns:1fr}.case-meta-grid{grid-template-columns:repeat(2,1fr)}.mc-grid{grid-template-columns:1fr}.niches-cols{grid-template-columns:repeat(2,1fr) !important}.niches-cols .niche-col:nth-child(3){display:none !important}.niches-cols .niche-col:nth-child(4){display:none !important}.niches-cols .niche-col:nth-child(5){display:none !important}}
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr;gap:24px}
+      /* текст идёт первым, фото — вторым */
+      .hero-grid .fade-up:first-child{order:2}
+      .hero-grid .fade-up:last-child{order:1}
+      /* фото компактное на мобильном */
+      .hero-photo-box{max-width:160px;aspect-ratio:1/1;margin:0 auto;font-size:56px}
+      .adv-grid{grid-template-columns:1fr}
+      .case-meta-grid{grid-template-columns:repeat(2,1fr)}
+      .mc-grid{grid-template-columns:1fr}
+      .niches-cols{grid-template-columns:repeat(2,1fr) !important}
+      .niches-cols .niche-col:nth-child(3){display:none !important}
+      .niches-cols .niche-col:nth-child(4){display:none !important}
+      .niches-cols .niche-col:nth-child(5){display:none !important}
+    }
     @media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr)}.stat-item{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 12px}.stat-item:nth-child(2n){border-right:none}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-num{font-size:28px}.niches-cols{grid-template-columns:repeat(2,1fr) !important}.niches-cols .niche-col:nth-child(3){display:none !important}.niches-cols .niche-col:nth-child(4){display:none !important}.niches-cols .niche-col:nth-child(5){display:none !important}.case-header{padding:16px 18px}.case-body{padding:0 18px 18px}.case-title-text{font-size:16px}.results-2col{grid-template-columns:1fr}}
   </style>
 </head>
@@ -184,7 +198,7 @@
           <span>📅</span><span>Среднее время сотрудничества — <strong style="color:var(--text)">24 месяца</strong></span>
         </div>
         <p style="font-size:12px;color:var(--text3);margin-left:24px;margin-bottom:28px;font-style:italic;font-family:var(--font-body)">Не условие договора, а результат доверия и пользы.</p>
-        <div style="display:flex;gap:12px;flex-wrap:nowrap">
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Написать в Telegram →</a>
           <a href="/cases/" class="btn btn-outline btn-lg">Смотреть кейсы</a>
         </div>
