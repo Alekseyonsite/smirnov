@@ -26,13 +26,19 @@
   <style>
     :root{--bg:#0e0d0d;--bg2:#161515;--bg3:#1e1d1d;--bg4:#252424;--text:#ede9e3;--text2:#a09890;--text3:#6b6560;--accent:#f0a500;--accent2:#d99400;--accent-bg:rgba(240,165,0,.10);--green:#22c55e;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--radius:10px;--radius-lg:16px;--font-head:'Unbounded',sans-serif;--font-body:'Manrope',sans-serif;--nav-h:64px;--max-w:1100px;--col:48px}
     html,body{overflow-x:hidden}
-    .btn-primary{background:var(--accent);color:#0e0d0d}.btn-primary:hover{background:var(--accent2)}
+    .btn-primary{background:var(--accent);color:#0e0d0d !important;text-decoration:none !important}.btn-primary:hover{background:var(--accent2);color:#0e0d0d !important}
+    .article-body .btn{color:#0e0d0d !important;text-decoration:none !important;display:inline-flex}
+    .article-body .related-card,.article-body .related-card *{text-decoration:none !important}
+    .article-body .related-card-label{color:var(--accent) !important}
+    .article-body .related-card-title{color:var(--text) !important}
+    .article-body .related-card-desc{color:var(--text2) !important}
+    .article-body .related-card-arrow{color:var(--accent) !important}
     .lang-sw a.active{background:var(--accent);color:#111110}
-    .nav-mobile .btn{font-family:var(--font-head);font-weight:700;color:#0e0d0d}
+    .nav-mobile .btn{font-family:var(--font-head);font-weight:700;color:#0e0d0d !important}
     .article-wrap{max-width:760px;margin:0 auto;padding:0 var(--col)}
     .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text3);margin-bottom:24px;flex-wrap:wrap}
     .breadcrumb a{color:var(--text3);transition:color .18s}.breadcrumb a:hover{color:var(--text)}
-    .article-hero{padding-top:calc(var(--nav-h) + 56px);padding-bottom:56px}
+    .article-hero{padding-top:calc(var(--nav-h) + 56px);padding-bottom:40px}
     .article-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
     .article-h1{font-family:var(--font-head);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:20px}
     .article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text3)}
@@ -47,7 +53,7 @@
     .article-body ul li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
     .article-body ol{padding-left:22px;margin-bottom:20px}
     .article-body ol li{color:var(--text2);margin-bottom:8px;line-height:1.65;list-style:decimal}
-    .article-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:not(.btn):not(.related-card){color:var(--accent);text-decoration:underline;text-underline-offset:3px}
     .article-body hr{border:none;border-top:1px solid var(--border);margin:48px 0}
     .article-body code{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 7px;font-size:13px;color:var(--text);font-family:monospace}
     .article-body pre{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;overflow-x:auto;margin:20px 0}
@@ -67,7 +73,7 @@
     .case-inline p{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:12px}
     .case-inline-conclusion{background:var(--bg3);border-radius:var(--radius);padding:14px 18px;font-size:13px;color:var(--text);margin-bottom:14px}
     .case-inline-conclusion strong{color:var(--accent)}
-    .case-inline a{font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+    .case-inline a:not(.btn){font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
     .faq-list{display:flex;flex-direction:column;gap:12px;margin:24px 0}
     .faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
     .faq-q{padding:18px 22px;font-weight:600;font-size:15px;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
@@ -76,6 +82,11 @@
     .faq-a{display:none;padding:0 22px 18px;font-size:14px;color:var(--text2);line-height:1.7}
     .faq-item.open .faq-a{display:block}
     .faq-item.open .faq-icon{transform:rotate(180deg)}
+    .int-link{display:flex;align-items:center;gap:12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin:20px 0;text-decoration:none !important;transition:border-color .18s}
+    .int-link:hover{border-color:var(--border2)}
+    .int-link-icon{font-size:20px;flex-shrink:0}
+    .int-link-text{font-size:13px;color:var(--text2)}
+    .int-link-title{font-size:14px;font-weight:600;color:var(--accent);display:block;margin-bottom:2px;text-decoration:none !important}
     .article-cta{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:36px 40px;margin:56px 0;text-align:center}
     .article-cta h3{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
     .article-cta p{font-size:15px;color:var(--text2);margin-bottom:24px;max-width:460px;margin-left:auto;margin-right:auto}
@@ -85,20 +96,15 @@
     .author-name{font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px}
     .author-role{font-size:12px;color:var(--text3)}
     .author-updated{font-size:11px;color:var(--text3);margin-top:2px}
-    .int-link{display:flex;align-items:center;gap:12px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin:20px 0;text-decoration:none;transition:border-color .18s}
-    .int-link:hover{border-color:var(--border2)}
-    .int-link-icon{font-size:20px;flex-shrink:0}
-    .int-link-text{font-size:13px;color:var(--text2)}
-    .int-link-title{font-size:14px;font-weight:600;color:var(--accent);display:block;margin-bottom:2px}
     .related-articles{border-top:1px solid var(--border);padding-top:40px;margin-top:56px}
     .related-title{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--text);margin-bottom:20px}
     .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .18s}
+    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;text-decoration:none !important;display:flex;flex-direction:column;gap:8px;transition:border-color .18s}
     .related-card:hover{border-color:var(--border2)}
-    .related-card-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
-    .related-card-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.4}
-    .related-card-desc{font-size:12px;color:var(--text2);line-height:1.5}
-    .related-card-arrow{font-size:12px;font-weight:700;color:var(--accent);margin-top:auto}
+    .related-card-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.1em;color:var(--accent);text-decoration:none !important}
+    .related-card-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.4;text-decoration:none !important}
+    .related-card-desc{font-size:12px;color:var(--text2);line-height:1.5;text-decoration:none !important}
+    .related-card-arrow{font-size:12px;font-weight:700;color:var(--accent);margin-top:auto;text-decoration:none !important}
     @media(max-width:900px){:root{--col:24px}}
     @media(max-width:600px){:root{--col:16px}.article-cta{padding:24px 20px}.art-table{font-size:13px}.related-grid{grid-template-columns:1fr}}
   </style>
@@ -143,7 +149,7 @@
 <div class="article-body">
   <div class="article-wrap">
 
-    <p>Когда контекстная реклама Google Ads тратит бюджет, а заявок мало или лиды слабые - проблема часто не в ставках и объявлениях. Проблема в том, что структура рекламного кабинета Google Ads собрана хаотично: кампании дублируют друг друга, конверсии настроены неправильно, а алгоритмы обучаются не на тех действиях.</p>
+    <p>Когда контекстная реклама Google Ads тратит бюджет, а заявок мало или лиды слабые — проблема часто не в ставках и объявлениях. Проблема в том, что структура рекламного кабинета Google Ads собрана хаотично: кампании дублируют друг друга, конверсии настроены неправильно, а алгоритмы обучаются не на тех действиях.</p>
     <p>В этой статье разберу, как должна выглядеть структура Google Ads в 2026 году: какие кампании запускать на старте, как работать с поисковой рекламой Google и Performance Max, зачем разделять Primary и Secondary конверсии и как настроить UTM-аналитику.</p>
 
     <h2>Что такое структура рекламного кабинета Google Ads</h2>
@@ -156,14 +162,13 @@
     </ul>
 
     <h2>Нормальная структура Google Ads: чек-лист</h2>
-    <p>Кабинет выглядит нормально, если:</p>
     <ul>
       <li>У каждой кампании есть понятная цель: заявки, продажи, тест гипотезы, ремаркетинг</li>
       <li>В названии кампании видно: площадку, тип, направление, посадочную и цель оптимизации</li>
       <li>Search и Performance Max не смешаны в одну логику</li>
       <li>Брендовый и небрендовый спрос разделены</li>
       <li>Конверсии разделены на Primary и Secondary</li>
-      <li>Регулярно проверяются поисковые запросы в search terms и добавляются минус-слова</li>
+      <li>Регулярно проверяются поисковые запросы и добавляются минус-слова</li>
       <li>Понятно, какие кампании дают заявки, qualified leads или продажи</li>
     </ul>
 
@@ -181,27 +186,21 @@
       </tbody>
     </table>
 
-    <!-- Кейс середина статьи 1: EdTech -->
     <div class="case-inline">
       <div class="case-inline-label">Кейс · EdTech · Google Ads · 🇩🇪 Германия</div>
       <div class="case-inline-title">EdTech / онлайн-курсы в Германии: переработка структуры аккаунта</div>
       <div class="case-inline-badges">
         <span class="badge-g">Платежи +16.7%</span><span class="badge-g">CPQL −28.3%</span><span class="badge-g">CAC −31.8%</span><span class="badge-g">Бюджет −20.4%</span>
       </div>
-      <p>Аккаунт существовал, но структура кампаний была неоптимальной, а аналитика передавала в Google Ads только лиды верхнего уровня воронки без данных о реальных платежах. После аудита, переработки структуры, донастройки GA4 и передачи офлайн-конверсий из CRM через n8n — уже в первый месяц бюджет снизился на 20.4%, а платежи выросли на 16.7%.</p>
-      <div class="case-inline-conclusion"><strong>Вывод:</strong> когда Google Ads видит только отправку формы, а не реальные платежи — система оптимизируется не на тех людей. Переработка структуры + офлайн-конверсии меняют качество обучения уже в первый месяц.</div>
+      <p>Аккаунт существовал, но структура кампаний была неоптимальной, а аналитика передавала только лиды верхнего уровня воронки без данных о реальных платежах. После аудита, переработки структуры и передачи офлайн-конверсий из CRM через n8n — уже в первый месяц бюджет снизился на 20.4%, а платежи выросли на 16.7%.</p>
+      <div class="case-inline-conclusion"><strong>Вывод:</strong> когда Google Ads видит только отправку формы, а не реальные платежи — система оптимизируется не на тех людей.</div>
       <a href="/cases/edtech-germany/">Читать полный кейс →</a>
     </div>
 
     <h2>Search или Performance Max: что запускать на старте</h2>
-    <p><strong>Поисковые кампании (Search)</strong> работают со сформированным спросом. Пользователь сам ищет услугу. Намерение понятное, но стоимость лида может быть выше.</p>
-    <p><strong>Performance Max (PMax)</strong> использует весь инвентарь Google и оптимизируется через Smart Bidding. Может давать больше лидов при более низком CPL, но качество нужно проверять отдельно — по qualified leads и продажам.</p>
+    <p><strong>Поисковые кампании (Search)</strong> работают со сформированным спросом. Намерение понятное, но стоимость лида может быть выше.</p>
+    <p><strong>Performance Max (PMax)</strong> использует весь инвентарь Google и оптимизируется через Smart Bidding. Может давать больше лидов при более низком CPL, но качество нужно проверять по qualified leads и продажам.</p>
     <p>Практика: Search проверяет горячий коммерческий спрос, PMax проверяет масштабирование. Результат оценивается по всей цепочке: лид → qualified lead → продажа.</p>
-
-    <h2>Как делить кампании и группы объявлений</h2>
-    <p>Отдельную кампанию стоит создавать, если отличаются: цель, бюджет, гео, продукт, посадочная, стратегия ставок, брендовый/небрендовый трафик.</p>
-    <p><strong>Правило бюджета:</strong> стоимость конверсии × 10 = оптимальный недельный бюджет кампании. Если бюджета меньше — лучше объединить направления, чем дробить данные.</p>
-    <p>Группа объявлений должна объединять близкие по смыслу запросы с одной посадочной. Главный принцип: запрос, объявление и посадочная говорят одно и то же.</p>
 
     <h2>Конверсии Google Ads: Primary и Secondary</h2>
     <p><strong>Primary conversions</strong> — используются для оптимизации ставок. На них обучается Smart Bidding. Попадают в колонку «Conversions».</p>
@@ -222,19 +221,18 @@
       <span class="int-link-text"><span class="int-link-title">Как снизить CPQL в B2B рекламе без уменьшения бюджета</span>Подробнее о том, почему передача qualified leads в рекламные системы снижает стоимость качественного обращения</span>
     </a>
 
-    <!-- Кейс середина статьи 2: США -->
     <div class="case-inline">
       <div class="case-inline-label">Кейс · E-commerce · Google Ads · 🇺🇸 США</div>
       <div class="case-inline-title">Интернет-магазин автоаксессуаров в США: структура с нуля</div>
       <div class="case-inline-badges">
         <span class="badge-g">Покупки +147.6%</span><span class="badge-g">CPO −73.1%</span><span class="badge-g">ROAS +15.6%</span><span class="badge-g">CTR +17.1%</span>
       </div>
-      <p>Не было ни кабинета, ни аналитики, ни товарного фида. Через Shopify подключены Merchant Center и GTM, настроено отслеживание покупок. Структура кампаний по маркам и моделям. При масштабировании бюджета на 97% — покупки выросли на 147.6%, CPO снизился на 73.1%.</p>
+      <p>Магазин автомобильных ковриков, 48 штатов. Не было ни кабинета, ни аналитики, ни товарного фида. Через Shopify подключены Merchant Center и GTM. Структура кампаний по маркам и моделям. При масштабировании бюджета на 97% — покупки выросли на 147.6%, CPO снизился на 73.1%.</p>
       <div class="case-inline-conclusion"><strong>Вывод:</strong> системная работа со структурой, аналитикой и товарным фидом позволяет масштабировать e-commerce без пропорционального роста стоимости покупки.</div>
       <a href="/cases/usa-auto-ecommerce/">Читать полный кейс →</a>
     </div>
 
-    <h2>UTM-метки и аналитика</h2>
+    <h2>UTM-метки и аналитика в Google Ads</h2>
     <p>UTM-метки передают в аналитику данные об источнике, кампании и ключевом слове. Без них невозможно понять, какая кампания привела конкретного клиента.</p>
     <p>Пример шаблона отслеживания:</p>
     <pre><code>{lpurl}?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=Название_кампании&amp;utm_content=cid|{campaignid}|gid|{adgroupid}|dvc|{device}|mt|{matchtype}&amp;utm_term={keyword}</code></pre>
@@ -250,19 +248,12 @@
       <li>Нет связи с CRM и качеством лидов</li>
     </ul>
 
-    <div class="article-cta">
-      <h3>Хотите разобрать структуру своего кабинета Google Ads?</h3>
-      <p>Проведу аудит, проверю конверсии и UTM-разметку и покажу, где теряется бюджет.</p>
-      <a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Написать в Telegram →</a>
-    </div>
-
     <h2>Частые вопросы</h2>
     <div class="faq-list">
       <div class="faq-item"><div class="faq-q">Что такое структура рекламного кабинета Google Ads?<span class="faq-icon">⌃</span></div><div class="faq-a">Логика, по которой в аккаунте организованы кампании, группы объявлений, ключевые слова, объявления, бюджеты и посадочные страницы. Хорошая структура помогает понимать, куда уходит бюджет и какие кампании дают результат.</div></div>
-      <div class="faq-item"><div class="faq-q">Сколько кампаний должно быть в Google Ads?<span class="faq-icon">⌃</span></div><div class="faq-a">Универсального числа нет. Разделять стоит, если отличаются цели, бюджет, гео, продукт или стратегия ставок. Оптимальный недельный бюджет кампании: стоимость конверсии × 10.</div></div>
       <div class="faq-item"><div class="faq-q">Что лучше: Search или Performance Max?<span class="faq-icon">⌃</span></div><div class="faq-a">Зависит от задачи. Search лучше показывает горячий спрос. PMax может давать больше лидов и ниже CPL, но качество нужно проверять по qualified leads и продажам. Лучше тестировать оба при корректных конверсиях.</div></div>
       <div class="faq-item"><div class="faq-q">Что такое Primary и Secondary конверсии?<span class="faq-icon">⌃</span></div><div class="faq-a">Primary — на них обучается Smart Bidding, попадают в колонку «Conversions». Secondary — для наблюдения, видны в «All Conversions», обучением не управляют.</div></div>
-      <div class="faq-item"><div class="faq-q">Зачем нужны UTM-метки в Google Ads?<span class="faq-icon">⌃</span></div><div class="faq-a">Передают в аналитику данные об источнике, кампании и ключевом слове. Без них невозможно понять, какая кампания привела конкретного клиента — особенно при передаче данных в CRM.</div></div>
+      <div class="faq-item"><div class="faq-q">Зачем нужны UTM-метки в Google Ads?<span class="faq-icon">⌃</span></div><div class="faq-a">Передают в аналитику данные об источнике, кампании и ключевом слове. Без них невозможно понять, какая кампания привела конкретного клиента.</div></div>
       <div class="faq-item"><div class="faq-q">Когда нужен аудит Google Ads?<span class="faq-icon">⌃</span></div><div class="faq-a">Когда кабинет тратит бюджет, но непонятно, какие кампании дают заявки. Или когда заявок много, но продаж мало.</div></div>
     </div>
 
@@ -272,8 +263,20 @@
     <p>Правильная структура Google Ads — понятная система, где каждая кампания имеет задачу, корректные конверсии и достаточно данных для обучения.</p>
     <p>Если реклама сливает бюджет или даёт лиды слабого качества — начинать нужно не с увеличения бюджета, а с аудита структуры, конверсий и аналитики.</p>
 
+  </div>
+</div>
+
+<!-- CTA вынесен ЗА .article-body -->
+<div>
+  <div class="article-wrap">
+    <div class="article-cta">
+      <h3>Хотите разобрать структуру своего кабинета Google Ads?</h3>
+      <p>Проведу аудит, проверю конверсии и UTM-разметку и покажу, где теряется бюджет.</p>
+      <a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="color:#0e0d0d !important;text-decoration:none !important">Написать в Telegram →</a>
+    </div>
+
     <div class="author-block">
-      <div class="author-avatar"><img src="/assets/img/alexey-smirnov.jpg" alt="Алексей Смирнов"></div>
+      <div class="author-avatar"><img src="/assets/img/alexey-smirnov.jpg?v=2" alt="Алексей Смирнов"></div>
       <div>
         <div class="author-name">Алексей Смирнов</div>
         <div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B-реклама, аналитика, CRM-интеграции</div>
@@ -290,17 +293,17 @@
           <div class="related-card-desc">Разбираю причины высокого CPQL и 5 способов улучшить качество лидов без сокращения расходов</div>
           <div class="related-card-arrow">Читать →</div>
         </a>
-        <a href="/cases/edtech-germany/" class="related-card">
-          <div class="related-card-label">Кейс · EdTech · Германия</div>
-          <div class="related-card-title">EdTech / онлайн-курсы в Германии: CPQL −28.3%, CAC −31.8%</div>
-          <div class="related-card-desc">Как переработка структуры аккаунта и офлайн-конверсии из CRM изменили качество обучения в первый месяц</div>
+        <a href="/cases/usa-auto-ecommerce/" class="related-card">
+          <div class="related-card-label">Кейс · E-commerce · США</div>
+          <div class="related-card-title">Автоаксессуары в США: покупки +147.6%, CPO −73.1%</div>
+          <div class="related-card-desc">Как системная работа со структурой кабинета и аналитикой дала кратный рост при масштабировании</div>
           <div class="related-card-arrow">Читать кейс →</div>
         </a>
       </div>
     </div>
-
   </div>
 </div>
+
 </main>
 
 <footer class="site-footer">

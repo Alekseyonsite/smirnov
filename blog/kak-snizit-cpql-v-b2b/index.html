@@ -26,14 +26,23 @@
   <style>
     :root{--bg:#0e0d0d;--bg2:#161515;--bg3:#1e1d1d;--bg4:#252424;--text:#ede9e3;--text2:#a09890;--text3:#6b6560;--accent:#f0a500;--accent2:#d99400;--accent-bg:rgba(240,165,0,.10);--green:#22c55e;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--radius:10px;--radius-lg:16px;--font-head:'Unbounded',sans-serif;--font-body:'Manrope',sans-serif;--nav-h:64px;--max-w:1100px;--col:48px}
     html,body{overflow-x:hidden}
-    .btn-primary{background:var(--accent);color:#0e0d0d}.btn-primary:hover{background:var(--accent2)}
+    .btn-primary{background:var(--accent);color:#0e0d0d !important;text-decoration:none !important}.btn-primary:hover{background:var(--accent2);color:#0e0d0d !important}
+    /* Исправление: ссылки внутри article-body не должны влиять на кнопки и карточки */
+    .article-body .btn{color:#0e0d0d !important;text-decoration:none !important;display:inline-flex}
+    .article-body .related-card{color:inherit;text-decoration:none}
+    .article-body .related-card *{text-decoration:none}
+    .article-body .related-card-label,.article-body .related-card-title,.article-body .related-card-desc,.article-body .related-card-arrow{color:inherit;text-decoration:none}
+    .article-body .related-card-label{color:var(--accent)}
+    .article-body .related-card-title{color:var(--text)}
+    .article-body .related-card-desc{color:var(--text2)}
+    .article-body .related-card-arrow{color:var(--accent)}
     .lang-sw a.active{background:var(--accent);color:#111110}
-    .nav-mobile .btn{font-family:var(--font-head);font-weight:700;color:#0e0d0d}
+    .nav-mobile .btn{font-family:var(--font-head);font-weight:700;color:#0e0d0d !important}
     .article-wrap{max-width:760px;margin:0 auto;padding:0 var(--col)}
     .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text3);margin-bottom:24px;flex-wrap:wrap}
     .breadcrumb a{color:var(--text3);transition:color .18s}.breadcrumb a:hover{color:var(--text)}
     .breadcrumb span{color:var(--text3)}
-    .article-hero{padding-top:calc(var(--nav-h) + 56px);padding-bottom:56px}
+    .article-hero{padding-top:calc(var(--nav-h) + 56px);padding-bottom:40px}
     .article-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
     .article-h1{font-family:var(--font-head);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:20px}
     .article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text3);margin-bottom:0}
@@ -48,7 +57,7 @@
     .article-body ul li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
     .article-body ol{padding-left:22px;margin-bottom:20px}
     .article-body ol li{color:var(--text2);margin-bottom:8px;line-height:1.65;list-style:decimal}
-    .article-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+    .article-body a:not(.btn):not(.related-card){color:var(--accent);text-decoration:underline;text-underline-offset:3px}
     .article-body hr{border:none;border-top:1px solid var(--border);margin:48px 0}
     .metrics-table{width:100%;border-collapse:collapse;margin:28px 0;font-size:14px}
     .metrics-table th{background:var(--bg3);padding:10px 16px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-family:var(--font-head);font-weight:700}
@@ -82,12 +91,12 @@
     .related-articles{border-top:1px solid var(--border);padding-top:40px;margin-top:56px}
     .related-title{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--text);margin-bottom:20px}
     .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .18s}
+    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;text-decoration:none !important;display:flex;flex-direction:column;gap:8px;transition:border-color .18s}
     .related-card:hover{border-color:var(--border2)}
-    .related-card-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
-    .related-card-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.4}
-    .related-card-desc{font-size:12px;color:var(--text2);line-height:1.5}
-    .related-card-arrow{font-size:12px;font-weight:700;color:var(--accent);margin-top:auto}
+    .related-card-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.1em;color:var(--accent);text-decoration:none !important}
+    .related-card-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.4;text-decoration:none !important}
+    .related-card-desc{font-size:12px;color:var(--text2);line-height:1.5;text-decoration:none !important}
+    .related-card-arrow{font-size:12px;font-weight:700;color:var(--accent);margin-top:auto;text-decoration:none !important}
     @media(max-width:900px){:root{--col:24px}}
     @media(max-width:600px){:root{--col:16px}.article-cta{padding:24px 20px}.metrics-table{font-size:13px}.related-grid{grid-template-columns:1fr}}
   </style>
@@ -137,37 +146,37 @@
     <p>В этой статье разберу, что такое CPQL, чем он отличается от CPL и как снижать стоимость квалифицированного лида без урезания бюджета.</p>
 
     <h2>Что такое CPQL и чем он отличается от CPL</h2>
-    <p><strong>CPL (Cost Per Lead)</strong> - стоимость любой заявки: форма, звонок, сообщение, запрос консультации.</p>
-    <p><strong>CPQL (Cost Per Qualified Lead)</strong> - стоимость обращения, которое подходит бизнесу по ключевым критериям: тип клиента, регион, бюджет, задача, срок.</p>
+    <p><strong>CPL (Cost Per Lead)</strong> — стоимость любой заявки: форма, звонок, сообщение, запрос консультации.</p>
+    <p><strong>CPQL (Cost Per Qualified Lead)</strong> — стоимость обращения, которое подходит бизнесу по ключевым критериям: тип клиента, регион, бюджет, задача, срок.</p>
     <p>Считается просто:</p>
     <ul>
       <li>CPL = расходы / все заявки</li>
       <li>CPQL = расходы / квалифицированные лиды</li>
     </ul>
-    <p><strong>Пример.</strong> Кампания потратила 200 000 руб. и принесла 100 заявок - CPL 2 000 руб. Но только 10 из них прошли квалификацию. CPQL - уже 20 000 руб.</p>
+    <p><strong>Пример.</strong> Кампания потратила 200 000 руб. и принесла 100 заявок — CPL 2 000 руб. Но только 10 из них прошли квалификацию. CPQL — уже 20 000 руб.</p>
     <p>Низкий CPL не означает, что реклама работает хорошо. Кампания может давать много дешёвых заявок, почти ни одна из которых не станет клиентом.</p>
 
     <h2>Где теряются деньги: 6 реальных причин высокого CPQL</h2>
-    <p>Стоимость квалифицированного лида растёт не только из-за конкуренции или ставок. Чаще - из-за разрывов между рекламой, сайтом, CRM и отделом продаж.</p>
+    <p>Стоимость квалифицированного лида растёт не только из-за конкуренции или ставок. Чаще — из-за разрывов между рекламой, сайтом, CRM и отделом продаж.</p>
     <ul>
-      <li><strong>Кампании оптимизируются только на факт заявки.</strong> Рекламная система ищет тех, кто чаще оставляет формы - но это не те, кто чаще покупает.</li>
+      <li><strong>Кампании оптимизируются только на факт заявки.</strong> Рекламная система ищет тех, кто чаще оставляет формы — но это не те, кто чаще покупает.</li>
       <li><strong>В одной кампании смешаны разные сегменты.</strong> Крупный оптовик, небольшой ИП и пользователь, который «просто интересуется», попадают в одну аудиторию и приносят разные по качеству заявки.</li>
-      <li><strong>Объявления не фильтруют аудиторию.</strong> Если в объявлении нет признаков целевого клиента - цены, формата, условий - кликают все подряд.</li>
+      <li><strong>Объявления не фильтруют аудиторию.</strong> Если в объявлении нет признаков целевого клиента — цены, формата, условий — кликают все подряд.</li>
       <li><strong>Посадочная страница не отсеивает нецелевых.</strong> Страница обещает широкий результат, и обращаются те, кому предложение не подходит.</li>
-      <li><strong>В CRM нет нормальной структуры.</strong> Нет статусов, причин отказов, этапов квалификации - невозможно понять, где именно воронка теряет людей.</li>
+      <li><strong>В CRM нет нормальной структуры.</strong> Нет статусов, причин отказов, этапов квалификации — невозможно понять, где именно воронка теряет людей.</li>
       <li><strong>Рекламные системы не получают обратную связь.</strong> Google Ads и Яндекс.Директ не знают, какие заявки стали сделками, и продолжают оптимизироваться вхолостую.</li>
     </ul>
 
     <h2>5 способов снизить CPQL без сокращения бюджета</h2>
 
     <h3>1. Фильтруйте аудиторию уже в объявлении</h3>
-    <p>Реклама часто показывается шире, чем кажется. По одному и тому же запросу «страхование грузоперевозок» могут обратиться и крупный логистический оператор, которому нужен серьёзный полис, и ИП с одной машиной, который хочет сэкономить максимально. Это разные клиенты с разной экономикой сделки.</p>
-    <p>Объявление должно не просто привлекать клики, а сигнализировать нужной аудитории: это для вас. Укажите в тексте специфику - тип клиента, формат работы, ориентир по масштабу или условиям.</p>
+    <p>Реклама часто показывается шире, чем кажется. По одному и тому же запросу «страхование грузоперевозок» могут обратиться и крупный логистический оператор, которому нужен серьёзный полис, и ИП с одной машиной, который хочет сэкономить максимально.</p>
+    <p>Объявление должно не просто привлекать клики, а сигнализировать нужной аудитории: это для вас. Укажите в тексте специфику — тип клиента, формат работы, ориентир по масштабу или условиям.</p>
     <p>Да, CTR может упасть. Но доля целевых обращений вырастет.</p>
 
     <h3>2. Превратите посадочную страницу в фильтр</h3>
     <p>Страница должна не только продавать, но и отсеивать нецелевых. Быстро объясните: для кого услуга, какие задачи решает, с кем вы работаете, а кому не подойдёт.</p>
-    <p>Если некачественных заявок всё равно много - добавьте барьер в форму: выбор типа компании, диапазон бюджета, регион. В B2B поле с ИНН работает особенно хорошо.</p>
+    <p>Если некачественных заявок всё равно много — добавьте барьер в форму: выбор типа компании, диапазон бюджета, регион. В B2B поле с ИНН работает особенно хорошо.</p>
 
     <h3>3. Разделите воронку на чёткие этапы</h3>
     <p>Чтобы управлять CPQL, нужно договориться внутри, что считается качественным лидом. Минимальная структура:</p>
@@ -180,12 +189,12 @@
     </div>
 
     <h3>4. Передавайте качественные лиды обратно в рекламные системы</h3>
-    <p>Если Google Ads или Яндекс.Директ видит только «отправка формы», система будет искать тех, кто чаще нажимает кнопку. Если вы передадите событие «Qualified Lead» или «Оплата» - система начнёт искать людей, которые с большей вероятностью станут клиентами.</p>
+    <p>Если Google Ads или Яндекс.Директ видит только «отправка формы», система будет искать тех, кто чаще нажимает кнопку. Если вы передадите событие «Qualified Lead» или «Оплата» — система начнёт искать людей, которые с большей вероятностью станут клиентами.</p>
     <p>Реализуется через импорт офлайн-конверсий, интеграцию CRM с рекламными кабинетами или передачу событий через API. Для этого есть решения: <strong>Zapier</strong>, <strong>n8n</strong>, а также встроенные интеграции в большинстве CRM-систем.</p>
 
     <h3>5. Анализируйте кампании по CPQL, а не только по CPL</h3>
-    <p>Кампания с CPL 1 500 руб. может оказаться убыточной, если ни одна заявка не квалифицируется. А кампания с CPL 4 500 руб. - выгодной, если 40% обращений становятся Qualified Lead.</p>
-    <p>Смотрите в разрезе: какие кампании, запросы, аудитории и посадочные дают самый низкий CPQL и наибольшую долю качественных лидов. Именно это - основа для масштабирования.</p>
+    <p>Кампания с CPL 1 500 руб. может оказаться убыточной, если ни одна заявка не квалифицируется. А кампания с CPL 4 500 руб. — выгодной, если 40% обращений становятся Qualified Lead.</p>
+    <p>Смотрите в разрезе: какие кампании, запросы, аудитории и посадочные дают самый низкий CPQL и наибольшую долю качественных лидов. Именно это — основа для масштабирования.</p>
 
     <h2>Какие метрики смотреть вместе с CPQL</h2>
     <table class="metrics-table">
@@ -205,28 +214,34 @@
 
     <h2>Частые вопросы</h2>
     <div class="faq-list">
-      <div class="faq-item"><div class="faq-q">Почему нельзя просто снизить бюджет, если CPQL высокий?<span class="faq-icon">⌃</span></div><div class="faq-a">Снижение бюджета уменьшит количество данных, но не исправит причину. Если проблема в структуре кампаний, посадочной или CRM - CPQL останется высоким и при меньших расходах.</div></div>
+      <div class="faq-item"><div class="faq-q">Почему нельзя просто снизить бюджет, если CPQL высокий?<span class="faq-icon">⌃</span></div><div class="faq-a">Снижение бюджета уменьшит количество данных, но не исправит причину. Если проблема в структуре кампаний, посадочной или CRM — CPQL останется высоким и при меньших расходах.</div></div>
       <div class="faq-item"><div class="faq-q">Может ли высокий CPL быть нормальным?<span class="faq-icon">⌃</span></div><div class="faq-a">Да. Если кампания даёт дорогие, но качественные заявки, она может быть эффективнее дешёвой кампании со слабым качеством лидов. В B2B это встречается часто.</div></div>
       <div class="faq-item"><div class="faq-q">Что делать, если заявок много, но продаж мало?<span class="faq-icon">⌃</span></div><div class="faq-a">Нужно пройти по всей цепочке: запросы и объявления, посадочная, форма, CRM-статусы, квалификация, работа отдела продаж. Проблема редко бывает в одном месте.</div></div>
       <div class="faq-item"><div class="faq-q">Зачем передавать Qualified Lead в рекламные системы?<span class="faq-icon">⌃</span></div><div class="faq-a">Чтобы система оптимизировалась на тех, кто действительно покупает, а не на тех, кто просто заполняет формы. Это заметно влияет на качество трафика в среднесрочной перспективе.</div></div>
       <div class="faq-item"><div class="faq-q">Когда нужен аудит B2B-рекламы?<span class="faq-icon">⌃</span></div><div class="faq-a">Когда заявки есть, но непонятно, какие кампании реально приводят качественные лиды. Или когда CPQL растёт, а CPL выглядит нормальным.</div></div>
-      <div class="faq-item"><div class="faq-q">Как часто пересматривать критерии квалификации?<span class="faq-icon">⌃</span></div><div class="faq-a">При смене продукта, выходе на новый рынок или если доля качественных лидов заметно изменилась. На стабильном проекте - раз в квартал достаточно.</div></div>
+      <div class="faq-item"><div class="faq-q">Как часто пересматривать критерии квалификации?<span class="faq-icon">⌃</span></div><div class="faq-a">При смене продукта, выходе на новый рынок или если доля качественных лидов заметно изменилась. На стабильном проекте — раз в квартал достаточно.</div></div>
     </div>
 
     <hr>
 
     <h2>Итог</h2>
     <p>Снижать CPQL в B2B нужно не через урезание бюджета, а через работу с качеством: фильтрация в объявлениях и на посадочных, структура воронки в CRM, передача данных о сделках обратно в рекламные системы и регулярный аудит по правильным метрикам.</p>
-    <p>Если у вас есть трафик и заявки, но ощущение что реклама работает не в полную силу - скорее всего, деньги теряются в одном из этих мест. Я найду, где именно, и выстрою воронку так, чтобы реклама работала на продажи, а не на статистику.</p>
+    <p>Если у вас есть трафик и заявки, но ощущение что реклама работает не в полную силу — скорее всего, деньги теряются в одном из этих мест. Я найду, где именно, и выстрою воронку так, чтобы реклама работала на продажи, а не на статистику.</p>
 
+  </div>
+</div>
+
+<!-- CTA вынесен ЗА .article-body чтобы не наследовать стили ссылок -->
+<div style="padding:0 0 0 0">
+  <div class="article-wrap">
     <div class="article-cta">
       <h3>Хотите снизить стоимость квалифицированного лида?</h3>
-      <p>Разберу вашу воронку и покажу, где теряется бюджет. Без лишних слов - только конкретный разбор и план действий.</p>
-      <a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Написать в Telegram →</a>
+      <p>Разберу вашу воронку и покажу, где теряется бюджет. Без лишних слов — только конкретный разбор и план действий.</p>
+      <a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="color:#0e0d0d !important;text-decoration:none !important">Написать в Telegram →</a>
     </div>
 
     <div class="author-block">
-      <div class="author-avatar"><img src="/assets/img/alexey-smirnov.jpg" alt="Алексей Смирнов"></div>
+      <div class="author-avatar"><img src="/assets/img/alexey-smirnov.jpg?v=2" alt="Алексей Смирнов"></div>
       <div>
         <div class="author-name">Алексей Смирнов</div>
         <div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B-реклама, аналитика, CRM-интеграции</div>
@@ -251,9 +266,9 @@
         </a>
       </div>
     </div>
-
   </div>
 </div>
+
 </main>
 
 <footer class="site-footer">
