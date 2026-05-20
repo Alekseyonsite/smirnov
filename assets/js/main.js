@@ -1,5 +1,5 @@
 /* ============================================
-   SMIRNOVADS.COM — MAIN JS v1.1
+   SMIRNOVADS.COM — MAIN JS v1.2
    Nav · Animations · Bars · Cookie Banner · Back to Top
    ============================================ */
 
@@ -99,9 +99,14 @@ if (sections.length && navLinks.length) {
 
 // ---- COOKIE BANNER ----
 (function () {
+  // Remove any old inline banner that may exist in HTML templates
+  const oldBanner = document.getElementById('cookie-banner');
+  if (oldBanner) oldBanner.remove();
+
+  // If already accepted — do nothing
   if (localStorage.getItem('cookies_accepted')) return;
 
-  // inject styles
+  // Inject styles
   const style = document.createElement('style');
   style.textContent = [
     '#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:1000;',
@@ -121,7 +126,7 @@ if (sections.length && navLinks.length) {
   ].join('');
   document.head.appendChild(style);
 
-  // inject HTML
+  // Inject HTML
   const banner = document.createElement('div');
   banner.id = 'cookie-banner';
   banner.innerHTML = [
