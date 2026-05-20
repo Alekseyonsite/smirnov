@@ -8,7 +8,6 @@
   <meta name="author" content="Алексей Смирнов">
   <link rel="canonical" href="https://smirnovads.com/">
   <link rel="alternate" hreflang="ru" href="https://smirnovads.com/">
-  <link rel="alternate" hreflang="en" href="https://smirnovads.com/en/">
   <link rel="alternate" hreflang="x-default" href="https://smirnovads.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
@@ -22,7 +21,7 @@
   <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
   <meta name="yandex-verification" content="f1b575072174a3b3">
   <meta name="google-site-verification" content="cYqr91bMn7kr260ZDbcJe7HD0S0cE_o9p9uo0VcRDNs">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://smirnovads.com/#person","name":"Алексей Смирнов","jobTitle":"Performance Marketing Specialist","url":"https://smirnovads.com","knowsAbout":["Google Ads","Яндекс.Директ","LinkedIn Ads","Performance Marketing"],"areaServed":["Russia","UAE","Thailand"]},{"@type":"WebSite","@id":"https://smirnovads.com/#website","url":"https://smirnovads.com","name":"Алексей Смирнов — Performance Marketing","inLanguage":["ru","en"],"publisher":{"@id":"https://smirnovads.com/#person"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://smirnovads.com/#person","name":"Алексей Смирнов","jobTitle":"Performance Marketing Specialist","url":"https://smirnovads.com","sameAs":["https://www.linkedin.com/in/alexey-smirnov-740728200/","https://t.me/alx_smr"],"knowsAbout":["Google Ads","Яндекс.Директ","LinkedIn Ads","Performance Marketing"],"areaServed":["Russia","UAE","Thailand"]},{"@type":"WebSite","@id":"https://smirnovads.com/#website","url":"https://smirnovads.com","name":"Алексей Смирнов — Performance Marketing","inLanguage":"ru","publisher":{"@id":"https://smirnovads.com/#person"}}]}</script>
   <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108992580,"init",{clickmap:true,trackLinks:true,accurateTrackBounceRate:true,webvisor:true});</script>
   <noscript><div><img src="https://mc.yandex.ru/watch/108992580" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
   <link rel="stylesheet" href="/assets/css/main.css">
@@ -114,13 +113,29 @@
     .cta-link:hover{border-color:rgba(255,255,255,.25);background:var(--bg3)}
     .btn-primary{background:var(--accent);color:#0e0d0d}.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
     .badge-green{color:#4ade80;border-color:rgba(74,222,128,.28);background:rgba(74,222,128,.06)}
+
+    /* MOBILE MENU ANIMATION */
+    .nav-mobile{visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bg);z-index:199;display:flex;flex-direction:column;padding:32px var(--col);gap:4px;overflow-y:auto}
+    .nav-mobile.open{visibility:visible;opacity:1;transform:translateY(0);transition:opacity .22s ease,transform .22s ease,visibility 0s linear 0s}
+
+    /* BACK TO TOP */
+    .back-to-top{position:fixed;bottom:24px;right:24px;z-index:300;width:40px;height:40px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;will-change:opacity,transform}
+    .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .22s ease,transform .22s ease,visibility 0s linear 0s}
+    .back-to-top:hover{background:var(--bg4);border-color:rgba(255,255,255,.2);color:var(--text)}
+    .back-to-top svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
     @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:24px}.hero-photo-box{max-width:280px;aspect-ratio:3/4;margin:0 auto}.adv-grid{grid-template-columns:1fr}.case-meta-grid{grid-template-columns:repeat(2,1fr)}.mc-grid{grid-template-columns:1fr}.niches-cols{grid-template-columns:repeat(2,1fr) !important}.niches-cols .niche-col:nth-child(3),.niches-cols .niche-col:nth-child(4),.niches-cols .niche-col:nth-child(5){display:none !important}}
-    @media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr)}.stat-item{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 12px}.stat-item:nth-child(2n){border-right:none}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-num{font-size:28px}.niches-cols{grid-template-columns:repeat(2,1fr) !important}.niches-cols .niche-col:nth-child(3),.niches-cols .niche-col:nth-child(4),.niches-cols .niche-col:nth-child(5){display:none !important}.case-header{padding:16px 18px}.case-body{padding:0 18px 18px}.case-title-text{font-size:16px}.results-2col{grid-template-columns:1fr}.hero-photo-box{max-width:220px}}
+    @media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr)}.stat-item{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 12px}.stat-item:nth-child(2n){border-right:none}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-num{font-size:28px}.niches-cols{grid-template-columns:repeat(2,1fr) !important}.niches-cols .niche-col:nth-child(3),.niches-cols .niche-col:nth-child(4),.niches-cols .niche-col:nth-child(5){display:none !important}.case-header{padding:16px 18px}.case-body{padding:0 18px 18px}.case-title-text{font-size:16px}.results-2col{grid-template-columns:1fr}.hero-photo-box{max-width:220px}.back-to-top{bottom:16px;right:16px}}
   </style>
 </head>
 <body>
 <nav class="site-nav"><div class="nav-inner"><a href="/" class="nav-logo">А. Смирнов</a><div class="nav-links"><a href="#geography">География</a><a href="#niches">Ниши</a><a href="/cases/">Кейсы</a><a href="#advantages">Преимущества</a><a href="/blog/">Блог</a><a href="#contacts">Контакты</a></div><div class="nav-right"><div class="lang-sw"><a href="/" class="active">RU</a><a href="/en/">EN</a></div><a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary">Связаться</a></div><button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button></div></nav>
-<div class="nav-mobile"><a href="#geography">География</a><a href="#niches">Ниши</a><a href="/cases/">Кейсы</a><a href="#advantages">Преимущества</a><a href="/blog/">Блог</a><a href="#contacts">Контакты</a><a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary">Связаться</a><div class="lang-sw"><a href="/" class="active">RU</a><a href="/en/">EN</a></div></div>
+<div class="nav-mobile" id="nav-mobile"><a href="#geography">География</a><a href="#niches">Ниши</a><a href="/cases/">Кейсы</a><a href="#advantages">Преимущества</a><a href="/blog/">Блог</a><a href="#contacts">Контакты</a><a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary">Связаться</a><div class="lang-sw"><a href="/" class="active">RU</a><a href="/en/">EN</a></div></div>
+
+<button class="back-to-top" id="back-to-top" aria-label="Наверх">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
 <main>
 <section id="hero" style="padding-top:calc(var(--nav-h) + 56px);padding-bottom:72px"><div class="container"><div class="hero-grid">
   <div class="fade-up"><div class="hero-photo-box"><img src="/assets/main-photo.webp" alt="Алексей Смирнов, специалист по платной рекламе"></div></div>
@@ -194,7 +209,7 @@
     <div class="adv-card fade-up"><div class="adv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="var(--accent)" stroke="none"/></svg></div><div><div class="adv-title">Фокус на продажи</div><div class="adv-desc">Работаю на качественные лиды и реальные сделки, а не на клики и показы</div></div></div>
     <div class="adv-card fade-up"><div class="adv-icon"><svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></div><div><div class="adv-title">Глубокая аналитика</div><div class="adv-desc">Сквозная аналитика, CRM-интеграции, call-tracking — полная прозрачность</div></div></div>
     <div class="adv-card fade-up"><div class="adv-icon"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 9v7l-4-2v-5L3 4z"/></svg></div><div><div class="adv-title">Вся воронка</div><div class="adv-desc">Анализирую путь от первого показа объявления до закрытой сделки</div></div></div>
-    <div class="adv-card fade-up"><div class="adv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c-3 4-3 14 0 18M12 3c3 4 3 14 0 18"/><path d="M3 12h18"/></svg></div><div><div class="adv-title">Разные рынки</div><div class="adv-desc">Опыт работы с проектами в России, ОАЭ, Таиланде, Португалии и США</div></div></div>
+    <div class="adv-card fade-up"><div class="adv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c-3 4-3 14 0 18M12 3c3 4 3 14 0 18"/><path d="M3 12h18"/></svg></div><div><div class="adv-title">Разные рынки</div><div class="adv-desc">Опыт работы с проектами в России, ОАЭ и Таиланде</div></div></div>
     <div class="adv-card fade-up"><div class="adv-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><div><div class="adv-title">Долгосрочное партнёрство</div><div class="adv-desc">Строю отношения на годы — средний срок сотрудничества 24 месяца</div></div></div>
     <div class="adv-card fade-up"><div class="adv-icon"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/><line x1="12" y1="2" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="22"/><line x1="2" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="22" y2="12"/></svg></div><div><div class="adv-title">AI-инструменты</div><div class="adv-desc">Использую нейросети как рабочие инструменты для повышения эффективности</div></div></div>
   </div>
@@ -232,5 +247,21 @@
 </div></footer>
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--bg2);border-top:1px solid var(--border2);padding:16px 0"><div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><p style="font-size:13px;color:var(--text2);margin:0;max-width:700px;line-height:1.5">Этот сайт использует файлы cookie. <a href="/privacy/" style="color:var(--accent);text-decoration:underline">Политика конфиденциальности</a>.</p><button onclick="acceptCookies()" style="background:var(--accent);color:#0e0d0d;border:none;border-radius:8px;padding:8px 20px;font-size:13px;font-weight:600;cursor:pointer;flex-shrink:0">Принять</button></div></div>
 <script src="/assets/js/main.js"></script>
-<script>function acceptCookies(){localStorage.setItem('cookies_accepted','1');document.getElementById('cookie-banner').style.display='none';}if(!localStorage.getItem('cookies_accepted')){document.getElementById('cookie-banner').style.display='block';}</script>
+<script>
+function acceptCookies(){localStorage.setItem('cookies_accepted','1');document.getElementById('cookie-banner').style.display='none';}
+if(!localStorage.getItem('cookies_accepted')){document.getElementById('cookie-banner').style.display='block';}
+
+// BACK TO TOP
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if(!btn) return;
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 400){ btn.classList.add('visible'); }
+    else { btn.classList.remove('visible'); }
+  }, {passive: true});
+  btn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+</script>
 </body></html>
