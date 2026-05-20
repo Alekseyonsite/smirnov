@@ -1,15 +1,7 @@
 /* ============================================
-   SMIRNOVADS.COM — MAIN JS v1.0
-   Nav · Modal · Form · Animations · Bars
+   SMIRNOVADS.COM — MAIN JS v1.1
+   Nav · Animations · Bars · Cookie Banner · Back to Top
    ============================================ */
-
-// ---- CONFIG (edit here) ----
-const SITE = {
-  formspreeId:   'YOUR_FORMSPREE_ID',   // replace after Formspree setup
-  telegramBot:   'YOUR_BOT_TOKEN',       // replace after bot setup
-  telegramChat:  'YOUR_CHAT_ID',         // replace after bot setup
-  gtmId:         'GTM-PHG8MKLF',
-};
 
 // ---- NAV BURGER ----
 const burger  = document.querySelector('.nav-burger');
@@ -21,82 +13,12 @@ if (burger && mobileMenu) {
     mobileMenu.classList.toggle('open');
     document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   });
-  // close on link click
   mobileMenu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       burger.classList.remove('open');
       mobileMenu.classList.remove('open');
       document.body.style.overflow = '';
     });
-  });
-}
-
-// ---- MODAL ----
-const overlay = document.querySelector('.modal-overlay');
-const modalClose = document.querySelector('.modal-close');
-
-function openModal() {
-  if (overlay) {
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-}
-function closeModal() {
-  if (overlay) {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-}
-
-// All [data-modal] triggers open modal
-document.querySelectorAll('[data-modal]').forEach(el => {
-  el.addEventListener('click', e => { e.preventDefault(); openModal(); });
-});
-if (modalClose) modalClose.addEventListener('click', closeModal);
-if (overlay) overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-// ---- LEAD FORM SUBMIT ----
-const leadForm = document.getElementById('lead-form');
-const formSuccess = document.querySelector('.form-success');
-
-if (leadForm) {
-  leadForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = leadForm.querySelector('button[type=submit]');
-    const origText = btn.textContent;
-    btn.textContent = '...';
-    btn.disabled = true;
-
-    const data = Object.fromEntries(new FormData(leadForm));
-    const message = `📩 Новая заявка с smirnovads.com\n\n👤 Имя: ${data.name}\n📞 Контакт: ${data.contact}\n💬 Проект: ${data.message || '—'}`;
-
-    const results = await Promise.allSettled([
-      // Formspree
-      fetch(`https://formspree.io/f/${SITE.formspreeId}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data),
-      }),
-      // Telegram
-      fetch(`https://api.telegram.org/bot${SITE.telegramBot}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: SITE.telegramChat, text: message }),
-      }),
-    ]);
-
-    // GTM event
-    if (window.dataLayer) {
-      window.dataLayer.push({ event: 'lead_form_submit', form_name: 'main_lead' });
-    }
-
-    // Show success regardless (don't block UX on API issues)
-    leadForm.style.display = 'none';
-    if (formSuccess) formSuccess.style.display = 'block';
-
-    btn.textContent = origText;
-    btn.disabled = false;
   });
 }
 
@@ -139,7 +61,6 @@ document.querySelectorAll('.case-header').forEach(header => {
     const isOpen = body.classList.contains('open');
     body.classList.toggle('open', !isOpen);
     if (toggle) toggle.classList.toggle('open', !isOpen);
-    // animate bars inside when opening
     if (!isOpen) {
       body.querySelectorAll('.bar-fill').forEach(b => {
         setTimeout(() => { b.style.width = b.dataset.w || '0%'; }, 100);
@@ -148,7 +69,7 @@ document.querySelectorAll('.case-header').forEach(header => {
   });
 });
 
-// ---- ACTIVE NAV LINK (highlight current section) ----
+// ---- ACTIVE NAV LINK ----
 const sections = document.querySelectorAll('section[id]');
 const navLinks  = document.querySelectorAll('.nav-links a[href^="#"]');
 if (sections.length && navLinks.length) {
@@ -163,3 +84,57 @@ if (sections.length && navLinks.length) {
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => secObs.observe(s));
 }
+
+// ---- BACK TO TOP ----
+(function () {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', function () {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// ---- COOKIE BANNER ----
+(function () {
+  if (localStorage.getItem('cookies_accepted')) return;
+
+  // inject styles
+  const style = document.createElement('style');
+  style.textContent = [
+    '#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:1000;',
+    'background:#161515;border-top:1px solid rgba(255,255,255,.13);padding:16px 0;',
+    'display:flex;align-items:center;}',
+    '#cookie-banner .cb-inner{max-width:1100px;margin:0 auto;padding:0 48px;',
+    'display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;width:100%;}',
+    '#cookie-banner p{font-size:13px;color:#a09890;margin:0;max-width:780px;line-height:1.5;',
+    'font-family:"Manrope",sans-serif;}',
+    '#cookie-banner a{color:#f0a500;text-decoration:underline;}',
+    '#cookie-banner button{background:transparent;color:#a09890;',
+    'border:1px solid rgba(255,255,255,.13);border-radius:8px;padding:8px 20px;',
+    'font-size:13px;font-weight:500;cursor:pointer;flex-shrink:0;',
+    'font-family:"Manrope",sans-serif;transition:color .18s,border-color .18s;}',
+    '#cookie-banner button:hover{color:#ede9e3;border-color:rgba(255,255,255,.25);}',
+    '@media(max-width:600px){#cookie-banner .cb-inner{padding:0 16px;}}'
+  ].join('');
+  document.head.appendChild(style);
+
+  // inject HTML
+  const banner = document.createElement('div');
+  banner.id = 'cookie-banner';
+  banner.innerHTML = [
+    '<div class="cb-inner">',
+    '<p>Продолжая использовать сайт, вы соглашаетесь с правилами обработки cookie-файлов. ',
+    '<a href="/privacy/">Политика конфиденциальности</a>.</p>',
+    '<button id="cookie-accept">Понятно</button>',
+    '</div>'
+  ].join('');
+  document.body.appendChild(banner);
+
+  document.getElementById('cookie-accept').addEventListener('click', function () {
+    localStorage.setItem('cookies_accepted', '1');
+    banner.remove();
+  });
+})();
