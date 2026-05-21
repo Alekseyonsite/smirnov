@@ -5,8 +5,7 @@
 
 (function () {
 
-  /* ---- ACTIVE NAV ITEM ----
-     Detects current section from pathname and highlights the right link */
+  /* ---- ACTIVE NAV ITEM ---- */
   function getActiveSection() {
     var p = window.location.pathname;
     if (p.indexOf('/cases/') === 0 && p.length > 8) return 'case';
@@ -99,54 +98,52 @@
     '</footer>'
   ].join('');
 
-  /* ---- BACK TO TOP HTML ---- */
+  /* ---- BACK TO TOP ---- */
   var btnHTML = '<button class="back-to-top" id="back-to-top" aria-label="Наверх"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="18 15 12 9 6 15"/></svg></button>';
 
-  /* ---- INJECT ----
-     Replace existing nav, nav-mobile, footer with fresh markup.
-     Also remove old RU/EN lang switcher if present. */
-  document.addEventListener('DOMContentLoaded', function () {
+  /* ---- INJECT (runs immediately — script is loaded after </main>, DOM is ready) ---- */
+  function inject() {
+    var tmp, newEl;
 
-    // Remove old nav
-    var oldNav = document.querySelector('nav.site-nav');
-    var oldMobile = document.querySelector('.nav-mobile');
-    var insertBefore = oldNav || document.body.firstChild;
-
-    var tmp = document.createElement('div');
+    // NAV
+    tmp = document.createElement('div');
     tmp.innerHTML = navHTML;
+    var newNav = tmp.firstChild;
+    var newMobile = tmp.lastChild;
 
+    var oldNav = document.querySelector('nav.site-nav');
     if (oldNav) {
-      oldNav.parentNode.replaceChild(tmp.firstChild, oldNav);
+      oldNav.parentNode.replaceChild(newNav, oldNav);
     } else {
-      document.body.insertBefore(tmp.firstChild, document.body.firstChild);
+      document.body.insertBefore(newNav, document.body.firstChild);
     }
 
-    // The nav-mobile div is the second child of tmp now
-    var newMobile = tmp.firstChild; // after replaceChild, tmp still has nav-mobile
+    var oldMobile = document.querySelector('.nav-mobile');
     if (oldMobile) {
       oldMobile.parentNode.replaceChild(newMobile, oldMobile);
     } else {
       document.body.insertBefore(newMobile, document.body.children[1]);
     }
 
-    // Replace footer
+    // FOOTER
+    tmp = document.createElement('div');
+    tmp.innerHTML = footerHTML;
+    var newFooter = tmp.firstChild;
     var oldFooter = document.querySelector('footer.site-footer');
-    var tmp2 = document.createElement('div');
-    tmp2.innerHTML = footerHTML;
     if (oldFooter) {
-      oldFooter.parentNode.replaceChild(tmp2.firstChild, oldFooter);
+      oldFooter.parentNode.replaceChild(newFooter, oldFooter);
     } else {
-      document.body.appendChild(tmp2.firstChild);
+      document.body.appendChild(newFooter);
     }
 
-    // Inject back-to-top button if not already present
+    // BACK TO TOP
     if (!document.getElementById('back-to-top')) {
-      var tmp3 = document.createElement('div');
-      tmp3.innerHTML = btnHTML;
-      document.body.appendChild(tmp3.firstChild);
+      tmp = document.createElement('div');
+      tmp.innerHTML = btnHTML;
+      document.body.appendChild(tmp.firstChild);
     }
 
-    // Back to top logic
+    // BACK TO TOP LOGIC
     var btn = document.getElementById('back-to-top');
     if (btn) {
       window.addEventListener('scroll', function () {
@@ -156,6 +153,32 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
-  });
+
+    // BURGER
+    var burger = document.querySelector('.nav-burger');
+    var mobileMenu = document.querySelector('.nav-mobile');
+    if (burger && mobileMenu) {
+      burger.addEventListener('click', function () {
+        burger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+      mobileMenu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          burger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  }
+
+  // DOM is already ready when this script executes (loaded at end of <body>).
+  // Fallback: if somehow called before DOMContentLoaded, wait for it.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inject);
+  } else {
+    inject();
+  }
 
 })();
