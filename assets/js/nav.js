@@ -23,6 +23,13 @@
     return '<a href="' + href + '"' + style + '>' + label + '</a>';
   }
 
+  /* Стиль платформ — совпадает с .footer-col a из main.css */
+  var platformStyle = 'style="display:block;font-size:13px;color:var(--text2);margin-bottom:9px"';
+
+  function platform(name) {
+    return '<span ' + platformStyle + '>' + name + '</span>';
+  }
+
   var s = getActiveSection();
   var isHome = (s === 'home');
 
@@ -61,11 +68,11 @@
           '</div>' +
           '<div class="footer-col">' +
             '<h5>Платформы</h5>' +
-            '<span style="display:block">Google Ads</span>' +
-            '<span style="display:block">Яндекс.Директ</span>' +
-            '<span style="display:block">Яндекс.Бизнес</span>' +
-            '<span style="display:block">Microsoft Ads</span>' +
-            '<span style="display:block">LinkedIn Ads</span>' +
+            platform('Google Ads') +
+            platform('Яндекс.Директ') +
+            platform('Яндекс.Бизнес') +
+            platform('Microsoft Ads') +
+            platform('LinkedIn Ads') +
           '</div>' +
           '<div class="footer-col">' +
             '<h5>Контент</h5>' +
@@ -83,7 +90,7 @@
           '</div>' +
         '</div>' +
         '<div class="footer-bottom">' +
-          '<p>© ' + year + ' Алексей Смирнов · smirnovads.com · <a href="/privacy/" style="color:var(--text3)">Политика конфиденциальности</a></p>' +
+          '<p>\u00a9 ' + year + ' \u0410\u043b\u0435\u043a\u0441\u0435\u0439 \u0421\u043c\u0438\u0440\u043d\u043e\u0432 \u00b7 smirnovads.com \u00b7 <a href="/privacy/" style="color:var(--text3)">\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430 \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438</a></p>' +
           '<div class="footer-socials">' +
             '<a href="https://t.me/alx_smr" target="_blank" rel="noopener">Telegram</a>' +
             '<a href="https://www.linkedin.com/in/alexey-smirnov-740728200/" target="_blank" rel="noopener">LinkedIn</a>' +
@@ -93,7 +100,7 @@
     '</footer>';
 
   /* ---- BACK TO TOP ---- */
-  var btnHTML = '<button id="back-to-top" aria-label="Наверх" style="position:fixed;bottom:24px;right:24px;z-index:300;width:40px;height:40px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s,transform .22s,visibility 0s linear .22s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="18 15 12 9 6 15"/></svg></button>';
+  var btnHTML = '<button id="back-to-top" aria-label="\u041d\u0430\u0432\u0435\u0440\u0445" style="position:fixed;bottom:24px;right:24px;z-index:300;width:40px;height:40px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s,transform .22s,visibility 0s linear .22s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="18 15 12 9 6 15"/></svg></button>';
 
   /* ---- HELPERS ---- */
   function makeEl(html) {
