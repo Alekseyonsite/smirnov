@@ -72,9 +72,9 @@
           '</div>',
           '<div class="footer-col">',
             '<h5>Платформы</h5>',
-            '<span>Google Ads</span>',
-            '<span>Яндекс.Директ</span>',
-            '<span>LinkedIn Ads</span>',
+            '<a href="/cases/">Google Ads</a>',
+            '<a href="/cases/">Яндекс.Директ</a>',
+            '<a href="/cases/">LinkedIn Ads</a>',
           '</div>',
           '<div class="footer-col">',
             '<h5>Контент</h5>',
@@ -103,7 +103,7 @@
   ].join('');
 
   /* ---- BACK TO TOP ---- */
-  var btnHTML = '<button class="back-to-top" id="back-to-top" aria-label="Наверх"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="18 15 12 9 6 15"/></svg></button>';
+  var btnHTML = '<button class="back-to-top" id="back-to-top" aria-label="Наверх" style="position:fixed;bottom:24px;right:24px;z-index:300;width:40px;height:40px;border-radius:10px;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s,transform .22s,visibility 0s linear .22s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="18 15 12 9 6 15"/></svg></button>';
 
   /* ---- HELPERS ---- */
   function makeEl(html) {
@@ -115,7 +115,7 @@
   /* ---- INJECT ---- */
   function inject() {
 
-    // NAV — use separate containers to avoid DOM-move bug
+    // NAV — separate containers to avoid DOM-move bug
     var newNav    = makeEl(navOnlyHTML);
     var newMobile = makeEl(mobileOnlyHTML);
 
@@ -142,14 +142,25 @@
       document.body.appendChild(newFooter);
     }
 
-    // BACK TO TOP
+    // BACK TO TOP — inject only once, after footer
     if (!document.getElementById('back-to-top')) {
       document.body.appendChild(makeEl(btnHTML));
     }
     var btn = document.getElementById('back-to-top');
     if (btn) {
+      // ensure correct styles via class if main.css defines .back-to-top
       window.addEventListener('scroll', function () {
-        btn.classList.toggle('visible', window.scrollY > 400);
+        if (window.scrollY > 400) {
+          btn.style.opacity = '1';
+          btn.style.visibility = 'visible';
+          btn.style.transform = 'translateY(0)';
+          btn.style.transition = 'opacity .22s,transform .22s,visibility 0s linear 0s';
+        } else {
+          btn.style.opacity = '0';
+          btn.style.visibility = 'hidden';
+          btn.style.transform = 'translateY(8px)';
+          btn.style.transition = 'opacity .22s,transform .22s,visibility 0s linear .22s';
+        }
       }, { passive: true });
       btn.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -175,8 +186,6 @@
     }
   }
 
-  // Script loads at end of <body> — DOM is ready.
-  // Fallback for edge cases.
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', inject);
   } else {
