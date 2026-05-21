@@ -27,7 +27,7 @@
   var isHome = (s === 'home');
 
   /* ---- NAV HTML ---- */
-  var navHTML = [
+  var navOnlyHTML = [
     '<nav class="site-nav">',
       '<div class="nav-inner">',
         '<a href="/" class="nav-logo">А. Смирнов</a>',
@@ -44,7 +44,11 @@
         '</div>',
         '<button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>',
       '</div>',
-    '</nav>',
+    '</nav>'
+  ].join('');
+
+  /* ---- NAV-MOBILE HTML ---- */
+  var mobileOnlyHTML = [
     '<div class="nav-mobile" id="nav-mobile">',
       navLink(isHome ? '#geography' : '/#geography', 'География', '', s),
       navLink(isHome ? '#niches' : '/#niches', 'Ниши', '', s),
@@ -101,15 +105,19 @@
   /* ---- BACK TO TOP ---- */
   var btnHTML = '<button class="back-to-top" id="back-to-top" aria-label="Наверх"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="18 15 12 9 6 15"/></svg></button>';
 
-  /* ---- INJECT (runs immediately — script is loaded after </main>, DOM is ready) ---- */
-  function inject() {
-    var tmp, newEl;
+  /* ---- HELPERS ---- */
+  function makeEl(html) {
+    var t = document.createElement('div');
+    t.innerHTML = html;
+    return t.firstChild;
+  }
 
-    // NAV
-    tmp = document.createElement('div');
-    tmp.innerHTML = navHTML;
-    var newNav = tmp.firstChild;
-    var newMobile = tmp.lastChild;
+  /* ---- INJECT ---- */
+  function inject() {
+
+    // NAV — use separate containers to avoid DOM-move bug
+    var newNav    = makeEl(navOnlyHTML);
+    var newMobile = makeEl(mobileOnlyHTML);
 
     var oldNav = document.querySelector('nav.site-nav');
     if (oldNav) {
@@ -126,9 +134,7 @@
     }
 
     // FOOTER
-    tmp = document.createElement('div');
-    tmp.innerHTML = footerHTML;
-    var newFooter = tmp.firstChild;
+    var newFooter = makeEl(footerHTML);
     var oldFooter = document.querySelector('footer.site-footer');
     if (oldFooter) {
       oldFooter.parentNode.replaceChild(newFooter, oldFooter);
@@ -138,12 +144,8 @@
 
     // BACK TO TOP
     if (!document.getElementById('back-to-top')) {
-      tmp = document.createElement('div');
-      tmp.innerHTML = btnHTML;
-      document.body.appendChild(tmp.firstChild);
+      document.body.appendChild(makeEl(btnHTML));
     }
-
-    // BACK TO TOP LOGIC
     var btn = document.getElementById('back-to-top');
     if (btn) {
       window.addEventListener('scroll', function () {
@@ -155,7 +157,7 @@
     }
 
     // BURGER
-    var burger = document.querySelector('.nav-burger');
+    var burger     = document.querySelector('.nav-burger');
     var mobileMenu = document.querySelector('.nav-mobile');
     if (burger && mobileMenu) {
       burger.addEventListener('click', function () {
@@ -173,8 +175,8 @@
     }
   }
 
-  // DOM is already ready when this script executes (loaded at end of <body>).
-  // Fallback: if somehow called before DOMContentLoaded, wait for it.
+  // Script loads at end of <body> — DOM is ready.
+  // Fallback for edge cases.
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', inject);
   } else {
