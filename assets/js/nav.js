@@ -23,9 +23,7 @@
     return '<a href="' + href + '"' + style + '>' + label + '</a>';
   }
 
-  /* Стиль платформ — совпадает с .footer-col a из main.css */
   var platformStyle = 'style="display:block;font-size:13px;color:var(--text2);margin-bottom:9px"';
-
   function platform(name) {
     return '<span ' + platformStyle + '>' + name + '</span>';
   }
@@ -34,26 +32,26 @@
   var isHome = (s === 'home');
 
   /* ---- NAV HTML ---- */
-  var navOnlyHTML = '<nav class="site-nav"><div class="nav-inner"><a href="/" class="nav-logo">А. Смирнов</a><div class="nav-links">' +
-    navLink(isHome ? '#geography' : '/#geography', 'География', '', s) +
-    navLink(isHome ? '#niches' : '/#niches', 'Ниши', '', s) +
-    navLink('/cases/', 'Кейсы', 'cases', s) +
-    navLink(isHome ? '#advantages' : '/#advantages', 'Преимущества', '', s) +
-    navLink('/blog/', 'Блог', 'blog', s) +
-    navLink(isHome ? '#contacts' : '/#contacts', 'Контакты', '', s) +
-    '</div><div class="nav-right"><a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary">Связаться</a></div>' +
-    '<button class="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>' +
+  var navOnlyHTML = '<nav class="site-nav"><div class="nav-inner"><a href="/" class="nav-logo">\u0410. \u0421\u043c\u0438\u0440\u043d\u043e\u0432</a><div class="nav-links">' +
+    navLink(isHome ? '#geography' : '/#geography', '\u0413\u0435\u043e\u0433\u0440\u0430\u0444\u0438\u044f', '', s) +
+    navLink(isHome ? '#niches' : '/#niches', '\u041d\u0438\u0448\u0438', '', s) +
+    navLink('/cases/', '\u041a\u0435\u0439\u0441\u044b', 'cases', s) +
+    navLink(isHome ? '#advantages' : '/#advantages', '\u041f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u0430', '', s) +
+    navLink('/blog/', '\u0411\u043b\u043e\u0433', 'blog', s) +
+    navLink(isHome ? '#contacts' : '/#contacts', '\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b', '', s) +
+    '</div><div class="nav-right"><a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary">\u0421\u0432\u044f\u0437\u0430\u0442\u044c\u0441\u044f</a></div>' +
+    '<button class="nav-burger" aria-label="\u041c\u0435\u043d\u044e"><span></span><span></span><span></span></button>' +
     '</div></nav>';
 
   /* ---- NAV-MOBILE HTML ---- */
   var mobileOnlyHTML = '<div class="nav-mobile" id="nav-mobile">' +
-    navLink(isHome ? '#geography' : '/#geography', 'География', '', s) +
-    navLink(isHome ? '#niches' : '/#niches', 'Ниши', '', s) +
-    navLink('/cases/', 'Кейсы', 'cases', s) +
-    navLink(isHome ? '#advantages' : '/#advantages', 'Преимущества', '', s) +
-    navLink('/blog/', 'Блог', 'blog', s) +
-    navLink(isHome ? '#contacts' : '/#contacts', 'Контакты', '', s) +
-    '<a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary">Связаться</a>' +
+    navLink(isHome ? '#geography' : '/#geography', '\u0413\u0435\u043e\u0433\u0440\u0430\u0444\u0438\u044f', '', s) +
+    navLink(isHome ? '#niches' : '/#niches', '\u041d\u0438\u0448\u0438', '', s) +
+    navLink('/cases/', '\u041a\u0435\u0439\u0441\u044b', 'cases', s) +
+    navLink(isHome ? '#advantages' : '/#advantages', '\u041f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u0430', '', s) +
+    navLink('/blog/', '\u0411\u043b\u043e\u0433', 'blog', s) +
+    navLink(isHome ? '#contacts' : '/#contacts', '\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b', '', s) +
+    '<a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary">\u0421\u0432\u044f\u0437\u0430\u0442\u044c\u0441\u044f</a>' +
     '</div>';
 
   /* ---- FOOTER HTML ---- */
@@ -63,38 +61,34 @@
       '<div class="container">' +
         '<div class="footer-top">' +
           '<div class="footer-brand">' +
-            '<a href="/" class="nav-logo">А. Смирнов</a>' +
-            '<p>Специалист по платной рекламе с 2012 года. Помогаю бизнесу получать качественные лиды и сделки.</p>' +
+            '<a href="/" class="nav-logo">\u0410. \u0421\u043c\u0438\u0440\u043d\u043e\u0432</a>' +
+            '<p>\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 \u043f\u043e \u043f\u043b\u0430\u0442\u043d\u043e\u0439 \u0440\u0435\u043a\u043b\u0430\u043c\u0435 \u0441 2012 \u0433\u043e\u0434\u0430. \u041f\u043e\u043c\u043e\u0433\u0430\u044e \u0431\u0438\u0437\u043d\u0435\u0441\u0443 \u043f\u043e\u043b\u0443\u0447\u0430\u0442\u044c \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0435 \u043b\u0438\u0434\u044b \u0438 \u0441\u0434\u0435\u043b\u043a\u0438.</p>' +
           '</div>' +
           '<div class="footer-col">' +
-            '<h5>Платформы</h5>' +
+            '<h5>\u041f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u044b</h5>' +
             platform('Google Ads') +
-            platform('Яндекс.Директ') +
-            platform('Яндекс.Бизнес') +
+            platform('\u042f\u043d\u0434\u0435\u043a\u0441.\u0414\u0438\u0440\u0435\u043a\u0442') +
+            platform('\u042f\u043d\u0434\u0435\u043a\u0441.\u0411\u0438\u0437\u043d\u0435\u0441') +
             platform('Microsoft Ads') +
             platform('LinkedIn Ads') +
           '</div>' +
           '<div class="footer-col">' +
-            '<h5>Контент</h5>' +
-            '<a href="/blog/">Блог</a>' +
-            '<a href="/cases/">Кейсы</a>' +
-            '<a href="/#geography">География</a>' +
-            '<a href="/#advantages">О подходе</a>' +
+            '<h5>\u041a\u043e\u043d\u0442\u0435\u043d\u0442</h5>' +
+            '<a href="/blog/">\u0411\u043b\u043e\u0433</a>' +
+            '<a href="/cases/">\u041a\u0435\u0439\u0441\u044b</a>' +
+            '<a href="/#geography">\u0413\u0435\u043e\u0433\u0440\u0430\u0444\u0438\u044f</a>' +
+            '<a href="/#advantages">\u041e \u043f\u043e\u0434\u0445\u043e\u0434\u0435</a>' +
           '</div>' +
           '<div class="footer-col">' +
-            '<h5>Контакты</h5>' +
+            '<h5>\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b</h5>' +
             '<a href="https://t.me/alx_smr" target="_blank" rel="noopener">Telegram</a>' +
             '<a href="https://www.linkedin.com/in/alexey-smirnov-740728200/" target="_blank" rel="noopener">LinkedIn</a>' +
             '<a href="mailto:a.smirnov1905@gmail.com">a.smirnov1905@gmail.com</a>' +
-            '<a href="/privacy/">Политика конфиденциальности</a>' +
+            '<a href="/privacy/">\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430 \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438</a>' +
           '</div>' +
         '</div>' +
         '<div class="footer-bottom">' +
-          '<p>\u00a9 ' + year + ' \u0410\u043b\u0435\u043a\u0441\u0435\u0439 \u0421\u043c\u0438\u0440\u043d\u043e\u0432 \u00b7 smirnovads.com \u00b7 <a href="/privacy/" style="color:var(--text3)">\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430 \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438</a></p>' +
-          '<div class="footer-socials">' +
-            '<a href="https://t.me/alx_smr" target="_blank" rel="noopener">Telegram</a>' +
-            '<a href="https://www.linkedin.com/in/alexey-smirnov-740728200/" target="_blank" rel="noopener">LinkedIn</a>' +
-          '</div>' +
+          '<p>\u00a9 ' + year + ' \u0410\u043b\u0435\u043a\u0441\u0435\u0439 \u0421\u043c\u0438\u0440\u043d\u043e\u0432 \u00b7 smirnovads.com</p>' +
         '</div>' +
       '</div>' +
     '</footer>';
