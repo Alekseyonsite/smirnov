@@ -72,9 +72,11 @@
           '</div>',
           '<div class="footer-col">',
             '<h5>Платформы</h5>',
-            '<a href="/cases/">Google Ads</a>',
-            '<a href="/cases/">Яндекс.Директ</a>',
-            '<a href="/cases/">LinkedIn Ads</a>',
+            '<span>Google Ads</span>',
+            '<span>Яндекс.Директ</span>',
+            '<span>Яндекс.Бизнес</span>',
+            '<span>Microsoft Ads</span>',
+            '<span>LinkedIn Ads</span>',
           '</div>',
           '<div class="footer-col">',
             '<h5>Контент</h5>',
@@ -142,13 +144,12 @@
       document.body.appendChild(newFooter);
     }
 
-    // BACK TO TOP — inject only once, after footer
+    // BACK TO TOP
     if (!document.getElementById('back-to-top')) {
       document.body.appendChild(makeEl(btnHTML));
     }
     var btn = document.getElementById('back-to-top');
     if (btn) {
-      // ensure correct styles via class if main.css defines .back-to-top
       window.addEventListener('scroll', function () {
         if (window.scrollY > 400) {
           btn.style.opacity = '1';
