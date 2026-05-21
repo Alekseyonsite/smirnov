@@ -1,26 +1,35 @@
 /* ============================================
-   SMIRNOVADS.COM — MAIN JS v1.2
-   Nav · Animations · Bars · Cookie Banner · Back to Top
+   SMIRNOVADS.COM — MAIN JS v1.3
+   Loads nav.js · Animations · Bars · Cookie Banner
    ============================================ */
 
-// ---- NAV BURGER ----
-const burger  = document.querySelector('.nav-burger');
-const mobileMenu = document.querySelector('.nav-mobile');
+// ---- LOAD NAV TEMPLATE ----
+(function() {
+  var s = document.createElement('script');
+  s.src = '/assets/js/nav.js';
+  document.head.appendChild(s);
+})();
 
-if (burger && mobileMenu) {
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-  });
-  mobileMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      burger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
+// ---- NAV BURGER ----
+// Burger runs after nav.js injects the mobile menu via DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+  var burger = document.querySelector('.nav-burger');
+  var mobileMenu = document.querySelector('.nav-mobile');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', function() {
+      burger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
     });
-  });
-}
+    mobileMenu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        burger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+});
 
 // ---- SCROLL ANIMATIONS ----
 const fadeEls = document.querySelectorAll('.fade-up');
@@ -69,7 +78,7 @@ document.querySelectorAll('.case-header').forEach(header => {
   });
 });
 
-// ---- ACTIVE NAV LINK ----
+// ---- ACTIVE NAV LINK (home page sections) ----
 const sections = document.querySelectorAll('section[id]');
 const navLinks  = document.querySelectorAll('.nav-links a[href^="#"]');
 if (sections.length && navLinks.length) {
@@ -85,28 +94,13 @@ if (sections.length && navLinks.length) {
   sections.forEach(s => secObs.observe(s));
 }
 
-// ---- BACK TO TOP ----
-(function () {
-  const btn = document.getElementById('back-to-top');
-  if (!btn) return;
-  window.addEventListener('scroll', function () {
-    btn.classList.toggle('visible', window.scrollY > 400);
-  }, { passive: true });
-  btn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
-
 // ---- COOKIE BANNER ----
 (function () {
-  // Remove any old inline banner that may exist in HTML templates
   const oldBanner = document.getElementById('cookie-banner');
   if (oldBanner) oldBanner.remove();
 
-  // If already accepted — do nothing
   if (localStorage.getItem('cookies_accepted')) return;
 
-  // Inject styles
   const style = document.createElement('style');
   style.textContent = [
     '#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:1000;',
@@ -126,7 +120,6 @@ if (sections.length && navLinks.length) {
   ].join('');
   document.head.appendChild(style);
 
-  // Inject HTML
   const banner = document.createElement('div');
   banner.id = 'cookie-banner';
   banner.innerHTML = [
