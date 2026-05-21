@@ -1,35 +1,8 @@
 /* ============================================
-   SMIRNOVADS.COM — MAIN JS v1.3
-   Loads nav.js · Animations · Bars · Cookie Banner
+   SMIRNOVADS.COM — MAIN JS v1.4
+   Animations · Bars · Cookie Banner
+   nav.js is loaded directly in each HTML file
    ============================================ */
-
-// ---- LOAD NAV TEMPLATE ----
-(function() {
-  var s = document.createElement('script');
-  s.src = '/assets/js/nav.js';
-  document.head.appendChild(s);
-})();
-
-// ---- NAV BURGER ----
-// Burger runs after nav.js injects the mobile menu via DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function() {
-  var burger = document.querySelector('.nav-burger');
-  var mobileMenu = document.querySelector('.nav-mobile');
-  if (burger && mobileMenu) {
-    burger.addEventListener('click', function() {
-      burger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-    });
-    mobileMenu.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        burger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-});
 
 // ---- SCROLL ANIMATIONS ----
 const fadeEls = document.querySelectorAll('.fade-up');
