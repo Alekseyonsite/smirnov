@@ -67,6 +67,30 @@ if (sections.length && navLinks.length) {
   sections.forEach(s => secObs.observe(s));
 }
 
+// ---- CONTACT GOALS ----
+(function () {
+  const METRIKA_ID = 108992580;
+  const GOALS = [
+    { name: 'telegram_click', test: href => href.indexOf('https://t.me/alx_smr') === 0 },
+    { name: 'linkedin_click', test: href => href.indexOf('https://www.linkedin.com/in/alexey-smirnov-740728200/') === 0 },
+    { name: 'email_click', test: href => href.indexOf('mailto:a.smirnov1905@gmail.com') === 0 }
+  ];
+
+  document.addEventListener('click', function (event) {
+    const target = event.target;
+    if (!target || !target.closest) return;
+
+    const link = target.closest('a[href]');
+    if (!link) return;
+
+    const href = link.getAttribute('href') || '';
+    const goal = GOALS.find(item => item.test(href));
+    if (!goal || typeof window.ym !== 'function') return;
+
+    window.ym(METRIKA_ID, 'reachGoal', goal.name);
+  });
+})();
+
 // ---- COOKIE BANNER ----
 (function () {
   const oldBanner = document.getElementById('cookie-banner');
