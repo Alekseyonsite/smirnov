@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>60% квал-лидов не доходили до Google Ads: офлайн-конверсии, CRM и n8n</title>
+  <meta name="description" content="Разбор настройки офлайн-конверсий Google Ads: почему qualified leads из CRM не попадали в рекламный кабинет, как мы нашли проблему в n8n, CRM и GA4 и что изменилось после исправления.">
+  <meta name="author" content="Алексей Смирнов">
+  <link rel="canonical" href="https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/">
+  <meta property="og:title" content="60% квал-лидов не доходили до Google Ads">
+  <meta property="og:description" content="Как неполная передача офлайн-конверсий из CRM мешала Google Ads обучаться на качественных лидах.">
+  <meta property="og:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Алексей Смирнов">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="60% квал-лидов не доходили до Google Ads">
+  <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta name="yandex-verification" content="f1b575072174a3b3">
+  <meta name="google-site-verification" content="cYqr91bMn7kr260ZDbcJe7HD0S0cE_o9p9uo0VcRDNs">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"60% квал-лидов не доходили до Google Ads: как мы нашли проблему в офлайн-конверсиях","description":"Разбор настройки офлайн-конверсий Google Ads: почему qualified leads из CRM не попадали в рекламный кабинет, как мы нашли проблему в n8n, CRM и GA4 и что изменилось после исправления.","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"datePublished":"2026-05-23","dateModified":"2026-05-23","url":"https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/","mainEntityOfPage":"https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/","image":"https://smirnovads.com/assets/img/og-home.png","inLanguage":"ru"}</script>
+  <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108992580,"init",{clickmap:true,trackLinks:true,accurateTrackBounceRate:true,webvisor:true});</script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108992580" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    :root{--bg:#0e0d0d;--bg2:#161515;--bg3:#1e1d1d;--bg4:#252424;--text:#ede9e3;--text2:#a09890;--text3:#6b6560;--accent:#f0a500;--accent2:#d99400;--accent-bg:rgba(240,165,0,.10);--green:#22c55e;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--radius:10px;--radius-lg:16px;--font-head:'Unbounded',sans-serif;--font-body:'Manrope',sans-serif;--nav-h:64px;--max-w:1100px;--col:48px}
+    html,body{overflow-x:hidden}
+    .btn-primary{background:var(--accent);color:#0e0d0d !important;text-decoration:none !important}.btn-primary:hover{background:var(--accent2);color:#0e0d0d !important}
+    .article-wrap{max-width:760px;margin:0 auto;padding:0 var(--col)}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text3);margin-bottom:24px;flex-wrap:wrap}
+    .breadcrumb a{color:var(--text3);transition:color .18s}.breadcrumb a:hover{color:var(--text)}
+    .article-hero{padding-top:calc(var(--nav-h) + 56px);padding-bottom:40px}
+    .article-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+    .article-h1{font-family:var(--font-head);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:20px}
+    .article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text3)}
+    .article-meta .dot{color:var(--border2)}
+    .article-body{font-size:16px;line-height:1.8;padding-bottom:0}
+    .article-body h2{font-family:var(--font-head);font-size:clamp(18px,2.2vw,24px);font-weight:700;color:var(--text);margin:52px 0 16px;line-height:1.25}
+    .article-body h3{font-family:var(--font-head);font-size:17px;font-weight:600;color:var(--text);margin:36px 0 12px}
+    .article-body p{color:var(--text2);margin-bottom:20px}
+    .article-body strong{color:var(--text);font-weight:600}
+    .article-body ul{padding-left:0;margin-bottom:20px;list-style:none}
+    .article-body ul li{color:var(--text2);padding:4px 0 4px 20px;position:relative;line-height:1.65}
+    .article-body ul li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .article-body a:not(.btn):not(.related-card){color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+    .article-body hr{border:none;border-top:1px solid var(--border);margin:48px 0}
+    .art-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+    .art-table th{background:var(--bg3);padding:10px 16px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-family:var(--font-head);font-weight:700}
+    .art-table td{padding:11px 16px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+    .art-table tr:last-child td{border-bottom:none}
+    .art-table td:first-child{color:var(--text);font-weight:600}
+    .art-table tr.hl td{background:var(--accent-bg)}
+    .art-table tr.hl td:first-child{color:var(--accent)}
+    .case-inline{background:var(--bg2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:24px 28px;margin:36px 0}
+    .case-inline-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px}
+    .case-inline-title{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3}
+    .case-inline-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .badge-g{display:inline-block;border-radius:20px;padding:4px 11px;font-size:12px;border:1px solid rgba(74,222,128,.28);background:rgba(74,222,128,.06);color:#4ade80}
+    .case-inline p{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:12px}
+    .case-inline a:not(.btn){font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+    .note-box{background:var(--accent-bg);border:1px solid rgba(240,165,0,.2);border-radius:var(--radius-lg);padding:20px 24px;margin:28px 0}
+    .note-box p{color:var(--text);font-size:15px;margin:0}
+    .article-cta{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:36px 40px;text-align:center}
+    .article-cta-final{margin-top:56px}
+    .article-cta h3{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .article-cta p{font-size:15px;color:var(--text2);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+    .btn-cta-contrast{color:#0e0d0d !important}
+    .author-block{display:flex;align-items:center;gap:18px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-top:48px}
+    .author-avatar{width:52px;height:52px;border-radius:50%;background:var(--bg4);border:1px solid var(--border2);flex-shrink:0;overflow:hidden}
+    .author-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+    .author-name{font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px}
+    .author-role{font-size:12px;color:var(--text3)}
+    .author-updated{font-size:11px;color:var(--text3);margin-top:2px}
+    .related-articles{border-top:1px solid var(--border);padding-top:40px;margin-top:56px;padding-bottom:80px}
+    .related-title{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--text);margin-bottom:20px}
+    .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;text-decoration:none !important;display:flex;flex-direction:column;gap:8px;transition:border-color .18s}
+    .related-card:hover{border-color:var(--border2)}
+    .related-card-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+    .related-card-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.4}
+    .related-card-desc{font-size:12px;color:var(--text2);line-height:1.5}
+    .related-card-arrow{font-size:12px;font-weight:700;color:var(--accent);margin-top:auto}
+    @media(max-width:900px){:root{--col:24px}}
+    @media(max-width:600px){:root{--col:16px}.article-cta{padding:24px 20px}.art-table{font-size:13px;display:block;overflow-x:auto}.related-grid{grid-template-columns:1fr}.case-inline{padding:22px 20px}}
+  </style>
+</head>
+<body>
+<script src="/assets/js/nav.js"></script>
+<main>
+<section class="article-hero"><div class="article-wrap">
+  <div class="breadcrumb"><a href="/">Главная</a><span>/</span><a href="/blog/">Блог</a><span>/</span><span>Офлайн-конверсии Google Ads</span></div>
+  <div class="article-label">Google Ads · Аналитика · CRM</div>
+  <h1 class="article-h1">60% квал-лидов не доходили до Google Ads: как мы нашли проблему в офлайн-конверсиях</h1>
+  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>10 мин</span><span class="dot">·</span><span>Обновлено: май 2026</span></div>
+</div></section>
+<div class="article-body"><div class="article-wrap">
+  <p>Кампании работали, лиды приходили, отчёты выглядели нормально. Но когда я начал сверять данные CRM и рекламного кабинета, оказалось: больше половины квалифицированных лидов Google Ads просто не видел.</p>
+  <p>В кабинете было видно, что данные поступают не полностью, но масштаб проблемы стал понятен только после детальной сверки. Это разбор о том, как я нашёл утечку, вместе с техническим специалистом пересобрал передачу офлайн-конверсий и что из этого получилось.</p>
+
+  <div class="case-inline">
+    <div class="case-inline-label">Связанный кейс · EdTech · Google Ads · Европа</div>
+    <div class="case-inline-title">EdTech / онлайн-курсы</div>
+    <div class="case-inline-badges"><span class="badge-g">Промежуточный майский срез</span><span class="badge-g">CRM + n8n</span></div>
+    <p>Этот разбор связан с проектом, где мы дорабатывали посадочные страницы, креативы, GA4 и передачу офлайн-конверсий из CRM через n8n. В кейсе показан промежуточный майский срез по проекту, а ниже в статье - техническая часть про передачу qualified leads.</p>
+    <a href="/cases/edtech-germany/">Смотреть короткий кейс →</a>
+  </div>
+
+  <h2>Контекст</h2>
+  <p>Проект - EdTech. Гео - Европа. Лидогенерация через квизы и одностраничники, две отдельные воронки с разными продуктами.</p>
+  <p>До моего подключения Google Ads уже запускался, потом кампании остановили примерно на месяц. В аккаунте была накопленная история, события по лидам и qualified leads, частично настроенный n8n для передачи данных из CRM в рекламный кабинет.</p>
+  <p>Задача от клиента формулировалась как «снизить CPL и CPQL». За этим стоял более широкий вопрос: реально ли вообще выйти на показатели, сопоставимые с Meta (запрещённая на территории Российской Федерации организация).</p>
+
+  <h2>Где была проблема</h2>
+  <p>Формально офлайн-конверсии уже настроили до меня. Но при сверке выяснилось: около 60% квалифицированных лидов не попадали в Google Ads.</p>
+  <p>Проблем оказалось несколько, и все в разных местах.</p>
+  <table class="art-table">
+    <thead><tr><th>Где была проблема</th><th>Что происходило</th><th>Чем это опасно</th></tr></thead>
+    <tbody>
+      <tr><td>n8n</td><td>Входящий лид проходил три этапа, но в кабинет передавался только один из них. То же самое было с квалификацией.</td><td>Google Ads видел только часть лидов и квал-лидов.</td></tr>
+      <tr><td>CRM</td><td>Единственный этап, с которого шла передача, был необязательным: менеджеры могли его пропускать.</td><td>Большая часть квал-лидов не доходила до рекламного кабинета.</td></tr>
+      <tr><td>GA4</td><td>Часть событий вообще не фиксировалась.</td><td>Аналитика дополнительно искажала картину.</td></tr>
+    </tbody>
+  </table>
+  <p>Google Ads обучался не на всех качественных лидах, а только на тех, кто случайно прошёл через нужный этап. Данных для корректного обучения алгоритма, очевидно, не хватало.</p>
+
+  <h2>Почему это опасно</h2>
+  <p>Алгоритм не знает, что хорошо для вашего бизнеса. Он знает только то, что вы ему передаёте.</p>
+  <p>Если передаёте первичные заявки - ищет заявки. Передаёте qualified leads - ориентируется на качество. Передаёте target leads и продажи - оптимизируется ближе к деньгам.</p>
+  <p>В этом проекте алгоритм получал сигнал только с двух этапов воронки: входящий лид (1 из 3) и квал-лид (1 из 3). Можно было бесконечно менять структуру кампаний, креативы, ставки, но пока данные неполные, система ищет не тех людей.</p>
+  <div class="note-box"><p>Это особенно критично для Performance Max. У него широкий охват: Search, YouTube, Display, Discover, Gmail, Maps. Чем хуже данные, тем выше риск потратить бюджет на нерелевантную аудиторию.</p></div>
+
+  <h2>Что мы настроили</h2>
+  <p>Я пересобрал логику передачи офлайн-конверсий через CRM и n8n. Задача была не «передать побольше событий», а передать события, которые реально отражают воронку.</p>
+  <p>Поскольку в проекте две воронки, события разделили по направлениям и добавили объединённые сигналы - на случай, если данных по отдельной воронке не хватает для обучения.</p>
+  <table class="art-table">
+    <thead><tr><th>Событие</th><th>Что передаётся</th></tr></thead>
+    <tbody>
+      <tr><td>Lead</td><td>Первичный лид отдельно по двум воронкам</td></tr>
+      <tr><td>All Lead</td><td>Любой лид из двух воронок</td></tr>
+      <tr><td>Qualified Lead</td><td>Квалифицированный лид отдельно по двум воронкам</td></tr>
+      <tr><td>All Qualified Lead</td><td>Любой квал-лид</td></tr>
+      <tr><td>Target Lead</td><td>Лид на предпродажном этапе отдельно по двум воронкам</td></tr>
+      <tr><td>All Target Lead</td><td>Любой target lead</td></tr>
+      <tr class="hl"><td>Sale / Purchase</td><td>Подтверждённая оплата</td></tr>
+    </tbody>
+  </table>
+  <p>Помимо передачи, важно ещё правильно настроить события: какие события Primary, какие Secondary в фазах обучения, считать конверсию один раз или каждый раз, где передавать ценность конверсии.</p>
+  <p>Если это не проработать, можно собрать технически красивую схему, которая всё равно обучает алгоритмы не на том, что важно бизнесу.</p>
+
+  <h2>Что получилось</h2>
+  <p>Я начал работу в апреле. Только к началу мая все события пошли корректно: около четырёх недель ушло на то, чтобы разобраться со всеми проблемами и донастроить передачу данных.</p>
+  <p>Сравниваю апрель, когда ещё шла донастройка, и май - первый полный месяц после пересборки. Данные на 20 мая:</p>
+  <table class="art-table">
+    <thead><tr><th>Метрика</th><th>Изменение</th></tr></thead>
+    <tbody>
+      <tr><td>CPL</td><td>−14%</td></tr>
+      <tr><td>CPQL</td><td>−21%</td></tr>
+      <tr><td>CPQL по воронке 1</td><td>−11%</td></tr>
+      <tr><td>CPQL по воронке 2</td><td>−34%</td></tr>
+      <tr><td>CR лидов в квал-лиды по воронке 1</td><td>50.2% → 53.5%</td></tr>
+      <tr><td>CR лидов в квал-лиды по воронке 2</td><td>21.7% → 28.2%</td></tr>
+      <tr class="hl"><td>Бюджет</td><td>−17.5%</td></tr>
+    </tbody>
+  </table>
+  <p>Детальные абсолютные цифры не раскрываю из-за NDA.</p>
+  <p>Честная оговорка: один месяц - это не устойчивый тренд. Работа продолжается, и задача по CPQL ещё не закрыта полностью. Но направление правильное, и главное - кабинет наконец видит реальную воронку.</p>
+
+  <h2>Что проверить у себя</h2>
+  <p>Если у вас Google Ads, CRM и лидогенерация, пройдитесь по этому списку:</p>
+  <ul>
+    <li>Совпадает ли определение qualified lead в CRM и в Google Ads?</li>
+    <li>Не передаётся ли в кабинет только один необязательный этап воронки?</li>
+    <li>Сколько квал-лидов из CRM реально попадает в рекламный кабинет?</li>
+    <li>Как настроен подсчёт конверсий: one или every?</li>
+    <li>Какие события стоят Primary, какие Secondary?</li>
+    <li>Есть ли отдельные события для lead, qualified lead, target lead и sale?</li>
+    <li>Хватает ли данных по каждой воронке или нужны объединённые события?</li>
+    <li>Передаётся ли ценность там, где это возможно?</li>
+  </ul>
+  <p>Если на часть вопросов нет ответа, проблема может быть не в кампаниях, а в данных, на которых они обучаются.</p>
+
+  <hr>
+  <h2>Итог</h2>
+  <p>Параллельно с донастройкой передачи данных я тестировал связки - не ждал, пока всё встанет идеально. Но именно в этот период стало особенно наглядно: одни и те же кампании давали разный результат в зависимости от того, насколько корректно данные доходили до кабинета.</p>
+  <p>Передача офлайн-конверсий оказалась важнее, чем я ожидал. Не дополнением к оптимизации, а её фундаментом.</p>
+  <p>Сегодня работа специалиста по рекламе - это не только кампании, креативы и ставки. Это ещё CRM, статусы сделок, коннекторы вроде Zapier, Albato, n8n и Make, настройки конверсий и понимание того, как бизнес реально зарабатывает. Без этого алгоритм просто не знает, кого искать.</p>
+</div></div>
+<div><div class="article-wrap">
+  <div class="article-cta article-cta-final">
+    <h3>Хотите проверить, какие лиды реально видит Google Ads?</h3>
+    <p>Разберу связку Google Ads, CRM, GA4 и передачу офлайн-конверсий. Покажу, где теряются qualified leads и на каких данных обучаются кампании.</p>
+    <a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-cta-contrast">Написать в Telegram →</a>
+  </div>
+  <div class="author-block">
+    <div class="author-avatar"><img src="/assets/main-photo.webp" alt="Алексей Смирнов"></div>
+    <div><div class="author-name">Алексей Смирнов</div><div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div><div class="author-updated">Обновлено: май 2026</div></div>
+  </div>
+  <div class="related-articles">
+    <div class="related-title">Читайте также</div>
+    <div class="related-grid">
+      <a href="/blog/kak-snizit-cpql-v-b2b/" class="related-card"><div class="related-card-label">B2B · Performance · 8 мин</div><div class="related-card-title">Как снизить CPQL в B2B рекламе без уменьшения бюджета</div><div class="related-card-desc">Разбираю причины высокого CPQL и 5 способов улучшить качество лидов</div><div class="related-card-arrow">Читать →</div></a>
+      <a href="/blog/struktura-google-ads-2026/" class="related-card"><div class="related-card-label">Google Ads · 12 мин</div><div class="related-card-title">Структура рекламного кабинета Google Ads в 2026 году</div><div class="related-card-desc">Как выстроить кампании, конверсии и UTM так, чтобы алгоритмы работали на продажи</div><div class="related-card-arrow">Читать →</div></a>
+    </div>
+  </div>
+</div></div>
+</main>
+<script src="/assets/js/main.js?v=20260523"></script>
+</body></html>
