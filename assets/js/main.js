@@ -76,20 +76,21 @@ if (sections.length && navLinks.length) {
 
   const style = document.createElement('style');
   style.textContent = [
-    '#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:1000;',
-    'background:#161515;border-top:1px solid rgba(255,255,255,.13);padding:16px 0;',
-    'display:flex;align-items:center;}',
-    '#cookie-banner .cb-inner{max-width:1100px;margin:0 auto;padding:0 48px;',
+    '#cookie-banner{position:fixed;bottom:16px;left:50%;z-index:1000;',
+    'width:min(920px,calc(100% - 32px));transform:translateX(-50%);',
+    'background:#161515;border:1px solid rgba(255,255,255,.13);border-radius:12px;',
+    'padding:10px 0;display:flex;align-items:center;box-shadow:0 10px 32px rgba(0,0,0,.28);}',
+    '#cookie-banner .cb-inner{max-width:920px;margin:0 auto;padding:0 16px;',
     'display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;width:100%;}',
-    '#cookie-banner p{font-size:13px;color:#a09890;margin:0;max-width:780px;line-height:1.5;',
+    '#cookie-banner p{font-size:12px;color:#a09890;margin:0;max-width:700px;line-height:1.45;',
     'font-family:"Manrope",sans-serif;}',
     '#cookie-banner a{color:#f0a500;text-decoration:underline;}',
     '#cookie-banner button{background:transparent;color:#a09890;',
-    'border:1px solid rgba(255,255,255,.13);border-radius:8px;padding:8px 20px;',
+    'border:1px solid rgba(255,255,255,.13);border-radius:8px;padding:7px 16px;',
     'font-size:13px;font-weight:500;cursor:pointer;flex-shrink:0;',
     'font-family:"Manrope",sans-serif;transition:color .18s,border-color .18s;}',
     '#cookie-banner button:hover{color:#ede9e3;border-color:rgba(255,255,255,.25);}',
-    '@media(max-width:600px){#cookie-banner .cb-inner{padding:0 16px;}}'
+    '@media(max-width:600px){#cookie-banner{bottom:0;left:0;right:0;width:100%;transform:none;border-left:0;border-right:0;border-bottom:0;border-radius:12px 12px 0 0;}#cookie-banner .cb-inner{padding:0 16px;gap:10px;}#cookie-banner button{width:100%;justify-content:center;}}'
   ].join('');
   document.head.appendChild(style);
 

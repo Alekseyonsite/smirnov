@@ -12,7 +12,7 @@
 /assets/img/*
   Cache-Control: public, max-age=31536000, immutable
 
-/assets/main-photo.jpeg
+/assets/main-photo.webp
   Cache-Control: public, max-age=31536000, immutable
 
 /favicon.svg
