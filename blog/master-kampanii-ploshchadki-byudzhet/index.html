@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мастер кампаний в Яндекс Директ: инструкция по настройке и анализу площадок</title>
+  <meta name="description" content="Инструкция по настройке Мастера кампаний в Яндекс Директе: цели, бюджет, стратегии, статистика, срезы, анализ площадок и запрет нерелевантных показов.">
+  <meta name="author" content="Алексей Смирнов">
+  <link rel="canonical" href="https://smirnovads.com/blog/master-kampanii-ploshchadki-byudzhet/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://smirnovads.com/blog/master-kampanii-ploshchadki-byudzhet/">
+  <meta property="og:title" content="Мастер кампаний в Яндекс Директ: инструкция по настройке и анализу площадок">
+  <meta property="og:description" content="Инструкция по настройке Мастера кампаний и анализу площадок в Яндекс Директе.">
+  <meta property="og:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Алексей Смирнов">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Мастер кампаний в Яндекс Директ: инструкция по настройке и анализу площадок">
+  <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta name="yandex-verification" content="f1b575072174a3b3">
+  <meta name="google-site-verification" content="cYqr91bMn7kr260ZDbcJe7HD0S0cE_o9p9uo0VcRDNs">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Мастер кампаний в Яндекс Директ: инструкция по настройке и анализу площадок","description":"Инструкция по настройке Мастера кампаний в Яндекс Директе: цели, бюджет, стратегии, статистика, срезы, анализ площадок и запрет нерелевантных показов.","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"datePublished":"2026-05-26","dateModified":"2026-05-27","url":"https://smirnovads.com/blog/master-kampanii-ploshchadki-byudzhet/","mainEntityOfPage":"https://smirnovads.com/blog/master-kampanii-ploshchadki-byudzhet/","image":"https://smirnovads.com/assets/img/og-home.png","inLanguage":"ru"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Где найти отчёт «Площадки» для Мастера кампаний?","acceptedAnswer":{"@type":"Answer","text":"Откройте Яндекс Директ, перейдите в «Статистика», выберите «Мастер отчётов», затем в блоке «Оптимизация размещения» откройте отчёт «Площадки»."}},{"@type":"Question","name":"Где показываются объявления Мастера кампаний?","acceptedAnswer":{"@type":"Answer","text":"Объявления могут показываться на поиске, в Рекламной сети Яндекса и на внешних площадках. Конкретные размещения нужно проверять в отчёте «Площадки», потому что состав площадок зависит от кампании, настроек и алгоритмов показа."}},{"@type":"Question","name":"Какие срезы смотреть в статистике Мастера кампаний?","acceptedAnswer":{"@type":"Answer","text":"В первую очередь смотрите срезы по площадкам, поисковым запросам, регионам, устройствам, аудитории и элементам объявлений. Они помогают понять, где кампания тратит бюджет и где проседает качество."}},{"@type":"Question","name":"Когда стоит отключать площадку?","acceptedAnswer":{"@type":"Answer","text":"Если площадка стабильно тратит бюджет, даёт много дешёвых кликов, не приносит конверсий или приводит нецелевые заявки, её стоит проверить и вероятнее всего отключить. Но отключать всё подряд не нужно: задача — убрать размещения без ценности."}},{"@type":"Question","name":"Почему после чистки площадок может вырасти CPL?","acceptedAnswer":{"@type":"Answer","text":"Потому что из кампании уходит дешёвый, но слабый трафик. Клик или CPL могут стать выше, зато качество заявок часто становится лучше."}},{"@type":"Question","name":"Какие модели оплаты и стратегии доступны в Мастере кампаний?","acceptedAnswer":{"@type":"Answer","text":"Можно работать со средней ценой за неделю, фиксированной ценой целевого действия или без ограничений. Выбор зависит от бюджета, целей и того, сколько целевых действий кампания может получать в неделю."}},{"@type":"Question","name":"Какой бюджет ставить в Мастере кампаний?","acceptedAnswer":{"@type":"Answer","text":"Я бы считал от целевой цены конверсии и минимального объёма данных. Если цель стоит 500 рублей, недельный бюджет лучше ставить около 5000 рублей: целевая цена умножается на 10."}},{"@type":"Question","name":"Какие цели выбирать в Мастере кампаний?","acceptedAnswer":{"@type":"Answer","text":"Для лидогенерации лучше выбирать цели, близкие к реальному результату: отправку формы, звонок или квалифицированный лид, если он передаётся из CRM. Слишком лёгкие цели могут привести к оптимизации на слабые действия."}}]}</script>
+  <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108992580,"init",{clickmap:true,trackLinks:true,accurateTrackBounceRate:true,webvisor:true});</script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108992580" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    :root{--bg:#0e0d0d;--bg2:#161515;--bg3:#1e1d1d;--bg4:#252424;--text:#ede9e3;--text2:#a09890;--text3:#6b6560;--accent:#f0a500;--accent2:#d99400;--accent-bg:rgba(240,165,0,.10);--green:#22c55e;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--radius:10px;--radius-lg:16px;--font-head:'Unbounded',sans-serif;--font-body:'Manrope',sans-serif;--nav-h:64px;--max-w:1100px;--col:48px}
+    html,body{overflow-x:hidden}
+    .btn-primary{background:var(--accent);color:#0e0d0d !important;text-decoration:none !important}.btn-primary:hover{background:var(--accent2);color:#0e0d0d !important}
+    .article-wrap{max-width:820px;margin:0 auto;padding:0 var(--col)}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text3);margin-bottom:24px;flex-wrap:wrap}
+    .breadcrumb a{color:var(--text3);transition:color .18s}.breadcrumb a:hover{color:var(--text)}
+    .article-hero{padding-top:calc(var(--nav-h) + 56px);padding-bottom:40px}
+    .article-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+    .article-h1{font-family:var(--font-head);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:20px}
+    .article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text3)}
+    .article-meta .dot{color:var(--border2)}
+    .article-body{font-size:16px;line-height:1.8;padding-bottom:0}
+    .article-body h2{font-family:var(--font-head);font-size:clamp(19px,2.3vw,25px);font-weight:700;color:var(--text);margin:52px 0 16px;line-height:1.25}
+    .article-body h3{font-family:var(--font-head);font-size:17px;font-weight:600;color:var(--text);margin:34px 0 12px;line-height:1.35}
+    .article-body p{color:var(--text2);margin-bottom:20px}
+    .article-body strong{color:var(--text);font-weight:600}
+    .article-body .mark{color:var(--accent);font-weight:700}
+    .article-body ul{padding-left:0;margin-bottom:20px;list-style:none}
+    .article-body ul li{color:var(--text2);padding:4px 0 4px 20px;position:relative;line-height:1.65;list-style:none}
+    .article-body ul li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .article-body code{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 5px;color:var(--text);font-size:.93em}
+    .article-body pre{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;overflow-x:auto;margin:22px 0 24px;color:var(--text2);font-size:13px;line-height:1.55}
+    .article-body hr{border:none;border-top:1px solid var(--border);margin:48px 0}
+    .toc-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin:32px 0}
+    .toc-title{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .toc-box ul{margin-bottom:0}
+    .toc-box a{color:var(--text2);text-decoration:none}
+    .toc-box a:hover{color:var(--accent)}
+    .main-block{background:linear-gradient(180deg,rgba(240,165,0,.08),rgba(240,165,0,.03));border:1px solid rgba(240,165,0,.22);border-radius:var(--radius-lg);padding:28px;margin:44px 0}
+    .main-block>h2{margin-top:0}
+    .main-block-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px}
+    .fold-extra{display:block}
+    .js .main-block.is-collapsed .fold-extra{display:none}
+    .fold-toggle{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(240,165,0,.35);border-radius:var(--radius);background:var(--accent);color:#0e0d0d;font-family:var(--font-body);font-size:13px;font-weight:800;padding:11px 18px;cursor:pointer;margin:8px 0 4px;transition:background .18s,transform .18s}
+    .fold-toggle:hover{background:var(--accent2);transform:translateY(-1px)}
+    .step-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin:20px 0}
+    .step-card h3{margin-top:0}
+    .note-box{background:var(--accent-bg);border:1px solid rgba(240,165,0,.2);border-radius:var(--radius-lg);padding:20px 24px;margin:28px 0}
+    .note-box p{color:var(--text);font-size:15px;margin:0}
+    .screen{margin:20px 0 30px}
+    .screen img{width:100%;height:auto;display:block;background:#fff;border:1px solid var(--border2);border-radius:var(--radius);box-shadow:0 16px 40px rgba(0,0,0,.18)}
+    .screen.is-narrow img{max-width:520px;margin:0 auto}
+    .screen.is-compact img{max-width:360px;margin:0 auto}
+    .screen figcaption{font-size:12px;color:var(--text3);line-height:1.55;margin-top:10px;text-align:center}
+    .article-cta{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:36px 40px;text-align:center}
+    .article-cta-final{margin-top:48px}
+    .article-cta h3{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .article-cta p{font-size:15px;color:var(--text2);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+    .btn-cta-contrast{color:#0e0d0d !important}
+    .author-block{display:flex;align-items:center;gap:18px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-top:28px;margin-bottom:56px}
+    .author-avatar{width:52px;height:52px;border-radius:50%;background:var(--bg4);border:1px solid var(--border2);flex-shrink:0;overflow:hidden}
+    .author-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+    .author-name{font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px}
+    .author-role{font-size:12px;color:var(--text3)}
+    .author-updated{font-size:11px;color:var(--text3);margin-top:2px}
+    .faq-list{display:flex;flex-direction:column;gap:12px;margin:24px 0}
+    .faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px}
+    .faq-item h3{font-size:15px;margin:0 0 12px;color:var(--text)}
+    .faq-item p{font-size:14px;margin:0;color:var(--text2)}
+    @media(max-width:900px){:root{--col:24px}.main-block{padding:22px}}
+    @media(max-width:600px){:root{--col:16px}.article-cta{padding:24px 20px}.step-card{padding:18px}.main-block{padding:18px}}
+  </style>
+</head>
+<body>
+<script src="/assets/js/nav.js"></script>
+<main>
+<section class="article-hero"><div class="article-wrap">
+  <div class="breadcrumb"><a href="/">Главная</a><span>/</span><a href="/blog/">Блог</a><span>/</span><span>Мастер кампаний и площадки</span></div>
+  <div class="article-label">Яндекс Директ · Мастер кампаний · Площадки</div>
+  <h1 class="article-h1">Мастер кампаний в Яндекс Директ: инструкция по настройке и анализу площадок</h1>
+  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>8 мин</span><span class="dot">·</span><span>Написано: май 2026</span></div>
+</div></section>
+<div class="article-body"><div class="article-wrap">
+  <p>Мастер кампаний в Яндекс Директе часто выглядит как простой инструмент: добавил ссылку, тексты, картинки, выбрал цель, задал бюджет - и система сама ищет клиентов.</p>
+  <p>И в этом действительно есть плюс. Запустить рекламу можно быстро, без сложной структуры кампаний и ручной сборки семантики.</p>
+  <p>Но есть нюанс.</p>
+  <p>Рекламодатель может регулярно смотреть клики, цену цели, общий расход. На уровне кампании всё может выглядеть нормально: показы идут, клики есть, бюджет расходуется. Но дальше начинается проблема. Заявок либо совсем нет, либо они есть, но качество слабое: <strong class="mark">менеджеры жалуются на нецелевые обращения, люди не понимают, что оставляли заявку, часть лидов не выходит на связь, а до продаж почти никто не доходит.</strong></p>
+  <p>В таких случаях проблема часто находится не в текстах и не в бюджете, а глубже - в площадках, где показывались объявления, и целях, на которые ориентируется алгоритм.</p>
+  <p>Дальше разберём два слоя: сначала - где в статистике смотреть площадки и как убирать слабые размещения, потом - какие настройки Мастера кампаний влияют на качество трафика.</p>
+
+  <nav class="toc-box" aria-label="Оглавление статьи">
+    <div class="toc-title">Что внутри</div>
+    <ul>
+      <li><a href="#how-it-works">Как работает Мастер кампаний</a></li>
+      <li><a href="#stats-slices">Статистика и срезы Мастера кампаний</a></li>
+      <li><a href="#placements">Как убрать нерелевантные площадки</a></li>
+      <li><a href="#setup">Как настроить Мастер кампаний</a></li>
+      <li><a href="#checklist">Что проверить в первую очередь</a></li>
+      <li><a href="#faq">Частые вопросы</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="how-it-works">Как работает Мастер кампаний</h2>
+  <p>Мастер кампаний работает по автоматической логике. Вы задаёте страницу сайта, объявления, изображения, регион, аудиторию, цель и бюджет. Дальше система сама решает, кому и где показать рекламу.</p>
+  <p>Для алгоритма важны сигналы. Если цель слишком лёгкая: открытие формы, клик по кнопке, просмотр страницы, - система будет искать людей, которые чаще делают именно это.</p>
+  <p>Поэтому в Мастере кампаний важно смотреть не только итоговые цифры, но и места размещения, корректность целей и качество заявок.</p>
+
+  <h2 id="stats-slices">Статистика и срезы Мастера кампаний</h2>
+  <p>Статистика Мастера кампаний нужна не только для проверки расхода и цены цели. В ней важно смотреть срезы по площадкам, поисковым запросам, регионам, устройствам, аудитории и элементам объявлений.</p>
+  <p>Так становится видно, где показываются объявления, какие размещения забирают бюджет, какие регионы дают слабый трафик и какие элементы объявления стоит доработать.</p>
+
+  <h2>Почему отчёт «Площадки» важен</h2>
+  <p>В Директе есть отчёт «Площадки». В нём можно посмотреть, где именно показывались объявления.</p>
+  <p>Это особенно важно для Мастера кампаний и товарных кампаний, потому что часть показов идёт по Рекламной сети Яндекса и внешним площадкам.</p>
+  <p>Я не советую делать вывод только по названию домена. Странное название площадки само по себе ещё не доказывает, что трафик плохой.</p>
+  <p>Но если площадка даёт много дешёвых кликов, тратит бюджет, не приносит конверсий, даёт слабое поведение на сайте или заявки, которые менеджеры называют нецелевыми, её точно стоит проверить и вероятнее всего отключить.</p>
+  <p>Но задача не в том, чтобы отключать всё подряд. Задача - найти размещения, которые стабильно тратят бюджет и не дают ценности.</p>
+
+  <section class="main-block" id="placements">
+    <div class="main-block-label">Блок - Чистка площадок</div>
+    <h2>Как убрать нерелевантные площадки</h2>
+
+    <h3>Откройте отчёт по площадкам</h3>
+    <p>Откройте Яндекс Директ, наведите на блок «Статистика» и выберите «Мастер отчётов».</p>
+    <figure class="screen is-compact"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-22.png" alt="Как открыть Мастер отчётов в Яндекс Директе для проверки площадок"><figcaption>Шаг 1. В разделе «Статистика» откройте «Мастер отчётов».</figcaption></figure>
+    <div class="fold-extra">
+    <p>В блоке «Оптимизация размещения» найдите отчёт «Площадки».</p>
+    <figure class="screen is-compact"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-23.png" alt="Где найти отчёт Площадки в библиотеке отчётов Яндекс Директа"><figcaption>Шаг 2. В библиотеке отчётов выберите «Площадки».</figcaption></figure>
+    <p>Выберите период и уберите фильтр по умолчанию <code>&gt;10 кликов</code>. Если площадки не появились, поставьте и уберите галочку «с НДС».</p>
+    <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-24.png" alt="Фильтры и период в отчёте Площадки для Мастера кампаний Яндекс Директа"><figcaption>Шаг 3. Проверьте период, фильтры и список площадок в отчёте.</figcaption></figure>
+    <p>Дальше отсортируйте площадки по расходу, показам, кликам или названию - в зависимости от стратегии чистки.</p>
+    <p>В первую очередь проверьте площадки, которые потратили заметную сумму, но не дали конверсий или привели слабые заявки.</p>
+    <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-25.png" alt="Пример отчёта Площадки в Яндекс Директе с расходом кликами конверсиями CR и CPA"><figcaption>Пример отчёта по площадкам: оценивать нужно не только клики, но и расход, конверсии, CR и CPA.</figcaption></figure>
+
+    <h3>Отключите нерелевантную площадку</h3>
+    <p>Найдите площадку, которая нерелевантна для вас по данным: расход, клики, отсутствие конверсий, слабое поведение или плохое качество заявок.</p>
+    <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-26.png" alt="Нерелевантная площадка в отчёте Яндекс Директа перед отключением"><figcaption>Пример строки площадки, которую нужно проверить перед отключением.</figcaption></figure>
+    <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-16.png" alt="Как выбрать площадку в отчёте Яндекс Директа для запрета показов"><figcaption>Площадку можно отметить галочкой прямо в отчёте.</figcaption></figure>
+    <p>Поставьте рядом с названием галочку. Снизу появится поп-ап «Комбинация площадки и кампании». Нажмите «Запретить показы».</p>
+    <figure class="screen is-narrow"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-02.png" alt="Кнопка Запретить показы для нерелевантной площадки в Яндекс Директе"><figcaption>После выбора площадки нажмите «Запретить показы».</figcaption></figure>
+    <p>Важно: после чистки площадок цена клика или даже CPL может вырасти. Это не всегда плохо.</p>
+    <p><strong class="mark">Если ушёл дешёвый, но слабый трафик, кампания может стать дороже по клику, но лучше по качеству заявок.</strong></p>
+    </div>
+    <button class="fold-toggle" type="button" aria-expanded="true">Свернуть инструкцию</button>
+  </section>
+
+  <p>Но чистка площадок - только часть работы. В Мастере кампаний важны правильная настройка и аккуратное заполнение всех блоков, которые предлагает Яндекс Директ: ссылки, заголовки, тексты, изображения, цели, аудитория, бюджет и дополнительные параметры. Чем точнее вы задаёте системе исходные данные, тем меньше риск, что алгоритм будет искать дешёвые действия вместо нормальных заявок.</p>
+
+  <section class="main-block" id="setup">
+    <div class="main-block-label">Блок - Создание рекламной кампании</div>
+    <h2>Как настроить Мастер кампаний</h2>
+
+    <div class="step-card">
+      <h3>1. Название кампании</h3>
+      <p>Не называйте кампанию просто «Мастер кампаний 1». Лучше сразу заложить структуру: <code>MK_Cases_Moscow_Leads_May2026</code>. Так проще анализировать результаты и сопоставлять название кампании с UTM-метками.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-03.png" alt="Поле названия кампании при настройке Мастера кампаний в Яндекс Директе"><figcaption>Шаг 1. Название кампании лучше задавать так, чтобы его было легко сопоставить с UTM и отчётами.</figcaption></figure>
+    </div>
+
+    <div class="fold-extra">
+    <div class="step-card">
+      <h3>2. Ссылка на продвигаемую страницу</h3>
+      <p>Ведите трафик не на главную, а на релевантную страницу: услугу, категорию, акцию, товарную подборку. Мастер кампаний анализирует страницу. Чем точнее посадочная, тем выше шанс, что система правильно поймёт, что вы рекламируете.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-04.png" alt="Поле ссылки на продвигаемую страницу в Мастере кампаний Яндекс Директа"><figcaption>Шаг 2. Указывайте страницу, которая максимально точно соответствует рекламируемому предложению.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>3. Дополнительные параметры и UTM-метки</h3>
+      <p>В дополнительных параметрах обязательно добавьте UTM-метки. Без них потом сложнее понять, какая кампания, объявление, устройство, регион или площадка привели трафик.</p>
+      <pre>utm_source=yandex&utm_medium=cpc&utm_campaign={campaign_id}_{campaign_name}&utm_content=c_{campaign_id}|adg_{gbid}|ad_{ad_id}|ph_{phrase_id}|key_{keyword}|dev_{device_type}|pst_{position_type}_{position}|rgnid_{region_id}_{region_name}|placement_{source}&utm_term={keyword}</pre>
+      <p>Особенно важен параметр <code>placement_{source}</code> - он помогает видеть источник размещения в аналитике.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-05.png" alt="Дополнительные параметры и UTM метки при настройке Мастера кампаний Яндекс Директа"><figcaption>Шаг 3. В дополнительных параметрах добавьте динамическую UTM-разметку.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>4. Продвижение организации из Яндекс Бизнеса</h3>
+      <p>Эту функцию стоит включать только если вы отдельно отслеживаете эффективность Яндекс Бизнеса. Если данные по Яндекс Бизнесу не анализируются, можно получить дополнительный источник трафика, но не понимать, что он реально даёт: заявки, звонки, слабые обращения или просто расход.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-06.png" alt="Настройка продвижения организации из Яндекс Бизнеса в Мастере кампаний"><figcaption>Шаг 4. Подключайте Яндекс Бизнес, если можете отдельно оценивать его вклад в заявки и звонки.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>5. Заголовки</h3>
+      <p>В Мастере кампаний можно добавить до 5 заголовков. Лучше использовать разные смысловые варианты: услуга, выгода, регион, сегмент аудитории, конкретное предложение.</p>
+      <p>И тексты, и заголовки должны фильтровать аудиторию.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-07.png" alt="Блок заголовков при создании Мастера кампаний в Яндекс Директе"><figcaption>Шаг 5. Добавьте несколько разных заголовков: они должны не только привлекать, но и отсекать нецелевую аудиторию.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>6. Тексты</h3>
+      <p>Если вы работаете с B2B, дорогими услугами или оптом, лучше сразу обозначить условия: для кого услуга, какой формат работы, какой регион, есть ли минимальный объём.</p>
+      <p>Иногда хороший текст снижает CTR, но повышает качество заявок. Это нормально.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-08.png" alt="Блок текстов объявлений при настройке Мастера кампаний Яндекс Директа"><figcaption>Шаг 6. Тексты объявлений лучше использовать как фильтр: кому подходит предложение, а кому нет.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>7. Изображения</h3>
+      <p>Не используйте просто красивые абстрактные картинки. Изображение должно быстро объяснять контекст: продукт, услугу, объект, процесс, результат, интерфейс или товар.</p>
+      <p>Изображения можно генерировать с помощью нейросетей, но лучше сразу добавлять в них понятный CTA: что человек должен сделать и зачем ему переходить по объявлению.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-09.png" alt="Блок изображений при создании Мастера кампаний в Яндекс Директе"><figcaption>Шаг 7. Изображения должны объяснять оффер и усиливать CTA, а не просто украшать объявление.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>8. Видеокреативы</h3>
+      <p>Видео помогает занять больше форматов размещения и быстрее объяснить предложение. Но его тоже нужно делать по смыслу, а не просто «чтобы было». Короткое видео с продуктом, процессом, объектом или результатом обычно полезнее абстрактной анимации без конкретики.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-10.png" alt="Блок видеокреативов в настройке Мастера кампаний Яндекс Директа"><figcaption>Шаг 8. Видеокреативы стоит добавлять, если они помогают быстрее понять продукт или услугу.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>9. Быстрые ссылки</h3>
+      <p>Добавьте до 8 ссылок на важные разделы. Первые 4 особенно важны: услуги, цены, кейсы, контакты. Также можно добавить отзывы и примеры работ. Это помогает пользователю быстрее понять предложение, а вам - лучше анализировать интерес.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-11.png" alt="Блок быстрых ссылок при настройке Мастера кампаний Яндекс Директа"><figcaption>Шаг 9. Первые быстрые ссылки ставьте на самые важные разделы: услуги, цены, кейсы и контакты.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>10. Кнопка «Автоматически формировать описание для передачи в ЕРИР»</h3>
+      <p>Эта настройка нужна для маркировки рекламы и передачи данных в ЕРИР. Директ автоматически формирует описание рекламного материала, чтобы его можно было использовать в отчётности. Я бы оставлял галочку включённой: это снижает риск забыть описание или заполнить его вручную с ошибкой.</p>
+      <p>Но после запуска всё равно стоит проверить, что данные о рекламодателе, договоре и маркировке в аккаунте заполнены корректно.</p>
+      <figure class="screen is-narrow"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-12.png" alt="Автоматическое описание для передачи в ЕРИР при создании Мастера кампаний"><figcaption>Шаг 10. Автоматическое описание для ЕРИР лучше оставить включённым, но данные рекламодателя всё равно нужно проверить.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>11. Объявления от нейросетей</h3>
+      <p>Объявления от нейросетей можно тестировать, но я бы не включал их без контроля. Проверьте, что система не искажает оффер, не обещает лишнего и не уводит коммуникацию в слишком общий формат. Лучше запускать как тест и сравнивать с ручными объявлениями.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-13.png" alt="Настройка объявлений от нейросетей в Мастере кампаний Яндекс Директа"><figcaption>Шаг 11. Нейросетевые объявления лучше запускать как тест и обязательно проверять тексты перед откруткой.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>12. Регион</h3>
+      <p>Не оставляйте лишнюю географию «на всякий случай». Если вы работаете только в Москве, не нужно запускать всю Россию. Дешёвые клики из нерелевантных регионов не помогут продажам.</p>
+      <figure class="screen is-narrow"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-14.png" alt="Настройка региона показов в Мастере кампаний Яндекс Директа"><figcaption>Шаг 12. География должна совпадать с реальной зоной продаж или оказания услуги.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>13. Расписание показов</h3>
+      <p>Расписание лучше привязать к тому, когда бизнес реально может обрабатывать обращения. Если менеджеры не отвечают ночью или в выходные, стоит подумать, нужны ли показы в это время. Особенно если заявки быстро остывают.</p>
+      <figure class="screen is-narrow"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-15.png" alt="Расписание показов при создании Мастера кампаний в Яндекс Директе"><figcaption>Шаг 13. Расписание показов стоит связать с графиком обработки заявок.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>14. Аудитория</h3>
+      <p>Есть два подхода: автоподбор и ручная настройка.</p>
+      <p>Автоподбор «Подобрать оптимальную» проще на старте: система сама ищет аудиторию по сайту, объявлениям и целям.</p>
+      <p>Ручная настройка даёт больше контроля на уровне подсказок для алгоритма, но важно понимать: даже при ручной настройке в Мастере кампаний у вас всё равно будет преимущественно работать автотаргетинг. Ручные настройки скорее помогают алгоритмам быстрее понять, кто ваша аудитория и какие примерно запросы подходят.</p>
+      <p>Если ниша сложная или B2B, я бы не полагался только на автоматику и внимательно следил за площадками и качеством заявок.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-18.png" alt="Настройка аудитории и автотаргетинга в Мастере кампаний Яндекс Директа"><figcaption>Шаг 14. Ручная настройка аудитории помогает алгоритму быстрее понять направление, но автотаргетинг всё равно остаётся важной частью работы.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>15. Цель продвижения</h3>
+      <p>Для лидогенерации логично выбирать «Максимум целевых действий».</p>
+      <ul>
+        <li>«Средняя за неделю» - оплата за клики, алгоритм старается выдерживать среднюю цену цели. <strong class="mark">Я чаще предпочитаю этот вариант.</strong></li>
+        <li>«Фиксированная» - оплата за целевые действия. Можно указать цену, но если она слишком низкая, кампания может почти не получать трафик.</li>
+        <li>«Без ограничений» - оплата за клики, Яндекс сам подбирает цену для максимума целевых действий.</li>
+      </ul>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-17.png" alt="Выбор цели продвижения в Мастере кампаний Яндекс Директа"><figcaption>Шаг 15. Для лидогенерации чаще всего логично выбирать стратегию на максимум целевых действий.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>16. Счётчики Яндекс Метрики</h3>
+      <p>Счётчик Метрики обязателен, потому что именно на его основе выбираются цели и собираются данные для оптимизации.</p>
+      <p>Перед запуском проверьте, что счётчик установлен на нужной странице, цели работают корректно, а отправки форм, звонки или другие важные действия фиксируются без дублей и ошибок.</p>
+      <p>Если у вас есть CRM, отдельно подумайте о передаче офлайн-конверсий по воронке в Метрику: лид, квалифицированный лид, целевой лид, продажа. Так алгоритм будет получать более полезные сигналы, чем просто факт отправки формы.</p>
+      <figure class="screen is-narrow"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-01.png" alt="Выбор счётчика Яндекс Метрики для Мастера кампаний"><figcaption>Шаг 16. Проверьте, что выбран правильный счётчик Метрики и цели действительно фиксируют нужные действия.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>17. Целевые действия</h3>
+      <p>Это важный блок.</p>
+      <p>Если выбрать слишком лёгкую цель, например клик по кнопке, просмотр страницы или открытие формы, система будет оптимизироваться на пользователей, которые чаще совершают простые промежуточные действия. Для бизнеса это крайне редко равно качественной заявке.</p>
+      <p>Для лидогенерации лучше ориентироваться на отправку формы, звонок или квалифицированный лид, если он передаётся из CRM.</p>
+      <p>Также важно указать цену, которую вы хотите платить за конверсии. Но помните: Яндекс рекомендует не менее 10 конверсий в неделю.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-19.png" alt="Выбор целевых действий и конверсий в Мастере кампаний Яндекс Директа"><figcaption>Шаг 17. Целевые действия должны быть ближе к реальному результату, а не к простому клику или просмотру.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>18. Недельный бюджет</h3>
+      <p>Лучше назначить недельный бюджет, который обеспечит минимум 10 достижений целевого действия.</p>
+      <p>Например, если вы считаете, что стоимость целевого действия - 500 рублей, то бюджет на неделю нужно ставить 5000 рублей: целевая цена конверсии × 10.</p>
+      <p>Если запускаете Мастер кампаний со стратегией «Средняя за неделю», я бы на первые 1-2 дня поставил небольшой бюджет, например около 3000 рублей. Так можно получить первые показы и переходы, а затем быстро увидеть, какие площадки начинают забирать трафик.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-20.png" alt="Настройка недельного бюджета в Мастере кампаний Яндекс Директа"><figcaption>Шаг 18. Недельный бюджет должен быть связан с целевой ценой конверсии и минимальным объёмом данных для алгоритма.</figcaption></figure>
+    </div>
+
+    <div class="step-card">
+      <h3>19. Блок «Директ помогает»</h3>
+      <p>В этом блоке Яндекс предлагает автоматические рекомендации. Кнопка «Автоматически применять рекомендации» даёт системе право вносить изменения без вашего ручного подтверждения. Я бы включал это только если вы точно понимаете, какие рекомендации будут применяться.</p>
+      <p>«Оптимизировать расширенные настройки» может затрагивать цели, подбор аудитории и недельный бюджет. Это удобно, но снижает контроль. На старте лучше проверять такие изменения вручную.</p>
+      <figure class="screen"><img src="/assets/img/master-kampanii-ploshchadki-new/screenshot-21.png" alt="Блок Директ помогает и автоматические рекомендации в Мастере кампаний"><figcaption>Шаг 19. Автоматические рекомендации лучше включать только тогда, когда понятно, какие настройки система сможет менять.</figcaption></figure>
+    </div>
+    </div>
+    <button class="fold-toggle" type="button" aria-expanded="true">Свернуть инструкцию</button>
+  </section>
+
+  <h2 id="checklist">Что проверить в первую очередь</h2>
+  <p>Если Мастер кампаний уже запущен, я бы начал с этого списка:</p>
+  <ul>
+    <li>какие цели выбраны;</li>
+    <li>совпадает ли регион трафика с регионом продаж;</li>
+    <li>не оптимизируется ли кампания на слишком лёгкое действие;</li>
+    <li>передаётся ли в Метрику качество лидов из CRM, например по этапам воронки;</li>
+    <li>какие площадки забрали больше всего бюджета;</li>
+    <li>есть ли площадки с большим количеством дешёвых кликов;</li>
+    <li>какие площадки дают нецелевые заявки;</li>
+  </ul>
+  <p>Часто после такой проверки становится понятно: проблема не в самом Мастере кампаний, а в том, что его запустили и не контролировали размещения.</p>
+
+  <h2 id="faq">Частые вопросы</h2>
+  <div class="faq-list">
+    <div class="faq-item"><h3>Где найти отчёт «Площадки» для Мастера кампаний?</h3><p>Откройте Яндекс Директ, перейдите в «Статистика», выберите «Мастер отчётов», затем в блоке «Оптимизация размещения» откройте отчёт «Площадки».</p></div>
+    <div class="faq-item"><h3>Где показываются объявления Мастера кампаний?</h3><p>Объявления могут показываться на поиске, в Рекламной сети Яндекса и на внешних площадках. Конкретные размещения нужно проверять в отчёте «Площадки», потому что состав площадок зависит от кампании, настроек и алгоритмов показа.</p></div>
+    <div class="faq-item"><h3>Какие срезы смотреть в статистике Мастера кампаний?</h3><p>В первую очередь смотрите срезы по площадкам, поисковым запросам, регионам, устройствам, аудитории и элементам объявлений. Они помогают понять, где кампания тратит бюджет и где проседает качество.</p></div>
+    <div class="faq-item"><h3>Когда стоит отключать площадку?</h3><p>Если площадка стабильно тратит бюджет, даёт много дешёвых кликов, не приносит конверсий или приводит нецелевые заявки, её стоит проверить и вероятнее всего отключить. Но отключать всё подряд не нужно: задача — убрать размещения без ценности.</p></div>
+    <div class="faq-item"><h3>Почему после чистки площадок может вырасти CPL?</h3><p>Потому что из кампании уходит дешёвый, но слабый трафик. Клик или CPL могут стать выше, зато качество заявок часто становится лучше.</p></div>
+    <div class="faq-item"><h3>Какие модели оплаты и стратегии доступны в Мастере кампаний?</h3><p>Можно работать со средней ценой за неделю, фиксированной ценой целевого действия или без ограничений. Выбор зависит от бюджета, целей и того, сколько целевых действий кампания может получать в неделю.</p></div>
+    <div class="faq-item"><h3>Какой бюджет ставить в Мастере кампаний?</h3><p>Я бы считал от целевой цены конверсии и минимального объёма данных. Если цель стоит 500 рублей, недельный бюджет лучше ставить около 5000 рублей: целевая цена умножается на 10.</p></div>
+    <div class="faq-item"><h3>Какие цели выбирать в Мастере кампаний?</h3><p>Для лидогенерации лучше выбирать цели, близкие к реальному результату: отправку формы, звонок или квалифицированный лид, если он передаётся из CRM. Слишком лёгкие цели могут привести к оптимизации на слабые действия.</p></div>
+  </div>
+
+  <hr>
+  <h2>Итог</h2>
+  <p>Мастер кампаний - рабочий инструмент, но его нельзя оставлять без проверки.</p>
+  <p>Даже если вы следите за кликами, ценой цели и расходом, этого может быть недостаточно. Низкое качество лидов часто связано с тем, где именно показывались объявления.</p>
+  <p>Отчёт «Площадки» помогает увидеть эту часть картины.</p>
+  <p>Не нужно отключать всё на эмоциях. Но нужно регулярно находить размещения, которые тратят бюджет и не дают нормальных заявок.</p>
+  <p>Иначе можно долго переписывать объявления и менять бюджет, но не заметить главное: реклама показывается там, где бизнес не получает реальных клиентов.</p>
+</div></div>
+<div><div class="article-wrap">
+  <div class="article-cta article-cta-final">
+    <h3>Хотите проверить, куда уходит бюджет в Директе?</h3>
+    <p>Разберу Мастер кампаний, цели, Метрику и отчёт по площадкам. Покажу, какие размещения стоит проверить и где реклама теряет деньги.</p>
+    <a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-cta-contrast">Написать в Telegram →</a>
+  </div>
+  <div class="author-block">
+    <div class="author-avatar"><img src="/assets/main-photo.webp" alt="Алексей Смирнов"></div>
+    <div><div class="author-name">Алексей Смирнов</div><div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div><div class="author-updated">Написано: май 2026</div></div>
+  </div>
+</div></div>
+</main>
+<script src="/assets/js/main.js?v=20260523-goals"></script>
+<script>
+  document.documentElement.classList.add('js');
+  document.querySelectorAll('.main-block').forEach(block=>{
+    const btn=block.querySelector('.fold-toggle');
+    const title=block.querySelector('h2');
+    if(!btn||!title)return;
+    const setState=open=>{
+      block.classList.toggle('is-collapsed',!open);
+      btn.setAttribute('aria-expanded',String(open));
+      btn.textContent=open?'Свернуть инструкцию':'Раскрыть инструкцию';
+      btn.setAttribute('aria-label',(open?'Свернуть: ':'Раскрыть: ')+title.textContent.trim());
+    };
+    setState(false);
+    btn.addEventListener('click',()=>setState(block.classList.contains('is-collapsed')));
+  });
+</script>
+</body></html>

@@ -16,10 +16,13 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Алексей Смирнов">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Как снизить CPQL в B2B маркетинге без уменьшения бюджета">
+  <meta name="twitter:description" content="Почему CPL не отражает эффективность B2B-рекламы и как снижать стоимость квалифицированного лида.">
   <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
   <meta name="yandex-verification" content="f1b575072174a3b3">
   <meta name="google-site-verification" content="cYqr91bMn7kr260ZDbcJe7HD0S0cE_o9p9uo0VcRDNs">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Как снизить CPQL в B2B рекламе без уменьшения бюджета","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"dateModified":"2026-05-23","url":"https://smirnovads.com/blog/kak-snizit-cpql-v-b2b/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Как снизить CPQL в B2B рекламе без уменьшения бюджета","description":"Разбираю, почему CPL не отражает реальную эффективность B2B-рекламы, и как снижать стоимость квалифицированного лида без сокращения бюджета.","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"datePublished":"2026-05-23","dateModified":"2026-05-27","url":"https://smirnovads.com/blog/kak-snizit-cpql-v-b2b/","mainEntityOfPage":"https://smirnovads.com/blog/kak-snizit-cpql-v-b2b/","image":"https://smirnovads.com/assets/img/og-home.png","inLanguage":"ru"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Почему нельзя просто снизить бюджет, если CPQL высокий?","acceptedAnswer":{"@type":"Answer","text":"Если просто урезать бюджет, данных и заявок станет меньше, но причина слабого качества не исчезнет. Сначала нужно понять, где ломается цепочка: трафик, объявление, посадочная, форма, CRM или обработка менеджером."}},{"@type":"Question","name":"Может ли высокий CPL быть нормальным?","acceptedAnswer":{"@type":"Answer","text":"Да. Кампания с более дорогим CPL может быть выгоднее, чем кампания с дешёвыми, но слабыми заявками. В B2B лучше смотреть не только на CPL, а на CPQL, CAC и качество лидов после обработки."}},{"@type":"Question","name":"Что делать, если заявок много, но продаж мало?","acceptedAnswer":{"@type":"Answer","text":"Пройдитесь по цепочке вашего клиента: запросы и объявления в рекламном кабинете, посадочная и форма на сайте, CRM и квалификация лидов, а также работа менеджера после заявки."}},{"@type":"Question","name":"Зачем передавать Qualified Lead в рекламные системы?","acceptedAnswer":{"@type":"Answer","text":"Чтобы алгоритмы видели не просто отправку формы, а лиды, которые прошли квалификацию. Так Google Ads и Яндекс Директ получают сигнал о качестве и могут искать аудиторию ближе к продажам."}}]}</script>
   <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108992580,"init",{clickmap:true,trackLinks:true,accurateTrackBounceRate:true,webvisor:true});</script>
   <noscript><div><img src="https://mc.yandex.ru/watch/108992580" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
   <link rel="stylesheet" href="/assets/css/main.css">
@@ -45,6 +48,11 @@
     .article-body ul li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
     .article-body a:not(.btn):not(.related-card){color:var(--accent);text-decoration:underline;text-underline-offset:3px}
     .article-body hr{border:none;border-top:1px solid var(--border);margin:48px 0}
+    .toc-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin:32px 0}
+    .toc-title{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .toc-box ul{margin-bottom:0}
+    .toc-box a{color:var(--text2);text-decoration:none}
+    .toc-box a:hover{color:var(--accent)}
     .metrics-table{width:100%;border-collapse:collapse;margin:28px 0;font-size:14px}
     .metrics-table th{background:var(--bg3);padding:10px 16px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);font-family:var(--font-head);font-weight:700}
     .metrics-table td{padding:11px 16px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
@@ -62,7 +70,7 @@
     .faq-q{padding:18px 22px;font-weight:600;font-size:15px;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
     .faq-q:hover{background:var(--bg3)}
     .faq-icon{color:var(--text3);font-size:18px;flex-shrink:0;transition:transform .25s}
-    .faq-a{display:none;padding:0 22px 18px;font-size:14px;color:var(--text2);line-height:1.7}
+    .faq-a{display:none;padding:12px 22px 22px;font-size:14px;color:var(--text2);line-height:1.7}
     .faq-item.open .faq-a{display:block}
     .faq-item.open .faq-icon{transform:rotate(180deg)}
     .article-cta{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:36px 40px;text-align:center}
@@ -93,18 +101,28 @@
   <div class="breadcrumb"><a href="/">Главная</a><span>/</span><a href="/blog/">Блог</a><span>/</span><span>Как снизить CPQL в B2B</span></div>
   <div class="article-label">B2B · Performance Marketing</div>
   <h1 class="article-h1">Как снизить CPQL в B2B рекламе без уменьшения рекламного бюджета</h1>
-  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>8 мин</span><span class="dot">·</span><span>Обновлено: май 2026</span></div>
+  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>4 мин</span><span class="dot">·</span><span>Написано: май 2026</span></div>
 </div></section>
 <div class="article-body"><div class="article-wrap">
   <p>В B2B-рекламе часто складывается такая картина: бюджет есть, заявки идут, стоимость лида кажется нормальной — но до продаж доходит слишком мало обращений.</p>
   <p>Проблема обычно в том, что большинство заявок не подходят бизнесу — по масштабу компании, задаче, бюджету клиента, региону или готовности к покупке.</p>
   <p>В этой статье разберу, что такое CPQL, чем он отличается от CPL и как снижать стоимость квалифицированного лида без урезания бюджета.</p>
-  <h2>Что такое CPQL и чем он отличается от CPL</h2>
+  <nav class="toc-box" aria-label="Оглавление статьи">
+    <div class="toc-title">Навигация по статье</div>
+    <ul>
+      <li><a href="#cpql-vs-cpl">Что такое CPQL и чем он отличается от CPL</a></li>
+      <li><a href="#reasons">Причины высокого CPQL</a></li>
+      <li><a href="#how-to-lower">Как снизить CPQL без сокращения бюджета</a></li>
+      <li><a href="#metrics">Какие метрики смотреть вместе с CPQL</a></li>
+      <li><a href="#faq">Частые вопросы</a></li>
+    </ul>
+  </nav>
+  <h2 id="cpql-vs-cpl">Что такое CPQL и чем он отличается от CPL</h2>
   <p><strong>CPL (Cost Per Lead)</strong> — стоимость любой заявки: форма, звонок, сообщение.</p>
   <p><strong>CPQL (Cost Per Qualified Lead)</strong> — стоимость обращения, которое подходит бизнесу по ключевым критериям: тип клиента, регион, бюджет, задача, срок.</p>
   <ul><li>CPL = расходы / все заявки</li><li>CPQL = расходы / квалифицированные лиды</li></ul>
   <p><strong>Пример.</strong> Кампания потратила 200 000 руб. и принесла 100 заявок — CPL 2 000 руб. Но только 10 прошли квалификацию. CPQL — уже 20 000 руб.</p>
-  <h2>6 реальных причин высокого CPQL</h2>
+  <h2 id="reasons">6 реальных причин высокого CPQL</h2>
   <ul>
     <li><strong>Кампании оптимизируются только на факт заявки.</strong> Система ищет тех, кто чаще оставляет формы — не тех, кто покупает.</li>
     <li><strong>В одной кампании смешаны разные сегменты.</strong> Крупный оптовик и ИП попадают в одну аудиторию.</li>
@@ -113,7 +131,7 @@
     <li><strong>В CRM нет структуры.</strong> Нет статусов, причин отказов — непонятно, где воронка ломается.</li>
     <li><strong>Рекламные системы не получают обратную связь.</strong> Google Ads и Директ не знают, какие заявки стали сделками.</li>
   </ul>
-  <h2>5 способов снизить CPQL без сокращения бюджета</h2>
+  <h2 id="how-to-lower">5 способов снизить CPQL без сокращения бюджета</h2>
   <h3>1. Фильтруйте аудиторию уже в объявлении</h3>
   <p>Укажите тип клиента, формат работы, ориентир по условиям. Да, CTR может упасть — но доля целевых обращений вырастет.</p>
   <h3>2. Превратите посадочную страницу в фильтр</h3>
@@ -131,24 +149,24 @@
   <p>На реальном EdTech-проекте я отдельно разобрал, что происходит, когда <a href="/blog/google-ads-offline-conversions-qualified-leads/">qualified leads не доходят до Google Ads</a> и алгоритм обучается на неполных данных.</p>
   <h3>5. Анализируйте кампании по CPQL, а не только по CPL</h3>
   <p>Ищите кампании с наименьшим CPQL — и масштабируйте их.</p>
-  <h2>Какие метрики смотреть вместе с CPQL</h2>
+  <h2 id="metrics">Какие метрики смотреть вместе с CPQL</h2>
   <table class="metrics-table">
     <thead><tr><th>Метрика</th><th>Что показывает</th></tr></thead>
     <tbody>
       <tr><td>CR</td><td>Конверсия из клика в заявку</td></tr>
       <tr><td>CPL</td><td>Стоимость любой заявки</td></tr>
-      <tr><td>CR2</td><td>Конверсия из заявки в Qualified Lead</td></tr>
+      <tr><td>CR L-QL</td><td>Конверсия из заявки в Qualified Lead</td></tr>
       <tr class="highlight"><td>CPQL</td><td>Стоимость квалифицированного лида</td></tr>
       <tr><td>CAC</td><td>Стоимость привлечения клиента</td></tr>
       <tr><td>ROAS / ROI</td><td>Отдача от рекламных расходов</td></tr>
     </tbody>
   </table>
-  <h2>Частые вопросы</h2>
+  <h2 id="faq">Частые вопросы</h2>
   <div class="faq-list">
-    <div class="faq-item"><div class="faq-q">Почему нельзя просто снизить бюджет, если CPQL высокий?<span class="faq-icon">⌃</span></div><div class="faq-a">Снижение бюджета уменьшит данные, но не исправит причину.</div></div>
-    <div class="faq-item"><div class="faq-q">Может ли высокий CPL быть нормальным?<span class="faq-icon">⌃</span></div><div class="faq-a">Да. Дорогая кампания с качественными заявками может быть выгоднее дешёвой со слабыми лидами.</div></div>
-    <div class="faq-item"><div class="faq-q">Что делать, если заявок много, но продаж мало?<span class="faq-icon">⌃</span></div><div class="faq-a">Пройдите по цепочке: запросы, объявления, посадочная, форма, CRM, квалификация, работа менеджера.</div></div>
-    <div class="faq-item"><div class="faq-q">Зачем передавать Qualified Lead в рекламные системы?<span class="faq-icon">⌃</span></div><div class="faq-a">Чтобы система оптимизировалась на покупателей, а не на тех, кто заполняет формы.</div></div>
+    <div class="faq-item"><div class="faq-q">Почему нельзя просто снизить бюджет, если CPQL высокий?<span class="faq-icon">⌃</span></div><div class="faq-a">Если просто урезать бюджет, данных и заявок станет меньше, но причина слабого качества не исчезнет. Сначала нужно понять, где ломается цепочка: трафик, объявление, посадочная, форма, CRM или обработка менеджером.</div></div>
+    <div class="faq-item"><div class="faq-q">Может ли высокий CPL быть нормальным?<span class="faq-icon">⌃</span></div><div class="faq-a">Да. Кампания с более дорогим CPL может быть выгоднее, чем кампания с дешёвыми, но слабыми заявками. В B2B лучше смотреть не только на CPL, а на CPQL, CAC и качество лидов после обработки.</div></div>
+    <div class="faq-item"><div class="faq-q">Что делать, если заявок много, но продаж мало?<span class="faq-icon">⌃</span></div><div class="faq-a">Пройдитесь по цепочке вашего клиента: запросы и объявления в рекламном кабинете, посадочная и форма на сайте, CRM и квалификация лидов, а также работа менеджера после заявки.</div></div>
+    <div class="faq-item"><div class="faq-q">Зачем передавать Qualified Lead в рекламные системы?<span class="faq-icon">⌃</span></div><div class="faq-a">Чтобы алгоритмы видели не просто отправку формы, а лиды, которые прошли квалификацию. Так Google Ads и Яндекс Директ получают сигнал о качестве и могут искать аудиторию ближе к продажам.</div></div>
   </div>
   <hr>
   <h2>Итог</h2>
@@ -162,13 +180,13 @@
   </div>
   <div class="author-block">
     <div class="author-avatar"><img src="/assets/main-photo.webp" alt="Алексей Смирнов"></div>
-    <div><div class="author-name">Алексей Смирнов</div><div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div><div style="font-size:11px;color:var(--text3);margin-top:2px">Обновлено: май 2026</div></div>
+    <div><div class="author-name">Алексей Смирнов</div><div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div><div style="font-size:11px;color:var(--text3);margin-top:2px">Написано: май 2026</div></div>
   </div>
   <div class="related-articles">
     <div class="related-title">Читайте также</div>
     <div class="related-grid">
-      <a href="/blog/struktura-google-ads-2026/" class="related-card"><div class="related-card-label">Google Ads · 12 мин</div><div class="related-card-title">Структура рекламного кабинета Google Ads в 2026 году</div><div class="related-card-desc">Как выстроить кампании, конверсии и UTM так, чтобы алгоритмы работали на продажи</div><div class="related-card-arrow">Читать →</div></a>
-      <a href="/blog/google-ads-offline-conversions-qualified-leads/" class="related-card"><div class="related-card-label">Google Ads · Аналитика · 10 мин</div><div class="related-card-title">60% квал-лидов не доходили до Google Ads</div><div class="related-card-desc">Как неполная передача офлайн-конверсий мешала алгоритмам обучаться на качественных лидах</div><div class="related-card-arrow">Читать →</div></a>
+      <a href="/blog/struktura-google-ads-2026/" class="related-card"><div class="related-card-label">Google Ads · 5 мин</div><div class="related-card-title">Структура рекламного кабинета Google Ads в 2026 году</div><div class="related-card-desc">Как выстроить кампании, конверсии и UTM так, чтобы алгоритмы работали на продажи</div><div class="related-card-arrow">Читать →</div></a>
+      <a href="/blog/google-ads-offline-conversions-qualified-leads/" class="related-card"><div class="related-card-label">Google Ads · Аналитика · 6 мин</div><div class="related-card-title">60% квал-лидов не доходили до Google Ads</div><div class="related-card-desc">Как неполная передача офлайн-конверсий мешала алгоритмам обучаться на качественных лидах</div><div class="related-card-arrow">Читать →</div></a>
     </div>
   </div>
 </div></div>

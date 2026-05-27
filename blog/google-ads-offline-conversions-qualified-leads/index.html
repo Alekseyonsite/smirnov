@@ -17,10 +17,12 @@
   <meta property="og:site_name" content="Алексей Смирнов">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="60% квал-лидов не доходили до Google Ads">
+  <meta name="twitter:description" content="Как неполная передача офлайн-конверсий из CRM мешала Google Ads обучаться на качественных лидах.">
   <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
   <meta name="yandex-verification" content="f1b575072174a3b3">
   <meta name="google-site-verification" content="cYqr91bMn7kr260ZDbcJe7HD0S0cE_o9p9uo0VcRDNs">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"60% квал-лидов не доходили до Google Ads: как мы нашли проблему в офлайн-конверсиях","description":"Разбор настройки офлайн-конверсий Google Ads: почему qualified leads из CRM не попадали в рекламный кабинет, как мы нашли проблему в n8n, CRM и GA4 и что изменилось после исправления.","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"datePublished":"2026-05-23","dateModified":"2026-05-23","url":"https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/","mainEntityOfPage":"https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/","image":"https://smirnovads.com/assets/img/og-home.png","inLanguage":"ru"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"60% квал-лидов не доходили до Google Ads: как мы нашли проблему в офлайн-конверсиях","description":"Разбор настройки офлайн-конверсий Google Ads: почему qualified leads из CRM не попадали в рекламный кабинет, как мы нашли проблему в n8n, CRM и GA4 и что изменилось после исправления.","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"datePublished":"2026-05-23","dateModified":"2026-05-27","url":"https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/","mainEntityOfPage":"https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/","image":"https://smirnovads.com/assets/img/og-home.png","inLanguage":"ru"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что такое офлайн-конверсии в Google Ads?","acceptedAnswer":{"@type":"Answer","text":"Это когда Google Ads получает информацию не только о заявке на сайте, но и о том, что произошло с заявкой дальше в CRM: стала ли она качественным лидом, дошла ли до счёта, договора или покупки."}},{"@type":"Question","name":"Почему qualified leads могут не доходить до Google Ads?","acceptedAnswer":{"@type":"Answer","text":"Чаще всего проблема в CRM-статусах, пропущенных этапах, ошибках в коннекторах вроде n8n или в том, что в рекламный кабинет передаётся только часть воронки. Поэтому данные из CRM нужно регулярно сверять с конверсиями в Google Ads."}},{"@type":"Question","name":"Зачем передавать qualified lead, target lead и sale отдельно?","acceptedAnswer":{"@type":"Answer","text":"Разные события показывают алгоритму разное качество. Первичная заявка помогает собрать объём, qualified lead показывает пригодность обращения, target lead и sale приближают оптимизацию к реальным деньгам."}},{"@type":"Question","name":"Нужно ли передавать ценность конверсии?","acceptedAnswer":{"@type":"Answer","text":"Да, если бизнес может считать ценность лида или продажи стабильно и без догадок. Это помогает алгоритмам отличать более ценные конверсии от менее ценных."}}]}</script>
   <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108992580,"init",{clickmap:true,trackLinks:true,accurateTrackBounceRate:true,webvisor:true});</script>
   <noscript><div><img src="https://mc.yandex.ru/watch/108992580" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
   <link rel="stylesheet" href="/assets/css/main.css">
@@ -62,6 +64,15 @@
     .case-inline a:not(.btn){font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
     .note-box{background:var(--accent-bg);border:1px solid rgba(240,165,0,.2);border-radius:var(--radius-lg);padding:20px 24px;margin:28px 0}
     .note-box p{color:var(--text);font-size:15px;margin:0}
+    .toc-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin:32px 0}
+    .toc-title{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .toc-box ul{margin-bottom:0}
+    .toc-box a{color:var(--text2);text-decoration:none}
+    .toc-box a:hover{color:var(--accent)}
+    .faq-list{display:flex;flex-direction:column;gap:12px;margin:24px 0}
+    .faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 22px}
+    .faq-q{font-weight:600;font-size:15px;color:var(--text);margin-bottom:12px}
+    .faq-a{font-size:14px;color:var(--text2);line-height:1.7}
     .article-cta{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:36px 40px;text-align:center}
     .article-cta-final{margin-top:56px}
     .article-cta h3{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
@@ -93,7 +104,7 @@
   <div class="breadcrumb"><a href="/">Главная</a><span>/</span><a href="/blog/">Блог</a><span>/</span><span>Офлайн-конверсии Google Ads</span></div>
   <div class="article-label">Google Ads · Аналитика · CRM</div>
   <h1 class="article-h1">60% квал-лидов не доходили до Google Ads: как мы нашли проблему в офлайн-конверсиях</h1>
-  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>10 мин</span><span class="dot">·</span><span>Обновлено: май 2026</span></div>
+  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>6 мин</span><span class="dot">·</span><span>Написано: май 2026</span></div>
 </div></section>
 <div class="article-body"><div class="article-wrap">
   <p>Кампании работали, лиды приходили, отчёты выглядели нормально. Но когда я начал сверять данные CRM и рекламного кабинета, оказалось: больше половины квалифицированных лидов Google Ads просто не видел.</p>
@@ -107,12 +118,24 @@
     <a href="/cases/edtech-germany/">Смотреть короткий кейс →</a>
   </div>
 
-  <h2>Контекст</h2>
+  <nav class="toc-box" aria-label="Оглавление статьи">
+    <div class="toc-title">Навигация по статье</div>
+    <ul>
+      <li><a href="#context">Контекст</a></li>
+      <li><a href="#problem">Где была проблема</a></li>
+      <li><a href="#risk">Почему это опасно</a></li>
+      <li><a href="#setup">Что мы настроили</a></li>
+      <li><a href="#results">Что получилось</a></li>
+      <li><a href="#faq">Частые вопросы</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="context">Контекст</h2>
   <p>Проект - EdTech. Гео - Европа. Лидогенерация через квизы и одностраничники, две отдельные воронки с разными продуктами.</p>
   <p>До моего подключения Google Ads уже запускался, потом кампании остановили примерно на месяц. В аккаунте была накопленная история, события по лидам и qualified leads, частично настроенный n8n для передачи данных из CRM в рекламный кабинет.</p>
   <p>Задача от клиента формулировалась как «снизить CPL и CPQL». За этим стоял более широкий вопрос: реально ли вообще выйти на показатели, сопоставимые с Meta (запрещённая на территории Российской Федерации организация).</p>
 
-  <h2>Где была проблема</h2>
+  <h2 id="problem">Где была проблема</h2>
   <p>Формально офлайн-конверсии уже настроили до меня. Но при сверке выяснилось: около 60% квалифицированных лидов не попадали в Google Ads.</p>
   <p>Проблем оказалось несколько, и все в разных местах.</p>
   <table class="art-table">
@@ -125,13 +148,13 @@
   </table>
   <p>Google Ads обучался не на всех качественных лидах, а только на тех, кто случайно прошёл через нужный этап. Данных для корректного обучения алгоритма, очевидно, не хватало.</p>
 
-  <h2>Почему это опасно</h2>
+  <h2 id="risk">Почему это опасно</h2>
   <p>Алгоритм не знает, что хорошо для вашего бизнеса. Он знает только то, что вы ему передаёте.</p>
   <p>Если передаёте первичные заявки - ищет заявки. Передаёте qualified leads - ориентируется на качество. Передаёте target leads и продажи - оптимизируется ближе к деньгам.</p>
   <p>В этом проекте алгоритм получал сигнал только с двух этапов воронки: входящий лид (1 из 3) и квал-лид (1 из 3). Можно было бесконечно менять структуру кампаний, креативы, ставки, но пока данные неполные, система ищет не тех людей.</p>
   <div class="note-box"><p>Это особенно критично для Performance Max. У него широкий охват: Search, YouTube, Display, Discover, Gmail, Maps. Чем хуже данные, тем выше риск потратить бюджет на нерелевантную аудиторию.</p></div>
 
-  <h2>Что мы настроили</h2>
+  <h2 id="setup">Что мы настроили</h2>
   <p>Я пересобрал логику передачи офлайн-конверсий через CRM и n8n. Задача была не «передать побольше событий», а передать события, которые реально отражают воронку.</p>
   <p>Поскольку в проекте две воронки, события разделили по направлениям и добавили объединённые сигналы - на случай, если данных по отдельной воронке не хватает для обучения.</p>
   <table class="art-table">
@@ -149,7 +172,7 @@
   <p>Помимо передачи, важно ещё правильно настроить события: какие события Primary, какие Secondary в фазах обучения, считать конверсию один раз или каждый раз, где передавать ценность конверсии.</p>
   <p>Если это не проработать, можно собрать технически красивую схему, которая всё равно обучает алгоритмы не на том, что важно бизнесу.</p>
 
-  <h2>Что получилось</h2>
+  <h2 id="results">Что получилось</h2>
   <p>Я начал работу в апреле. Только к началу мая все события пошли корректно: около четырёх недель ушло на то, чтобы разобраться со всеми проблемами и донастроить передачу данных.</p>
   <p>Сравниваю апрель, когда ещё шла донастройка, и май - первый полный месяц после пересборки. Данные на 20 мая:</p>
   <table class="art-table">
@@ -167,7 +190,7 @@
   <p>Детальные абсолютные цифры не раскрываю из-за NDA.</p>
   <p>Честная оговорка: один месяц - это не устойчивый тренд. Работа продолжается, и задача по CPQL ещё не закрыта полностью. Но направление правильное, и главное - кабинет наконец видит реальную воронку.</p>
 
-  <h2>Что проверить у себя</h2>
+  <h2 id="checklist">Что проверить у себя</h2>
   <p>Если у вас Google Ads, CRM и лидогенерация, пройдитесь по этому списку:</p>
   <ul>
     <li>Совпадает ли определение qualified lead в CRM и в Google Ads?</li>
@@ -180,6 +203,14 @@
     <li>Передаётся ли ценность там, где это возможно?</li>
   </ul>
   <p>Если на часть вопросов нет ответа, проблема может быть не в кампаниях, а в данных, на которых они обучаются.</p>
+
+  <h2 id="faq">Частые вопросы</h2>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">Что такое офлайн-конверсии в Google Ads?</div><div class="faq-a">Это когда Google Ads получает информацию не только о заявке на сайте, но и о том, что произошло с заявкой дальше в CRM: стала ли она качественным лидом, дошла ли до счёта, договора или покупки.</div></div>
+    <div class="faq-item"><div class="faq-q">Почему qualified leads могут не доходить до Google Ads?</div><div class="faq-a">Чаще всего проблема в CRM-статусах, пропущенных этапах, ошибках в коннекторах вроде n8n или в том, что в рекламный кабинет передаётся только часть воронки. Поэтому данные из CRM нужно регулярно сверять с конверсиями в Google Ads.</div></div>
+    <div class="faq-item"><div class="faq-q">Зачем передавать qualified lead, target lead и sale отдельно?</div><div class="faq-a">Разные события показывают алгоритму разное качество. Первичная заявка помогает собрать объём, qualified lead показывает пригодность обращения, target lead и sale приближают оптимизацию к реальным деньгам.</div></div>
+    <div class="faq-item"><div class="faq-q">Нужно ли передавать ценность конверсии?</div><div class="faq-a">Да, если бизнес может считать ценность лида или продажи стабильно и без догадок. Это помогает алгоритмам отличать более ценные конверсии от менее ценных.</div></div>
+  </div>
 
   <hr>
   <h2>Итог</h2>
@@ -195,13 +226,13 @@
   </div>
   <div class="author-block">
     <div class="author-avatar"><img src="/assets/main-photo.webp" alt="Алексей Смирнов"></div>
-    <div><div class="author-name">Алексей Смирнов</div><div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div><div class="author-updated">Обновлено: май 2026</div></div>
+    <div><div class="author-name">Алексей Смирнов</div><div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div><div class="author-updated">Написано: май 2026</div></div>
   </div>
   <div class="related-articles">
     <div class="related-title">Читайте также</div>
     <div class="related-grid">
-      <a href="/blog/kak-snizit-cpql-v-b2b/" class="related-card"><div class="related-card-label">B2B · Performance · 8 мин</div><div class="related-card-title">Как снизить CPQL в B2B рекламе без уменьшения бюджета</div><div class="related-card-desc">Разбираю причины высокого CPQL и 5 способов улучшить качество лидов</div><div class="related-card-arrow">Читать →</div></a>
-      <a href="/blog/struktura-google-ads-2026/" class="related-card"><div class="related-card-label">Google Ads · 12 мин</div><div class="related-card-title">Структура рекламного кабинета Google Ads в 2026 году</div><div class="related-card-desc">Как выстроить кампании, конверсии и UTM так, чтобы алгоритмы работали на продажи</div><div class="related-card-arrow">Читать →</div></a>
+      <a href="/blog/kak-snizit-cpql-v-b2b/" class="related-card"><div class="related-card-label">B2B · Performance · 4 мин</div><div class="related-card-title">Как снизить CPQL в B2B рекламе без уменьшения бюджета</div><div class="related-card-desc">Разбираю причины высокого CPQL и 5 способов улучшить качество лидов</div><div class="related-card-arrow">Читать →</div></a>
+      <a href="/blog/struktura-google-ads-2026/" class="related-card"><div class="related-card-label">Google Ads · 5 мин</div><div class="related-card-title">Структура рекламного кабинета Google Ads в 2026 году</div><div class="related-card-desc">Как выстроить кампании, конверсии и UTM так, чтобы алгоритмы работали на продажи</div><div class="related-card-arrow">Читать →</div></a>
     </div>
   </div>
 </div></div>

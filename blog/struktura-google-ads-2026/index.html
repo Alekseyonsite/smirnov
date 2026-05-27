@@ -16,9 +16,13 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Алексей Смирнов">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Структура рекламного кабинета Google Ads в 2026 году">
+  <meta name="twitter:description" content="Кампании, конверсии, Performance Max, UTM-метки и типичные ошибки в структуре Google Ads.">
+  <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
   <meta name="yandex-verification" content="f1b575072174a3b3">
   <meta name="google-site-verification" content="cYqr91bMn7kr260ZDbcJe7HD0S0cE_o9p9uo0VcRDNs">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Структура рекламного кабинета Google Ads в 2026 году","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"dateModified":"2026-05-23","url":"https://smirnovads.com/blog/struktura-google-ads-2026/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Структура рекламного кабинета Google Ads в 2026 году","description":"Разбираю, как должна выглядеть структура Google Ads в 2026 году: кампании, конверсии, Performance Max, UTM-метки и ошибки.","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"datePublished":"2026-05-23","dateModified":"2026-05-27","url":"https://smirnovads.com/blog/struktura-google-ads-2026/","mainEntityOfPage":"https://smirnovads.com/blog/struktura-google-ads-2026/","image":"https://smirnovads.com/assets/img/og-home.png","inLanguage":"ru"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что такое структура рекламного кабинета Google Ads?","acceptedAnswer":{"@type":"Answer","text":"Это логика, по которой в аккаунте организованы кампании, группы объявлений, ключевые слова, объявления, бюджеты, конверсии и посадочные страницы. Хорошая структура помогает понимать, что именно тратит бюджет и на каких сигналах обучаются алгоритмы."}},{"@type":"Question","name":"Что лучше запускать на старте: Search или Performance Max?","acceptedAnswer":{"@type":"Answer","text":"Search лучше работает с горячим спросом, когда человек уже ищет продукт или услугу. Performance Max может дать больший охват за счёт инвентаря Google: Search, YouTube, Display, Discover, Gmail и Maps. При этом качество нужно проверять по qualified leads и продажам, а не только по CPL."}},{"@type":"Question","name":"Что такое Primary и Secondary конверсии в Google Ads?","acceptedAnswer":{"@type":"Answer","text":"Primary conversions участвуют в оптимизации и попадают в колонку Conversions. Secondary conversions нужны для наблюдения и анализа. Если сделать слишком лёгкие действия Primary, Smart Bidding может обучаться на слабых сигналах."}},{"@type":"Question","name":"Зачем нужны UTM-метки в структуре Google Ads?","acceptedAnswer":{"@type":"Answer","text":"UTM-метки помогают связать кампании, группы, ключевые слова и объявления с лидами, qualified leads и продажами в аналитике или CRM. Без них сложнее понять, какая часть структуры реально приносит результат."}}]}</script>
   <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108992580,"init",{clickmap:true,trackLinks:true,accurateTrackBounceRate:true,webvisor:true});</script>
   <noscript><div><img src="https://mc.yandex.ru/watch/108992580" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
   <link rel="stylesheet" href="/assets/css/main.css">
@@ -44,6 +48,11 @@
     .article-body ul li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
     .article-body a:not(.btn):not(.related-card){color:var(--accent);text-decoration:underline;text-underline-offset:3px}
     .article-body hr{border:none;border-top:1px solid var(--border);margin:48px 0}
+    .toc-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin:32px 0}
+    .toc-title{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .toc-box ul{margin-bottom:0}
+    .toc-box a{color:var(--text2);text-decoration:none}
+    .toc-box a:hover{color:var(--accent)}
     .article-body code{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 7px;font-size:13px;color:var(--text);font-family:monospace}
     .article-body pre{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;overflow-x:auto;margin:20px 0}
     .article-body pre code{background:none;border:none;padding:0;font-size:13px;color:var(--text2)}
@@ -68,7 +77,7 @@
     .faq-q{padding:18px 22px;font-weight:600;font-size:15px;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
     .faq-q:hover{background:var(--bg3)}
     .faq-icon{color:var(--text3);font-size:18px;flex-shrink:0;transition:transform .25s}
-    .faq-a{display:none;padding:0 22px 18px;font-size:14px;color:var(--text2);line-height:1.7}
+    .faq-a{display:none;padding:12px 22px 22px;font-size:14px;color:var(--text2);line-height:1.7}
     .faq-item.open .faq-a{display:block}
     .faq-item.open .faq-icon{transform:rotate(180deg)}
     .article-cta{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:36px 40px;text-align:center}
@@ -99,19 +108,30 @@
   <div class="breadcrumb"><a href="/">Главная</a><span>/</span><a href="/blog/">Блог</a><span>/</span><span>Структура Google Ads 2026</span></div>
   <div class="article-label">Google Ads · Performance Marketing</div>
   <h1 class="article-h1">Структура рекламного кабинета Google Ads в 2026 году: как навести порядок в кампаниях</h1>
-  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>12 мин</span><span class="dot">·</span><span>Обновлено: май 2026</span></div>
+  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>5 мин</span><span class="dot">·</span><span>Написано: май 2026</span></div>
 </div></section>
 <div class="article-body"><div class="article-wrap">
   <p>Когда контекстная реклама Google Ads тратит бюджет, а заявок мало — проблема часто в том, что структура рекламного кабинета собрана хаотично: кампании дублируют друг друга, конверсии настроены неправильно, а алгоритмы обучаются не на тех действиях.</p>
   <p>В этой статье разберу, как должна выглядеть структура Google Ads в 2026 году: какие кампании запускать на старте, как работать с поисковой рекламой и Performance Max, зачем разделять Primary и Secondary конверсии и как настроить UTM-аналитику.</p>
-  <h2>Что такое структура рекламного кабинета Google Ads</h2>
+  <nav class="toc-box" aria-label="Оглавление статьи">
+    <div class="toc-title">Навигация по статье</div>
+    <ul>
+      <li><a href="#account-structure">Что такое структура рекламного кабинета Google Ads</a></li>
+      <li><a href="#checklist">Нормальная структура Google Ads: чек-лист</a></li>
+      <li><a href="#search-pmax">Search или Performance Max</a></li>
+      <li><a href="#conversions">Конверсии Google Ads: Primary и Secondary</a></li>
+      <li><a href="#utm">UTM-метки и аналитика</a></li>
+      <li><a href="#faq">Частые вопросы</a></li>
+    </ul>
+  </nav>
+  <h2 id="account-structure">Что такое структура рекламного кабинета Google Ads</h2>
   <p>Структура — это логика, по которой в аккаунте организованы кампании, группы объявлений, ключевые слова, объявления, бюджеты и посадочные страницы.</p>
   <ul>
     <li><strong>Аккаунт Google Ads</strong> — доступы, платёжные данные, общие настройки</li>
     <li><strong>Кампания</strong> — бюджет, гео, язык, тип, стратегия ставок</li>
     <li><strong>Группа объявлений</strong> — тематика запросов, объявления и посадочная</li>
   </ul>
-  <h2>Нормальная структура Google Ads: чек-лист</h2>
+  <h2 id="checklist">Нормальная структура Google Ads: чек-лист</h2>
   <ul>
     <li>У каждой кампании есть понятная цель: заявки, продажи, тест, ремаркетинг</li>
     <li>В названии кампании видно: площадку, тип, направление, посадочную и цель оптимизации</li>
@@ -141,10 +161,10 @@
     <div class="case-inline-conclusion"><strong>Вывод:</strong> когда Google Ads видит только отправку формы — система оптимизируется не на тех людей.</div>
     <a href="/cases/edtech-germany/">Читать полный кейс →</a>
   </div>
-  <h2>Search или Performance Max: что запускать на старте</h2>
+  <h2 id="search-pmax">Search или Performance Max: что запускать на старте</h2>
   <p><strong>Search</strong> работает со сформированным спросом. Намерение понятное, стоимость лида может быть выше.</p>
   <p><strong>Performance Max</strong> использует весь инвентарь Google и оптимизируется через Smart Bidding. Может давать больше лидов при более низком CPL, но качество нужно проверять по qualified leads и продажам.</p>
-  <h2>Конверсии Google Ads: Primary и Secondary</h2>
+  <h2 id="conversions">Конверсии Google Ads: Primary и Secondary</h2>
   <p><strong>Primary conversions</strong> — на них обучается Smart Bidding. Попадают в колонку «Conversions».</p>
   <p><strong>Secondary conversions</strong> — для анализа. Видны в «All Conversions», обучением не управляют.</p>
   <table class="art-table">
@@ -155,10 +175,10 @@
       <tr class="hl"><td>Target Lead / Sale</td><td>Primary, если достаточно данных</td></tr>
     </tbody>
   </table>
-  <h2>UTM-метки и аналитика</h2>
+  <h2 id="utm">UTM-метки и аналитика</h2>
   <p>UTM-метки передают в аналитику данные об источнике, кампании и ключевом слове. Без них невозможно понять, какая кампания привела конкретного клиента.</p>
   <p>Пример шаблона отслеживания:</p>
-  <pre><code>{lpurl}?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=Название_кампании&amp;utm_content=cid|{campaignid}|gid|{adgroupid}|dvc|{device}|mt|{matchtype}&amp;utm_term={keyword}</code></pre>
+  <pre><code>{lpurl}?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign={campaign}&amp;utm_content=cid|{campaignid}|gid|{adgroupid}|dvc|{device}|mt|{matchtype}|src|{placement}&amp;utm_term={keyword}</code></pre>
   <h2>Типичные ошибки в структуре Google Ads</h2>
   <ul>
     <li>Одна кампания на все услуги, регионы и аудитории</li>
@@ -167,12 +187,12 @@
     <li>Кампании обучаются на слабые события: клики, просмотры</li>
     <li>Нет UTM-разметки и связки с аналитикой</li>
   </ul>
-  <h2>Частые вопросы</h2>
+  <h2 id="faq">Частые вопросы</h2>
   <div class="faq-list">
-    <div class="faq-item"><div class="faq-q">Что такое структура рекламного кабинета Google Ads?<span class="faq-icon">⌃</span></div><div class="faq-a">Логика, по которой в аккаунте организованы кампании, группы объявлений, ключевые слова, объявления, бюджеты и посадочные страницы.</div></div>
-    <div class="faq-item"><div class="faq-q">Что лучше: Search или Performance Max?<span class="faq-icon">⌃</span></div><div class="faq-a">Зависит от задачи. Search лучше показывает горячий спрос. PMax может давать больше лидов и ниже CPL, но качество нужно проверять по qualified leads.</div></div>
-    <div class="faq-item"><div class="faq-q">Что такое Primary и Secondary конверсии?<span class="faq-icon">⌃</span></div><div class="faq-a">Primary — на них обучается Smart Bidding. Secondary — для наблюдения, обучением не управляют.</div></div>
-    <div class="faq-item"><div class="faq-q">Зачем нужны UTM-метки?<span class="faq-icon">⌃</span></div><div class="faq-a">Передают в аналитику данные об источнике, кампании и ключевом слове. Без них невозможно понять, какая кампания привела конкретного клиента.</div></div>
+    <div class="faq-item"><div class="faq-q">Что такое структура рекламного кабинета Google Ads?<span class="faq-icon">⌃</span></div><div class="faq-a">Это логика, по которой в аккаунте организованы кампании, группы объявлений, ключевые слова, объявления, бюджеты, конверсии и посадочные страницы. Хорошая структура помогает понимать, что именно тратит бюджет и на каких сигналах обучаются алгоритмы.</div></div>
+    <div class="faq-item"><div class="faq-q">Что лучше: Search или Performance Max?<span class="faq-icon">⌃</span></div><div class="faq-a">Search лучше работает с горячим спросом, когда человек уже ищет продукт или услугу. PMax может дать больший охват за счёт инвентаря Google: Search, YouTube, Display, Discover, Gmail и Maps. При этом качество нужно проверять по qualified leads и продажам, а не только по CPL.</div></div>
+    <div class="faq-item"><div class="faq-q">Что такое Primary и Secondary конверсии?<span class="faq-icon">⌃</span></div><div class="faq-a">Primary — участвуют в оптимизации и попадают в колонку Conversions. Secondary нужны для наблюдения и анализа. Если сделать слишком лёгкие действия Primary, Smart Bidding может обучаться на слабых сигналах.</div></div>
+    <div class="faq-item"><div class="faq-q">Зачем нужны UTM-метки?<span class="faq-icon">⌃</span></div><div class="faq-a">UTM-метки помогают связать кампании, группы, ключевые слова и объявления с лидами, qualified leads и продажами в аналитике или CRM. Без них сложнее понять, какая часть структуры реально приносит результат.</div></div>
   </div>
   <hr>
   <h2>Итог</h2>
@@ -187,13 +207,13 @@
   </div>
   <div class="author-block">
     <div class="author-avatar"><img src="/assets/main-photo.webp" alt="Алексей Смирнов"></div>
-    <div><div class="author-name">Алексей Смирнов</div><div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div><div style="font-size:11px;color:var(--text3);margin-top:2px">Обновлено: май 2026</div></div>
+    <div><div class="author-name">Алексей Смирнов</div><div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div><div style="font-size:11px;color:var(--text3);margin-top:2px">Написано: май 2026</div></div>
   </div>
   <div class="related-articles">
     <div class="related-title">Читайте также</div>
     <div class="related-grid">
-      <a href="/blog/kak-snizit-cpql-v-b2b/" class="related-card"><div class="related-card-label">B2B · Performance · 8 мин</div><div class="related-card-title">Как снизить CPQL в B2B рекламе без уменьшения бюджета</div><div class="related-card-desc">Разбираю причины высокого CPQL и 5 способов улучшить качество лидов</div><div class="related-card-arrow">Читать →</div></a>
-      <a href="/blog/google-ads-offline-conversions-qualified-leads/" class="related-card"><div class="related-card-label">Google Ads · Аналитика · 10 мин</div><div class="related-card-title">60% квал-лидов не доходили до Google Ads</div><div class="related-card-desc">Как неполная передача офлайн-конверсий мешала алгоритмам обучаться на качественных лидах</div><div class="related-card-arrow">Читать →</div></a>
+      <a href="/blog/kak-snizit-cpql-v-b2b/" class="related-card"><div class="related-card-label">B2B · Performance · 4 мин</div><div class="related-card-title">Как снизить CPQL в B2B рекламе без уменьшения бюджета</div><div class="related-card-desc">Разбираю причины высокого CPQL и 5 способов улучшить качество лидов</div><div class="related-card-arrow">Читать →</div></a>
+      <a href="/blog/google-ads-offline-conversions-qualified-leads/" class="related-card"><div class="related-card-label">Google Ads · Аналитика · 6 мин</div><div class="related-card-title">60% квал-лидов не доходили до Google Ads</div><div class="related-card-desc">Как неполная передача офлайн-конверсий мешала алгоритмам обучаться на качественных лидах</div><div class="related-card-arrow">Читать →</div></a>
     </div>
   </div>
 </div></div>
