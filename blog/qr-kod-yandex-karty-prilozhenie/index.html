@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR-код на Яндекс.Карты: как сразу открыть приложение</title>
+  <meta name="description" content="Пошаговая инструкция: как сделать QR-код на карточку организации в Яндекс.Картах, чтобы он открывал приложение, а при его отсутствии вел в браузер.">
+  <meta name="author" content="Алексей Смирнов">
+  <link rel="canonical" href="https://smirnovads.com/blog/qr-kod-yandex-karty-prilozhenie/">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://smirnovads.com/blog/qr-kod-yandex-karty-prilozhenie/">
+  <meta property="og:title" content="QR-код на Яндекс.Карты: как сразу открыть приложение">
+  <meta property="og:description" content="Как сделать QR-код на карточку организации в Яндекс.Картах с открытием приложения и fallback-ссылкой в браузер.">
+  <meta property="og:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Алексей Смирнов">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="QR-код на Яндекс.Карты: как сразу открыть приложение">
+  <meta name="twitter:description" content="Инструкция для QR-кода, который открывает карточку организации в приложении Яндекс.Карты.">
+  <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta name="yandex-verification" content="f1b575072174a3b3">
+  <meta name="google-site-verification" content="cYqr91bMn7kr260ZDbcJe7HD0S0cE_o9p9uo0VcRDNs">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"QR-код на Яндекс.Карты, который сразу открывает приложение: пошаговая инструкция","description":"Пошаговая инструкция: как сделать QR-код на карточку организации в Яндекс.Картах, чтобы он открывал приложение, а при его отсутствии вел в браузер.","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"datePublished":"2026-06-01","dateModified":"2026-06-01","url":"https://smirnovads.com/blog/qr-kod-yandex-karty-prilozhenie/","mainEntityOfPage":"https://smirnovads.com/blog/qr-kod-yandex-karty-prilozhenie/","image":"https://smirnovads.com/assets/img/og-home.png","inLanguage":"ru"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Почему обычный QR-код на Яндекс.Карты открывает браузер?","acceptedAnswer":{"@type":"Answer","text":"Потому что стандартная ссылка на карточку организации воспринимается телефоном как обычная веб-страница. Для запуска приложения нужен deep link."}},{"@type":"Question","name":"Что делать, если у пользователя нет приложения Яндекс.Карты?","acceptedAnswer":{"@type":"Answer","text":"Нужно использовать промежуточную страницу: она пробует открыть приложение, а через короткую задержку переводит пользователя на обычную веб-ссылку."}},{"@type":"Question","name":"Куда добавлять UTM-метки для такого QR-кода?","acceptedAnswer":{"@type":"Answer","text":"UTM-метки нужно добавлять не к адресу redirect.html, а внутрь кода redirect-страницы — к переменной webUrl. Иначе метки потеряются при редиректе."}}]}</script>
+  <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108992580,"init",{clickmap:true,trackLinks:true,accurateTrackBounceRate:true,webvisor:true});</script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108992580" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <style>
+    :root{--bg:#0e0d0d;--bg2:#161515;--bg3:#1e1d1d;--bg4:#252424;--text:#ede9e3;--text2:#a09890;--text3:#6b6560;--accent:#f0a500;--accent2:#d99400;--accent-bg:rgba(240,165,0,.10);--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--radius:10px;--radius-lg:16px;--font-head:'Unbounded',sans-serif;--font-body:'Manrope',sans-serif;--nav-h:64px;--max-w:1100px;--col:48px}
+    html,body{overflow-x:hidden}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;padding:10px 18px;font-family:var(--font-body);font-size:13px;font-weight:800;line-height:1.2;text-decoration:none;cursor:pointer;transition:background .18s,transform .18s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-lg{padding:12px 22px;font-size:14px}
+    .btn-primary{background:var(--accent);color:#0e0d0d !important;text-decoration:none !important}.btn-primary:hover{background:var(--accent2);color:#0e0d0d !important}
+    .article-wrap{max-width:780px;margin:0 auto;padding:0 var(--col)}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text3);margin-bottom:24px;flex-wrap:wrap}
+    .breadcrumb a{color:var(--text3);transition:color .18s}.breadcrumb a:hover{color:var(--text)}
+    .article-hero{padding-top:calc(var(--nav-h) + 56px);padding-bottom:40px}
+    .article-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+    .article-h1{font-family:var(--font-head);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:20px}
+    .article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text3)}
+    .article-meta .dot{color:var(--border2)}
+    .article-body{font-size:16px;line-height:1.8;padding-bottom:0}
+    .article-body h2{font-family:var(--font-head);font-size:clamp(18px,2.2vw,24px);font-weight:700;color:var(--text);margin:52px 0 16px;line-height:1.25}
+    .article-body h3{font-family:var(--font-head);font-size:17px;font-weight:600;color:var(--text);margin:34px 0 12px}
+    .article-body p{color:var(--text2);margin-bottom:20px}
+    .article-body strong{color:var(--text);font-weight:600}
+    .article-body ul{padding-left:0;margin-bottom:20px;list-style:none}
+    .article-body ul li{color:var(--text2);padding:4px 0 4px 20px;position:relative;line-height:1.65}
+    .article-body ul li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .article-body a:not(.btn):not(.related-card){color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+    .article-body code{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 6px;color:var(--text);font-size:.93em}
+    .article-body pre{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;overflow-x:auto;margin:22px 0 24px;color:var(--text2);font-size:13px;line-height:1.55}
+    .article-body pre code{background:none;border:none;border-radius:0;padding:0;color:var(--text2);font-size:13px}
+    .article-body pre code .code-note{color:var(--accent);font-weight:700}
+    .code-frame{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin:24px auto;max-width:720px}
+    .code-frame-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px 10px 16px;background:rgba(255,255,255,.035);border-bottom:1px solid var(--border)}
+    .code-frame-title{font-size:11px;font-weight:800;font-family:var(--font-head);letter-spacing:.09em;text-transform:uppercase;color:var(--text3)}
+    .code-copy{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(240,165,0,.35);border-radius:8px;background:var(--accent-bg);color:var(--accent);font-family:var(--font-body);font-size:12px;font-weight:800;line-height:1;padding:8px 11px;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+    .code-copy:hover{background:var(--accent);border-color:var(--accent);color:#0e0d0d}
+    .code-frame pre{border:0;border-radius:0;margin:0;background:var(--bg3);padding:20px 24px}
+    .article-body hr{border:none;border-top:1px solid var(--border);margin:48px 0}
+    .toc-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin:32px 0}
+    .toc-title{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .toc-box ul{margin-bottom:0}
+    .toc-box a{color:var(--text2);text-decoration:none}
+    .toc-box a:hover{color:var(--accent)}
+    .note-box{background:var(--accent-bg);border:1px solid rgba(240,165,0,.2);border-radius:var(--radius-lg);padding:20px 24px;margin:28px 0}
+    .note-box p{color:var(--text);font-size:15px;margin:0}
+    .step-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin:20px 0}
+    .step-card h2,.step-card h3{margin-top:0}
+    .article-body h2.tight-top{margin-top:32px}
+    .faq-list{display:flex;flex-direction:column;gap:12px;margin:24px 0}
+    .faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 22px}
+    .faq-q{font-weight:600;font-size:15px;color:var(--text);margin-bottom:12px}
+    .faq-a{font-size:14px;color:var(--text2);line-height:1.7}
+    .article-cta{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:36px 40px;text-align:center}
+    .article-cta-final{margin-top:56px}
+    .article-cta h3{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .article-cta p{font-size:15px;color:var(--text2);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+    .btn-cta-contrast{color:#0e0d0d !important}
+    .author-block{display:flex;align-items:center;gap:18px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-top:48px}
+    .author-avatar{width:52px;height:52px;border-radius:50%;background:var(--bg4);border:1px solid var(--border2);flex-shrink:0;overflow:hidden}
+    .author-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+    .author-name{font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px}
+    .author-role{font-size:12px;color:var(--text3)}
+    .author-updated{font-size:11px;color:var(--text3);margin-top:2px}
+    .related-articles{border-top:1px solid var(--border);padding-top:40px;margin-top:56px;padding-bottom:80px}
+    .related-title{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--text);margin-bottom:20px}
+    .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;text-decoration:none !important;display:flex;flex-direction:column;gap:8px;transition:border-color .18s}
+    .related-card:hover{border-color:var(--border2)}
+    .related-card-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}
+    .related-card-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.4}
+    .related-card-desc{font-size:12px;color:var(--text2);line-height:1.5}
+    .related-card-arrow{font-size:12px;font-weight:700;color:var(--accent);margin-top:auto}
+    @media(max-width:900px){:root{--col:24px}}
+    @media(max-width:600px){:root{--col:16px}.article-cta{padding:24px 20px}.step-card{padding:18px 20px}.related-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<script src="../../assets/js/nav.js"></script>
+<main>
+<section class="article-hero"><div class="article-wrap">
+  <div class="breadcrumb"><a href="../../">Главная</a><span>/</span><a href="../">Блог</a><span>/</span><span>QR-код на Яндекс.Карты</span></div>
+  <div class="article-label">Яндекс.Карты · Офлайн-реклама · QR-коды</div>
+  <h1 class="article-h1">QR-код на Яндекс.Карты, который сразу открывает приложение: пошаговая инструкция</h1>
+  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>5 мин</span><span class="dot">·</span><span>Написано: июнь 2026</span></div>
+</div></section>
+<div class="article-body"><div class="article-wrap">
+  <p>Представьте: человек сканирует QR-код, но вместо карточки компании в приложении попадает в браузер. Дальше начинаются лишние шаги: загрузка страницы, поиск кнопки, переход в приложение вручную.</p>
+  <p>Это происходит потому, что обычная ссылка на Яндекс.Карты не умеет открывать приложение напрямую. Но есть способ это исправить - и он не требует специальных знаний. Разбираем по шагам.</p>
+
+  <nav class="toc-box" aria-label="Оглавление статьи">
+    <div class="toc-title">Что внутри</div>
+    <ul>
+      <li><a href="#why">Почему обычная ссылка не открывает приложение</a></li>
+      <li><a href="#needs">Что понадобится</a></li>
+      <li><a href="#steps">Как сделать redirect-страницу</a></li>
+      <li><a href="#utm">Как добавить UTM-метки</a></li>
+      <li><a href="#faq">Частые вопросы</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="why">Почему так происходит</h2>
+  <p>Когда вы генерируете QR-код со стандартной ссылкой вида:</p>
+  <pre><code>https://yandex.ru/profile/0000000000</code></pre>
+  <p>Телефон воспринимает её как обычный сайт и открывает браузер. Даже если у человека стоит приложение Яндекс.Карты, оно не запускается автоматически.</p>
+  <p>Чтобы приложение открылось сразу, нужна особая ссылка - deep link:</p>
+  <pre><code>yandexmaps://maps.yandex.ru/?oid=0000000000</code></pre>
+  <p>Проблема в том, что если приложения нет, такая ссылка просто не сработает. Поэтому нужна промежуточная страница, которая сама определит нужное действие: есть приложение - откроет его, нет - перенаправит в браузер.</p>
+
+  <h2 id="needs">Что нам понадобится</h2>
+  <ul>
+    <li>Любой сайт или хостинг, куда можно загрузить файл.</li>
+    <li>ID вашей организации в Яндекс.Картах.</li>
+    <li>Около 10 минут времени.</li>
+  </ul>
+
+  <section id="steps">
+    <div class="step-card">
+      <h2>Шаг 1. Найдите ID вашей организации</h2>
+      <p>Откройте браузер, зайдите на <a href="https://yandex.ru/maps" target="_blank" rel="noopener">yandex.ru/maps</a> и найдите карточку вашей организации. Посмотрите на адресную строку - там будет ссылка вида:</p>
+      <pre><code>https://yandex.ru/profile/0000000000</code></pre>
+      <p>Число в конце - это ваш ID. Запишите его, он понадобится в следующем шаге.</p>
+    </div>
+
+    <div class="step-card">
+      <h2>Шаг 2. Создайте файл redirect.html</h2>
+      <p>Создайте на компьютере обычный текстовый файл, назовите его <code>redirect.html</code> и вставьте туда этот код. Вместо нулей в строке <code>var oid</code> подставьте ID своей организации:</p>
+      <pre class="copy-code" data-copy-title="redirect.html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;meta name="robots" content="noindex, nofollow"&gt;
+&lt;title&gt;Открываем карту...&lt;/title&gt;
+&lt;style&gt;
+body {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #f5f5f5;
+  text-align: center;
+  color: #333;
+}
+.box { padding: 32px; }
+p { margin-top: 12px; color: #888; font-size: 14px; }
+a { color: #fc3f1d; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="box"&gt;
+&lt;div style="font-size: 48px;"&gt;🗺️&lt;/div&gt;
+&lt;h2&gt;Открываем Яндекс Карты...&lt;/h2&gt;
+&lt;p&gt;Если ничего не произошло -
+&lt;a id="fallback" href=""&gt;нажмите здесь&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var oid = "0000000000"; <span class="code-note">// &lt;-- вставьте ваш ID сюда</span>
+var webUrl = "https://yandex.ru/profile/" + oid;
+var appUrl = "yandexmaps://maps.yandex.ru/?oid=" + oid;
+document.getElementById("fallback").href = webUrl;
+window.location = appUrl;
+setTimeout(function() { window.location = webUrl; }, 1500);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="step-card">
+      <h2>Шаг 3. Разместите файл на сайте</h2>
+      <p>Если у вас собственный хостинг, зайдите в файловый менеджер в панели управления: cPanel, ISPmanager или аналоги. Загрузите файл <code>redirect.html</code> в корневую папку сайта. После загрузки файл будет доступен по адресу:</p>
+      <pre><code>https://ваш-сайт.ru/redirect.html</code></pre>
+      <p>Этот адрес и будет вашей ссылкой для QR-кода.</p>
+      <h3>Если сайт на отдельном хостинге без домена</h3>
+      <p>Загрузите файл через панель управления хостингом или по FTP. Хостинг выдаст вам адрес страницы - его и используйте для QR-кода.</p>
+      <h3>Если сайт на Tilda</h3>
+      <p>Tilda не позволяет загружать произвольные HTML-файлы напрямую. В этом случае загрузите <code>redirect.html</code> на любой отдельный хостинг, например TimeWeb или Beget, и используйте адрес с этого хостинга для QR-кода.</p>
+      <div class="note-box"><p>Если всё это кажется сложным, передайте задачу разработчику сайта. Обычно это занимает не больше 7 минут: загрузить один файл в нужную папку и сообщить итоговый адрес страницы.</p></div>
+    </div>
+
+    <div class="step-card">
+      <h2>Шаг 4. Проверьте</h2>
+      <p>Откройте получившийся адрес страницы на смартфоне с установленными Яндекс.Картами. Должна сразу открыться карточка вашей организации прямо в приложении.</p>
+      <p>Если приложения нет, через пару секунд откроется браузер. Значит, fallback тоже работает как надо.</p>
+    </div>
+
+    <div class="step-card">
+      <h2>Шаг 5. Сгенерируйте QR-код и передайте дизайнеру</h2>
+      <p>Воспользуйтесь любым генератором QR-кодов. Вставьте в него адрес вашей страницы, например:</p>
+      <pre><code>https://ваш-сайт.ru/redirect.html</code></pre>
+      <p>Скачайте результат в формате SVG или PNG с высоким разрешением и передайте дизайнеру для вставки в баннер.</p>
+    </div>
+  </section>
+
+  <h2 id="utm" class="tight-top">UTM-метки: как отследить эффективность баннера</h2>
+  <p>UTM-метки - это небольшие пометки, которые добавляются к ссылке. Они помогают понять, сколько людей пришло к вам именно с конкретного баннера, листовки или другого носителя.</p>
+  <p>Важный момент: UTM-метки нужно добавлять не к адресу страницы <code>redirect.html</code>, а внутрь кода - к ссылке на Яндекс.Карты. Только тогда Яндекс.Бизнес и Метрика зафиксируют источник перехода.</p>
+  <p>Если добавить метки к адресу <code>redirect.html</code>, они потеряются: страница мгновенно перенаправляет дальше и использует ссылку из переменной <code>webUrl</code>.</p>
+  <p>Для этого найдите в коде строку:</p>
+  <pre><code>var webUrl = "https://yandex.ru/profile/" + oid;</code></pre>
+  <p>И замените её на:</p>
+  <pre class="copy-code" data-copy-title="UTM-строка"><code>var webUrl = "https://yandex.ru/profile/" + oid
+  + "?utm_source=offline&amp;utm_medium=none"
+  + "&amp;utm_campaign=название_кампании&amp;utm_content=название_баннера";</code></pre>
+  <p>Расшифровка параметров:</p>
+  <ul>
+    <li><code>utm_source=offline</code> - источник трафика, офлайн-реклама.</li>
+    <li><code>utm_medium=none</code> - тип размещения.</li>
+    <li><code>utm_campaign</code> - название кампании или места размещения, например <code>TK_Kosmos</code>.</li>
+    <li><code>utm_content</code> - конкретный баннер или формат, например <code>june_banner</code>.</li>
+  </ul>
+  <p>Статистику по переходам смотрите в Яндекс.Метрике или в кабинете Яндекс.Бизнеса.</p>
+
+  <h2 id="faq">Частые вопросы</h2>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">Почему обычный QR-код на Яндекс.Карты открывает браузер?</div><div class="faq-a">Потому что стандартная ссылка на карточку организации воспринимается телефоном как обычная веб-страница. Для запуска приложения нужен deep link.</div></div>
+    <div class="faq-item"><div class="faq-q">Что будет, если у человека нет приложения Яндекс.Карты?</div><div class="faq-a">Промежуточная страница попробует открыть приложение, а затем через короткую задержку переведёт пользователя на обычную веб-ссылку в браузере.</div></div>
+    <div class="faq-item"><div class="faq-q">Куда добавлять UTM-метки?</div><div class="faq-a">UTM-метки нужно добавлять не к адресу <code>redirect.html</code>, а внутрь кода - к переменной <code>webUrl</code>. Если добавить метки к URL redirect-страницы, они потеряются при перенаправлении.</div></div>
+  </div>
+
+  <hr>
+  <h2>Итог</h2>
+  <p>Один небольшой файл решает проблему, которая незаметно снижает отдачу от офлайн-рекламы. Человек сканирует QR-код - и сразу видит вашу точку на карте, маршрут, телефон. Без лишних шагов.</p>
+  <p>Схема подходит для любого бизнеса с точкой на Яндекс.Картах: розничные магазины, кафе, шоурумы, сервисные центры, пункты выдачи.</p>
+</div></div>
+<div><div class="article-wrap">
+  <div class="article-cta article-cta-final">
+    <h3>Хотите проверить, как офлайн-реклама доходит до заявок?</h3>
+    <p>Разберу QR-метки, UTM-разметку, Яндекс.Метрику и связку с рекламными источниками. Покажу, где теряется статистика.</p>
+    <a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-cta-contrast">Написать в Telegram →</a>
+  </div>
+  <div class="author-block">
+    <div class="author-avatar"><img src="../../assets/main-photo.webp" alt="Алексей Смирнов"></div>
+    <div><div class="author-name">Алексей Смирнов</div><div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div><div class="author-updated">Написано: июнь 2026</div></div>
+  </div>
+  <div class="related-articles">
+    <div class="related-title">Читайте также</div>
+    <div class="related-grid">
+      <a href="../master-kampanii-ploshchadki-byudzhet/" class="related-card"><div class="related-card-label">Яндекс.Директ · 8 мин</div><div class="related-card-title">Мастер кампаний в Яндекс Директ: настройка и анализ площадок</div><div class="related-card-desc">Где смотреть площадки, как чистить размещения и что проверить в настройках кампании</div><div class="related-card-arrow">Читать →</div></a>
+      <a href="../google-ads-offline-conversions-qualified-leads/" class="related-card"><div class="related-card-label">Аналитика · Google Ads · 6 мин</div><div class="related-card-title">60% квал-лидов не доходили до Google Ads</div><div class="related-card-desc">Как неполная передача данных мешала алгоритмам обучаться на качественных лидах</div><div class="related-card-arrow">Читать →</div></a>
+    </div>
+  </div>
+</div></div>
+</main>
+<script src="../../assets/js/main.js?v=20260523-goals"></script>
+<script>
+  document.querySelectorAll('.article-body pre.copy-code').forEach((pre)=>{
+    if(pre.closest('.code-frame')) return;
+    const frame=document.createElement('div');
+    frame.className='code-frame';
+    const head=document.createElement('div');
+    head.className='code-frame-head';
+    const title=document.createElement('div');
+    title.className='code-frame-title';
+    title.textContent=pre.dataset.copyTitle||'Код';
+    const button=document.createElement('button');
+    button.className='code-copy';
+    button.type='button';
+    button.textContent='Скопировать';
+    head.append(title,button);
+    pre.parentNode.insertBefore(frame,pre);
+    frame.append(head,pre);
+    button.addEventListener('click',async()=>{
+      const text=pre.innerText;
+      try{
+        await navigator.clipboard.writeText(text);
+      }catch(e){
+        const area=document.createElement('textarea');
+        area.value=text;
+        area.setAttribute('readonly','');
+        area.style.position='fixed';
+        area.style.left='-9999px';
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+      }
+      button.textContent='Скопировано';
+      setTimeout(()=>{button.textContent='Скопировать';},1600);
+    });
+  });
+</script>
+</body></html>
