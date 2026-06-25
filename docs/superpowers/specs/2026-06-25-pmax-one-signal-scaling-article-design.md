@@ -41,6 +41,68 @@ Important nuance:
 
 The same volume could theoretically be concentrated in one campaign, which may be cleaner for Google Ads learning. But it increases operational risk: in some niches individual campaigns may periodically get limited by policy, assets, landing page checks, or other review issues. Several controlled campaign copies provide diversification, but too many create overlap.
 
+## GEO Answer Strategy
+
+Primary question the page should answer:
+
+"Can you scale Performance Max by duplicating campaigns on the same CRM audience signal, and where is the limit?"
+
+Direct answer to place near the top of the article:
+
+Yes, duplicating Performance Max campaigns on one CRM audience signal can work as a scaling method when the account needs more volume and controlled tests of landing pages or creatives. In this case, the method worked during April and May: lead volume grew and relative CPL/CPQL improved. The limit appeared in June, when the account had too many similar PMax campaigns on the same signal. Around 5 active campaigns on one signal, or about 130,000 ad impressions per day around that signal, became the practical ceiling in this project. Above that level, overlap, repeated reach and weaker post-click quality started to offset the benefit of additional campaign copies.
+
+Related user questions and answer intents:
+
+- "How many PMax campaigns can use the same audience signal?" Intent: find a practical guardrail, not a theoretical Google Ads rule.
+- "Is duplicating Performance Max campaigns a good scaling strategy?" Intent: understand when campaign copies help and when they hurt.
+- "What is the risk of using one CRM signal across several PMax campaigns?" Intent: learn about overlap, repeated reach, audience fatigue and signal dilution.
+- "Should I put all PMax budget into one campaign or several copies?" Intent: compare learning efficiency against operational risk diversification.
+- "How do I know PMax scaling has reached a limit?" Intent: identify symptoms such as rising account-level frequency, worse CPL/CPQL and weaker Lead→QL.
+- "What should I do when PMax copies start getting worse?" Intent: get a corrective action list.
+
+Entities that must be named clearly:
+
+- Google Ads;
+- Performance Max / PMax;
+- CRM audience signal;
+- audience signal, not hard targeting;
+- qualified lead / QL;
+- CPL;
+- CPQL;
+- Lead→QL conversion rate;
+- offline conversions;
+- quizzes / landing pages / creatives;
+- account-level frequency;
+- campaign-level frequency;
+- policy limits / moderation / limited campaigns.
+
+Answer-friendly blocks to include:
+
+1. Short definition:
+
+   "Scaling PMax on one signal means launching several Performance Max campaigns that use the same CRM-based audience signal, but differ by landing page, creative angle, quiz version, budget, or test hypothesis."
+
+2. Quick answer box near the top:
+
+   - Works for: scaling a proven signal, testing landing pages, testing creatives, diversifying campaign risk.
+   - Starts breaking when: too many copies chase the same audience cluster, account-level frequency rises, and post-click quality worsens.
+   - In this case: practical limit was about 5 campaigns or about 130,000 impressions per day around one signal.
+
+3. Comparison block:
+
+   | Approach | Benefit | Risk | When to use |
+   |---|---|---|---|
+   | One large PMax campaign | Cleaner learning and simpler optimization | Higher operational dependence on one campaign | Stable account, low policy risk, one proven landing page |
+   | Several PMax copies on one signal | Risk diversification and controlled tests of pages/creatives | Overlap, repeated reach, weaker post-click quality after the limit | When scaling and testing several variants at once |
+
+4. Stop-rule block:
+
+   Stop adding PMax copies on one signal when account-level frequency rises, CPL/CPQL worsens for 1-2 weeks, Lead→QL falls, new copies do not add incremental QL, or the account reaches the case-specific impression ceiling.
+
+5. Caveat block:
+
+   The 5-campaign and 130,000-impression limit is a case-specific observation, not a universal Google Ads benchmark. The real limit depends on audience size, geography, creative variety, conversion volume, signal quality, budget and policy stability.
+
 ## Evidence From Audit
 
 Use the following findings from the Codex audit:
@@ -55,7 +117,7 @@ Use the following findings from the Codex audit:
 
 ## Article Structure
 
-1. Intro: why PMax scaling often tempts advertisers to clone a working campaign.
+1. Intro with direct answer: PMax copies on one signal can scale, but only up to a limit.
 2. Context: anonymous leadgen account, CRM signal, quizzes/landing pages, KPI by CPL and CPQL.
 3. Initial hypothesis: if one campaign and one CRM signal work, several controlled copies can help scale volume and test landing pages/creatives.
 4. April: first validation. More lead volume, first path toward KPI, but not yet ideal CPQL.
@@ -66,6 +128,18 @@ Use the following findings from the Codex audit:
 9. Why not just use one campaign: learning may be cleaner, but risk diversification matters when campaigns can be limited by policy or moderation.
 10. Final takeaway: cloning PMax can be a valid scaling tool, but only with slots, guardrails, and signal diversification.
 11. Checklist: when to stop adding copies.
+
+Recommended H2 headings:
+
+- "Короткий ответ"
+- "Какая была гипотеза"
+- "Апрель: первые дубли начали давать объем"
+- "Май: метод масштабирования сработал"
+- "Июнь: появился предел"
+- "Что показал аудит"
+- "Почему не собрать весь объем в одной кампании"
+- "Когда стоит остановить дублирование PMax"
+- "Итог"
 
 ## Style
 
@@ -108,6 +182,34 @@ Use people-first structure:
 
 Do not write to a fixed word count as an SEO trick. The 6000-character target is an editorial constraint from the user.
 
+## FAQ Candidates
+
+Add 3-5 FAQ items if article length allows:
+
+1. "Можно ли запускать несколько Performance Max на один сигнал?"
+   Answer: yes, if they have a clear role and the account watches overlap, CPL, CPQL and Lead→QL.
+
+2. "Сколько PMax-кампаний можно держать на одном CRM-сигнале?"
+   Answer: there is no universal number. In this case, the practical limit looked like about 5 active campaigns or about 130,000 impressions per day around one signal.
+
+3. "Почему несколько PMax на одном сигнале могут ухудшить результат?"
+   Answer: similar campaigns can reach overlapping audience clusters, increase repeated reach and reduce incremental qualified leads.
+
+4. "Что лучше: одна большая PMax или несколько дублей?"
+   Answer: one campaign can be cleaner for learning, but several copies reduce operational risk and allow page/creative tests. The choice depends on policy risk, signal size, conversion volume and testing needs.
+
+5. "По какой метрике понять, что PMax-копии пора останавливать?"
+   Answer: not by CTR alone. Watch account-level frequency, CPL, CPQL, Lead→QL and whether new copies add incremental qualified leads.
+
+## Schema Suggestions
+
+When implemented as a blog page:
+
+- Use `BlogPosting` JSON-LD as required by repository rules.
+- Include `headline`, `description`, `datePublished`, `dateModified`, `author`, `image`, `mainEntityOfPage`.
+- If FAQ is added visibly on the page, add `FAQPage` JSON-LD only for questions and answers that are actually present in the article.
+- Do not add `HowTo`: this is an analytical article, not a procedural how-to with required tools and steps.
+
 ## Proposed Title Options
 
 Recommended:
@@ -132,5 +234,8 @@ Alternatives:
 - It clearly shows the beginning, middle, and current state of the hypothesis.
 - It includes the limit after which degradation began.
 - It explains why several copies can be more practical than one huge campaign, despite cleaner learning in one campaign.
+- It has a direct, self-contained answer in the first screen of the article.
+- It includes extractable definitions or comparison blocks for AI answer engines.
+- It includes FAQ candidates or a visible FAQ section if length allows.
 - No NDA-sensitive absolute numbers or project identifiers are disclosed.
 - Style matches the existing blog.
