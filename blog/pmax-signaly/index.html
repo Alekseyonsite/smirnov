@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Что такое сигнал в Performance Max и зачем он нужен</title>
+  <meta name="description" content="Простое объяснение, что такое audience signal в Performance Max, какие сигналы можно добавить и почему они не работают как жесткий таргетинг.">
+  <meta name="author" content="Алексей Смирнов">
+  <link rel="canonical" href="https://smirnovads.com/blog/pmax-signaly/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://smirnovads.com/blog/pmax-signaly/">
+  <meta property="og:title" content="Что такое сигнал в Performance Max и зачем он нужен">
+  <meta property="og:description" content="Простое объяснение audience signals в Performance Max для специалистов, маркетологов и собственников бизнеса.">
+  <meta property="og:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Алексей Смирнов">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Что такое сигнал в Performance Max и зачем он нужен">
+  <meta name="twitter:description" content="Что можно добавить в сигналы PMax и почему они не заменяют нормальную настройку кампании.">
+  <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta name="yandex-verification" content="f1b575072174a3b3">
+  <meta name="google-site-verification" content="cYqr91bMn7kr260ZDbcJe7HD0S0cE_o9p9uo0VcRDNs">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Что такое сигнал в Performance Max и зачем он нужен","description":"Простое объяснение, что такое audience signal в Performance Max, какие сигналы можно добавить и почему они не работают как жесткий таргетинг.","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"datePublished":"2026-07-12","dateModified":"2026-07-12","url":"https://smirnovads.com/blog/pmax-signaly/","mainEntityOfPage":"https://smirnovads.com/blog/pmax-signaly/","image":"https://smirnovads.com/assets/img/og-home.png","inLanguage":"ru"}</script>
+  <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108992580,"init",{clickmap:true,trackLinks:true,accurateTrackBounceRate:true,webvisor:true});</script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108992580" class="visually-hidden-img" alt=""></div></noscript>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    :root{--bg:#0e0d0d;--bg2:#161515;--bg3:#1e1d1d;--bg4:#252424;--text:#ede9e3;--text2:#a09890;--text3:#6b6560;--accent:#f0a500;--accent2:#d99400;--accent-bg:rgba(240,165,0,.10);--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--radius:10px;--radius-lg:16px;--font-head:'Unbounded',sans-serif;--font-body:'Manrope',sans-serif;--nav-h:64px;--max-w:1100px;--col:48px}
+    html,body{overflow-x:hidden}
+    .visually-hidden-img{position:absolute;left:-9999px}
+    .btn-primary{background:var(--accent);color:#0e0d0d !important;text-decoration:none !important}
+    .btn-primary:hover{background:var(--accent2);color:#0e0d0d !important}
+    .article-wrap{max-width:760px;margin:0 auto;padding:0 var(--col)}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text3);margin-bottom:24px;flex-wrap:wrap}
+    .breadcrumb a{color:var(--text3);transition:color .18s}.breadcrumb a:hover{color:var(--text)}
+    .article-hero{padding-top:calc(var(--nav-h) + 56px);padding-bottom:40px}
+    .article-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+    .article-h1{font-family:var(--font-head);font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:20px}
+    .article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text3)}
+    .article-meta .dot{color:var(--border2)}
+    .article-body{font-size:16px;line-height:1.8;padding-bottom:0}
+    .article-body h2{font-family:var(--font-head);font-size:clamp(18px,2.2vw,24px);font-weight:700;color:var(--text);margin:52px 0 16px;line-height:1.25}
+    .article-body p{color:var(--text2);margin-bottom:20px}
+    .article-body strong{color:var(--text);font-weight:600}
+    .article-body ul{padding-left:0;margin-bottom:20px;list-style:none}
+    .article-body ul li{color:var(--text2);padding:4px 0 4px 20px;position:relative;line-height:1.65}
+    .article-body ul li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .article-body a:not(.btn):not(.related-card){color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+    .article-body hr{border:none;border-top:1px solid var(--border);margin:48px 0}
+    .toc-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin:32px 0}
+    .toc-title{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .toc-box ul{margin-bottom:0}
+    .toc-box a{color:var(--text2);text-decoration:none}
+    .toc-box a:hover{color:var(--accent)}
+    .lead-box{background:var(--bg2);border:1px solid var(--border2);border-left:3px solid var(--accent);border-radius:0 var(--radius-lg) var(--radius-lg) 0;padding:24px 28px;margin:32px 0}
+    .lead-box-title{font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--accent);margin-bottom:12px}
+    .lead-box p{margin:0 0 14px;color:var(--text);font-size:16px;line-height:1.7}
+    .lead-box p:last-child{margin-bottom:0}
+    .signal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px 0 28px}
+    .signal-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px}
+    .signal-card-title{font-weight:700;color:var(--text);font-size:14px;margin-bottom:6px}
+    .signal-card-desc{font-size:13px;color:var(--text2);line-height:1.55}
+    .note-box{background:var(--accent-bg);border:1px solid rgba(240,165,0,.2);border-radius:var(--radius-lg);padding:20px 24px;margin:28px 0}
+    .note-box p{color:var(--text);font-size:15px;margin:0}
+    .source-box{border-top:1px solid var(--border);padding-top:22px;margin-top:40px}
+    .source-box-title{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .source-box li{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px}
+    .article-cta{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:36px 40px;text-align:center;margin-top:56px}
+    .article-cta h3{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
+    .article-cta p{font-size:15px;color:var(--text2);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+    .author-block{display:flex;align-items:center;gap:18px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-top:48px;margin-bottom:80px}
+    .author-avatar{width:52px;height:52px;border-radius:50%;background:var(--bg4);border:1px solid var(--border2);flex-shrink:0;overflow:hidden}
+    .author-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+    .author-name{font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px}
+    .author-role{font-size:12px;color:var(--text3)}
+    .author-updated{font-size:11px;color:var(--text3);margin-top:2px}
+    @media(max-width:900px){:root{--col:24px}}
+    @media(max-width:600px){:root{--col:16px}.article-cta{padding:24px 20px}.lead-box,.note-box{padding:22px 20px}.signal-grid{grid-template-columns:1fr}.author-block{align-items:flex-start}}
+  </style>
+</head>
+<body>
+<script src="/assets/js/nav.js"></script>
+<main>
+<section class="article-hero"><div class="article-wrap">
+  <div class="breadcrumb"><a href="/">Главная</a><span>/</span><a href="/blog/">Блог</a><span>/</span><span>Сигналы Performance Max</span></div>
+  <div class="article-label">Google Ads · Performance Max · Для начинающих</div>
+  <h1 class="article-h1">Что такое сигнал в Performance Max и зачем он нужен</h1>
+  <div class="article-meta"><span>Алексей Смирнов</span><span class="dot">·</span><span>3 мин</span><span class="dot">·</span><span>Июль 2026</span></div>
+</div></section>
+
+<div class="article-body"><div class="article-wrap">
+  <p>Performance Max часто воспринимают как кампанию, где “Google сам все решит”. Частично так и есть: система сама выбирает площадки, аудитории, ставки и связки креативов. Но это не значит, что ее нужно запускать без подсказок.</p>
+
+  <div class="lead-box">
+    <div class="lead-box-title">Коротко</div>
+    <p>Сигнал в PMax - это подсказка алгоритму, с каких людей стоит начать поиск клиентов.</p>
+    <p>Это не жесткий таргетинг и не look-alike. Вы не ограничиваете показы только выбранной аудиторией, а помогаете Google быстрее понять, кто может быть вам интересен.</p>
+  </div>
+
+  <nav class="toc-box" aria-label="Оглавление статьи">
+    <div class="toc-title">Навигация по статье</div>
+    <ul>
+      <li><a href="#what">Что такое сигнал</a></li>
+      <li><a href="#inputs">Что можно добавить</a></li>
+      <li><a href="#example">Пример для B2B</a></li>
+      <li><a href="#limits">Почему сигнала недостаточно</a></li>
+      <li><a href="#takeaway">Итог</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="what">Что такое сигнал</h2>
+  <p>В обычной рекламе логика часто такая: “показываться только этой аудитории”. В Performance Max логика другая: “вот признаки аудитории, которая может быть мне интересна; используй их для старта и обучения”.</p>
+  <p>Если Google видит, что за пределами этих сигналов есть люди с высокой вероятностью конверсии, он тоже может показывать им рекламу.</p>
+
+  <h2 id="inputs">Что можно добавить в сигналы PMax</h2>
+  <div class="signal-grid" aria-label="Примеры сигналов Performance Max">
+    <div class="signal-card"><div class="signal-card-title">Данные бизнеса</div><div class="signal-card-desc">Список клиентов, посетители сайта, пользователи приложения, зрители видео.</div></div>
+    <div class="signal-card"><div class="signal-card-title">URL и конкуренты</div><div class="signal-card-desc">Сайты, похожие на ваш, или сайты конкурентов как подсказка по контексту аудитории.</div></div>
+    <div class="signal-card"><div class="signal-card-title">Ключевые слова</div><div class="signal-card-desc">Фразы, которые описывают интересы, намерения или задачи потенциального клиента.</div></div>
+    <div class="signal-card"><div class="signal-card-title">Сегменты Google</div><div class="signal-card-desc">Интересы, привычки, in-market сегменты, демография и жизненные события, если они уместны.</div></div>
+  </div>
+
+  <div class="note-box">
+    <p>Если вы добавляете сайты конкурентов, это не значит, что реклама будет показываться на этих сайтах. Google использует URL как подсказку: какая аудитория, темы и поведение могут быть связаны с вашим продуктом.</p>
+  </div>
+
+  <h2 id="example">Пример для B2B</h2>
+  <p>Вы продаете B2B-услугу для производственных компаний. В сигналы можно добавить список клиентов из CRM, посетителей сайта, сайты конкурентов и интересы, связанные с вашим рынком. А в поисковые темы - запросы, по которым потенциальный клиент может искать решение.</p>
+  <p>Так система быстрее получает направление: не “ищи кого угодно”, а “начни с людей и контекстов, похожих на мой рынок”.</p>
+
+  <h2 id="limits">Почему сигнала недостаточно</h2>
+  <p>Сигнал сам по себе не делает кампанию хорошей. В Performance Max важны креативы, посадочные страницы, структура asset groups, настройки бюджета и ставок, цели оптимизации и конверсии, которые передаются в кабинет.</p>
+  <p>Отправка формы - нормальная общая конверсия. Она показывает, что человек оставил заявку. Но если бизнесу важны не все заявки, а только подходящие, лучше передавать дальше и Qualified Lead: лид, который прошел квалификацию по задаче, бюджету, срокам или другим критериям.</p>
+
+  <hr>
+  <h2 id="takeaway">Итог</h2>
+  <p>Сигнал в PMax - это стартовая подсказка для алгоритма, а не кнопка “найти идеальных клиентов”.</p>
+  <p>Хороший сигнал отвечает на вопрос: “какая аудитория похожа на моих потенциальных клиентов?” А правильные конверсии отвечают на другой вопрос: “какое действие реально ценно для бизнеса?”</p>
+
+  <div class="source-box">
+    <div class="source-box-title">Источники</div>
+    <ul>
+      <li><a href="https://support.google.com/google-ads/answer/14530785" target="_blank" rel="noopener">Google Ads Help: About audience signals for Performance Max campaigns</a></li>
+      <li><a href="https://support.google.com/google-ads/answer/9805516" target="_blank" rel="noopener">Google Ads Help: About custom segments</a></li>
+      <li><a href="https://support.google.com/google-ads/answer/2497941" target="_blank" rel="noopener">Google Ads Help: About audience segments</a></li>
+    </ul>
+  </div>
+</div></div>
+
+<div><div class="article-wrap">
+  <div class="article-cta">
+    <h3>Хотите понять, на чем обучается ваш Performance Max?</h3>
+    <p>Разберу сигналы, креативы, цели и конверсии. Покажу, где кампания получает нормальные подсказки, а где алгоритм учится вслепую.</p>
+    <a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Написать в Telegram</a>
+  </div>
+  <div class="author-block">
+    <div class="author-avatar"><img src="/assets/main-photo.webp" alt="Алексей Смирнов"></div>
+    <div>
+      <div class="author-name">Алексей Смирнов</div>
+      <div class="author-role">Специалист по платной рекламе: Google Ads, Яндекс.Директ, B2B, аналитика, CRM</div>
+      <div class="author-updated">Написано: июль 2026</div>
+    </div>
+  </div>
+</div></div>
+</main>
+<script src="/assets/js/main.js?v=20260712-pmax-signals-preview"></script>
+</body>
+</html>
