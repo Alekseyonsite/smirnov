@@ -23,8 +23,19 @@
   <meta name="google-site-verification" content="cYqr91bMn7kr260ZDbcJe7HD0S0cE_o9p9uo0VcRDNs">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"60% квал-лидов не доходили до Google Ads: как мы нашли проблему в офлайн-конверсиях","description":"Разбор настройки офлайн-конверсий Google Ads: почему qualified leads из CRM не попадали в рекламный кабинет, как мы нашли проблему в n8n, CRM и GA4 и что изменилось после исправления.","author":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"publisher":{"@type":"Person","name":"Алексей Смирнов","url":"https://smirnovads.com"},"datePublished":"2026-05-23","dateModified":"2026-05-27","url":"https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/","mainEntityOfPage":"https://smirnovads.com/blog/google-ads-offline-conversions-qualified-leads/","image":"https://smirnovads.com/assets/img/og-home.png","inLanguage":"ru"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что такое офлайн-конверсии в Google Ads?","acceptedAnswer":{"@type":"Answer","text":"Это когда Google Ads получает информацию не только о заявке на сайте, но и о том, что произошло с заявкой дальше в CRM: стала ли она качественным лидом, дошла ли до счёта, договора или покупки."}},{"@type":"Question","name":"Почему qualified leads могут не доходить до Google Ads?","acceptedAnswer":{"@type":"Answer","text":"Чаще всего проблема в CRM-статусах, пропущенных этапах, ошибках в коннекторах вроде n8n или в том, что в рекламный кабинет передаётся только часть воронки. Поэтому данные из CRM нужно регулярно сверять с конверсиями в Google Ads."}},{"@type":"Question","name":"Зачем передавать qualified lead, target lead и sale отдельно?","acceptedAnswer":{"@type":"Answer","text":"Разные события показывают алгоритму разное качество. Первичная заявка помогает собрать объём, qualified lead показывает пригодность обращения, target lead и sale приближают оптимизацию к реальным деньгам."}},{"@type":"Question","name":"Нужно ли передавать ценность конверсии?","acceptedAnswer":{"@type":"Answer","text":"Да, если бизнес может считать ценность лида или продажи стабильно и без догадок. Это помогает алгоритмам отличать более ценные конверсии от менее ценных."}}]}</script>
-  <script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(108992580,"init",{clickmap:true,trackLinks:true,accurateTrackBounceRate:true,webvisor:true});</script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/108992580" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108992580', 'ym');
+
+      ym(108992580, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108992580" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
   <link rel="stylesheet" href="/assets/css/main.css">
   <style>
     :root{--bg:#0e0d0d;--bg2:#161515;--bg3:#1e1d1d;--bg4:#252424;--text:#ede9e3;--text2:#a09890;--text3:#6b6560;--accent:#f0a500;--accent2:#d99400;--accent-bg:rgba(240,165,0,.10);--green:#22c55e;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);--radius:10px;--radius-lg:16px;--font-head:'Unbounded',sans-serif;--font-body:'Manrope',sans-serif;--nav-h:64px;--max-w:1100px;--col:48px}
