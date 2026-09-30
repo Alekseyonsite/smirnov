@@ -21,8 +21,12 @@ assert.match(page, /<label for="utm-content">Содержание <small>utm_con
 assert.doesNotMatch(page, /Содержание \/ креатив/);
 assert.match(page, /placeholder="reels_01"/);
 assert.match(page, /Динамические шаблоны[\s\S]*продвинутый уровень/);
+assert.match(page, /class="utm-case-pf-card"/);
+assert.match(page, /class="utm-case-pf-thumb"/);
+assert.match(page, /CPQL −16\.7%/);
 assert.doesNotMatch(controller, /^import\s/m);
 assert.match(controller, /let hasSubmitted = false/);
+assert.match(controller, /let activeTemplate = 'yandex'/);
 assert.doesNotMatch(controller, /Скопировать шаблон/);
 assert.match(controller, /const message = showErrors \? errors\[name\] \?\? '' : ''/);
 assert.match(controller, /if \(Object\.keys\(errors\)\.length \|\| !hasSubmitted\)/);

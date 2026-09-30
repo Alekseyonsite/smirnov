@@ -10,15 +10,15 @@ const MEDIUM_PRESETS = [
   { label: 'Email (рассылки)', value: 'email' },
 ];
 const DYNAMIC_TEMPLATES = {
-  google: { label: 'Google Ads', macros: [
-    { value: '{campaignid}', label: 'ID кампании' }, { value: '{adgroupid}', label: 'ID группы' }, { value: '{creative}', label: 'ID объявления' }, { value: '{keyword}', label: 'Ключевое слово' }, { value: '{placement}', label: 'Площадка' }, { value: '{device}', label: 'Устройство' }, { value: '{network}', label: 'Сеть' }, { value: '{matchtype}', label: 'Тип соответствия' }, { value: '{targetid}', label: 'ID таргетинга' }, { value: '{loc_physical_ms}', label: 'ID геолокации' },
-  ], fragment: 'utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}' },
   yandex: { label: 'Яндекс.Директ', macros: [
     { value: '{campaign_id}', label: 'ID кампании' }, { value: '{campaign_name_lat}', label: 'Название кампании' }, { value: '{campaign_type}', label: 'Тип кампании' }, { value: '{ad_id}', label: 'ID объявления' }, { value: '{banner_id}', label: 'ID баннера' }, { value: '{creative_id}', label: 'ID креатива' }, { value: '{gbid}', label: 'ID группы' }, { value: '{keyword}', label: 'Ключевая фраза' }, { value: '{phrase_id}', label: 'ID ключевой фразы' }, { value: '{retargeting_id}', label: 'ID ретаргетинга' }, { value: '{source_type}', label: 'Тип площадки' }, { value: '{device_type}', label: 'Устройство' }, { value: '{region_id}', label: 'ID региона' }, { value: '{region_name}', label: 'Регион' }, { value: '{yclid}', label: 'ID клика' },
   ], fragment: 'utm_source=yandex_direct&utm_medium=cpc&utm_campaign={campaign_id}&utm_content={ad_id}&utm_term={keyword}' },
   vk: { label: 'VK Реклама', macros: [
     { value: '{{campaign_id}}', label: 'ID кампании' }, { value: '{{banner_id}}', label: 'ID баннера' }, { value: '{{geo}}', label: 'Гео показа' }, { value: '{{gender}}', label: 'Пол' }, { value: '{{age}}', label: 'Возраст' },
   ], fragment: 'utm_source=vk_ads&utm_medium=cpa&utm_campaign={{campaign_id}}&utm_content={{banner_id}}' },
+  google: { label: 'Google Ads', macros: [
+    { value: '{campaignid}', label: 'ID кампании' }, { value: '{adgroupid}', label: 'ID группы' }, { value: '{creative}', label: 'ID объявления' }, { value: '{keyword}', label: 'Ключевое слово' }, { value: '{placement}', label: 'Площадка' }, { value: '{device}', label: 'Устройство' }, { value: '{network}', label: 'Сеть' }, { value: '{matchtype}', label: 'Тип соответствия' }, { value: '{targetid}', label: 'ID таргетинга' }, { value: '{loc_physical_ms}', label: 'ID геолокации' },
+  ], fragment: 'utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}' },
 };
 
 function isDynamicMacro(value) { return /^(?:\{[^{}]+\}|\{\{[^{}]+\}\})$/.test(String(value).trim()); }
@@ -73,7 +73,7 @@ const tabs = document.getElementById('template-tabs');
 const templateContent = document.getElementById('template-content');
 
 let generatedUrl = '';
-let activeTemplate = 'google';
+let activeTemplate = 'yandex';
 let hasSubmitted = false;
 
 function getValues() {

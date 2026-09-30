@@ -57,6 +57,9 @@ const tests = [
       '{{campaign_id}}', '{{banner_id}}', '{{geo}}', '{{gender}}', '{{age}}',
     ]);
   }],
+  ['shows dynamic template platforms in the requested order', () => {
+    assert.deepEqual(Object.keys(DYNAMIC_TEMPLATES), ['yandex', 'vk', 'google']);
+  }],
   ['reports only missing required UTM fields', () => {
     assert.deepEqual(
       validateRequired({ target: '', source: 'telegram', medium: '', campaign: '', content: 'article_1', term: '' }),

@@ -21,22 +21,6 @@ export const MEDIUM_PRESETS = [
 ];
 
 export const DYNAMIC_TEMPLATES = {
-  google: {
-    label: 'Google Ads',
-    macros: [
-      { value: '{campaignid}', label: 'ID кампании' },
-      { value: '{adgroupid}', label: 'ID группы' },
-      { value: '{creative}', label: 'ID объявления' },
-      { value: '{keyword}', label: 'Ключевое слово' },
-      { value: '{placement}', label: 'Площадка' },
-      { value: '{device}', label: 'Устройство' },
-      { value: '{network}', label: 'Сеть' },
-      { value: '{matchtype}', label: 'Тип соответствия' },
-      { value: '{targetid}', label: 'ID таргетинга' },
-      { value: '{loc_physical_ms}', label: 'ID геолокации' },
-    ],
-    fragment: 'utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}',
-  },
   yandex: {
     label: 'Яндекс.Директ',
     macros: [
@@ -70,6 +54,22 @@ export const DYNAMIC_TEMPLATES = {
       { value: '{{age}}', label: 'Возраст' },
     ],
     fragment: 'utm_source=vk_ads&utm_medium=cpa&utm_campaign={{campaign_id}}&utm_content={{banner_id}}',
+  },
+  google: {
+    label: 'Google Ads',
+    macros: [
+      { value: '{campaignid}', label: 'ID кампании' },
+      { value: '{adgroupid}', label: 'ID группы' },
+      { value: '{creative}', label: 'ID объявления' },
+      { value: '{keyword}', label: 'Ключевое слово' },
+      { value: '{placement}', label: 'Площадка' },
+      { value: '{device}', label: 'Устройство' },
+      { value: '{network}', label: 'Сеть' },
+      { value: '{matchtype}', label: 'Тип соответствия' },
+      { value: '{targetid}', label: 'ID таргетинга' },
+      { value: '{loc_physical_ms}', label: 'ID геолокации' },
+    ],
+    fragment: 'utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}',
   },
 };
 
