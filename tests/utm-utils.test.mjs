@@ -8,6 +8,8 @@ import {
   cleanTargetUrl,
   isDynamicMacro,
   normalizeValue,
+  templateExample,
+  validateRequired,
 } from '../assets/js/utm-utils.mjs';
 
 const tests = [
@@ -36,6 +38,16 @@ const tests = [
     assert.deepEqual(MEDIUM_PRESETS.slice(0, 4), ['cpc', 'cpm', 'cpa', 'affiliate']);
     assert.ok(DYNAMIC_TEMPLATES.google.macros.some((macro) => macro.value === '{campaignid}'));
     assert.ok(DYNAMIC_TEMPLATES.yandex.macros.some((macro) => macro.value === '{campaign_id}'));
+  }],
+  ['reports only missing required UTM fields', () => {
+    assert.deepEqual(
+      validateRequired({ target: '', source: 'telegram', medium: '', campaign: '', content: 'article_1', term: '' }),
+      { target: 'Укажите ссылку на страницу.', medium: 'Укажите канал.', campaign: 'Укажите название кампании.' },
+    );
+  }],
+  ['returns a documented platform template and rejects an unknown platform', () => {
+    assert.equal(templateExample('google'), 'utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}');
+    assert.throws(() => templateExample('unknown'), /Неизвестная рекламная площадка/);
   }],
 ];
 

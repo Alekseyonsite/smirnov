@@ -59,6 +59,7 @@
 .utm-template-fragment{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;padding:10px 11px;background:var(--bg);border:1px solid var(--border);border-radius:8px}
 .utm-template-fragment code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:var(--text2);word-break:break-all}
 .utm-template-copy{border:0;background:transparent;color:var(--accent);font-size:10px;font-weight:700;cursor:pointer;white-space:nowrap}
+.utm-copy-fallback{position:fixed;opacity:0;pointer-events:none}
 .utm-case-section{padding:54px 0 86px}
 .utm-case-card{display:grid;grid-template-columns:38% 62%;min-height:220px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
 .utm-case-art{position:relative;overflow:hidden;background:linear-gradient(125deg,rgba(48,31,15,.28),rgba(16,15,13,.58)),linear-gradient(142deg,#e2c694,#94704b 56%,#35261b 57%)}

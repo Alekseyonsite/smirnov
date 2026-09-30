@@ -55,6 +55,8 @@ export const DYNAMIC_TEMPLATES = {
     fragment: 'utm_source=yandex_direct&utm_medium=cpc&utm_campaign={campaign_id}&utm_content={ad_id}&utm_term={keyword}',
   },
   vk: {
+    // VK Ads template examples use {{campaign_id}} and {{banner_id}}:
+    // https://object2-ac.vk-apps.com/vk-education-0554ff56-27eb-4093-a702-685722cef6d9/media/ad/79ad8eafc5324d46a3c153cd5e9a2a32.pdf
     label: 'VK Реклама',
     macros: [
       { value: '{{campaign_id}}', label: 'ID кампании' },
@@ -110,4 +112,21 @@ export function buildUtmUrl(target, values) {
   });
 
   return url.toString();
+}
+
+export function validateRequired(values) {
+  const errors = {};
+
+  if (!String(values.target ?? '').trim()) errors.target = 'Укажите ссылку на страницу.';
+  if (!String(values.source ?? '').trim()) errors.source = 'Укажите источник.';
+  if (!String(values.medium ?? '').trim()) errors.medium = 'Укажите канал.';
+  if (!String(values.campaign ?? '').trim()) errors.campaign = 'Укажите название кампании.';
+
+  return errors;
+}
+
+export function templateExample(platform) {
+  const template = DYNAMIC_TEMPLATES[platform];
+  if (!template) throw new Error('Неизвестная рекламная площадка.');
+  return template.fragment;
 }

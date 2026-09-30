@@ -57,15 +57,18 @@
             <label for="utm-source">Источник <span class="utm-required" aria-hidden="true">*</span><small>utm_source</small></label>
             <input id="utm-source" name="source" type="text" placeholder="Например: telegram" required>
             <div class="utm-chips" data-preset-group="source" aria-label="Пресеты источника"></div>
+            <p class="utm-field-error" id="utm-source-error" aria-live="polite"></p>
           </div>
           <div class="utm-field">
             <label for="utm-medium">Канал <span class="utm-required" aria-hidden="true">*</span><small>utm_medium</small></label>
             <input id="utm-medium" name="medium" type="text" placeholder="Например: cpc" required>
             <div class="utm-chips" data-preset-group="medium" aria-label="Пресеты канала"></div>
+            <p class="utm-field-error" id="utm-medium-error" aria-live="polite"></p>
           </div>
           <div class="utm-field">
             <label for="utm-campaign">Название кампании <span class="utm-required" aria-hidden="true">*</span><small>utm_campaign</small></label>
             <input id="utm-campaign" name="campaign" type="text" placeholder="Например: dubai_real_estate" required>
+            <p class="utm-field-error" id="utm-campaign-error" aria-live="polite"></p>
           </div>
           <div class="utm-field">
             <label for="utm-content">Содержание / креатив <small>utm_content</small></label>
