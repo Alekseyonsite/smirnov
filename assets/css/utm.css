@@ -40,6 +40,7 @@
 .utm-field-error{min-height:15px;margin-top:5px;font-size:10px;color:var(--red)}
 .utm-field-error[data-hint="true"]{color:var(--accent)}
 .utm-field-hint{font-size:10px;color:var(--text3);margin-top:5px}
+.utm-keyword-macro{padding:0;border:0;background:transparent;color:var(--accent);font:inherit;font-weight:700;cursor:pointer}.utm-keyword-macro:hover{text-decoration:underline}
 .utm-result{margin-top:14px;background:rgba(240,165,0,.08);border:1px solid rgba(240,165,0,.28);border-radius:var(--radius-lg);padding:16px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
 .utm-result[hidden]{display:none}
 .utm-result-label{font-family:var(--font-head);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#d8b15d;margin-bottom:6px}

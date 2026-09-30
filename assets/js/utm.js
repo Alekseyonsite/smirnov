@@ -71,6 +71,7 @@ const shareButton = document.getElementById('share-utm');
 const generateButton = document.getElementById('generate-utm');
 const tabs = document.getElementById('template-tabs');
 const templateContent = document.getElementById('template-content');
+const keywordMacro = document.getElementById('insert-keyword-macro');
 
 let generatedUrl = '';
 let activeTemplate = 'yandex';
@@ -218,6 +219,11 @@ form.addEventListener('input', (event) => {
 });
 
 form.addEventListener('submit', (event) => event.preventDefault());
+keywordMacro.addEventListener('click', () => {
+  fields.term.value = '{keyword}';
+  fields.term.focus();
+  updateResult();
+});
 generateButton.addEventListener('click', () => {
   hasSubmitted = true;
   updateResult();
