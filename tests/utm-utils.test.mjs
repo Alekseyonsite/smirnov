@@ -9,6 +9,7 @@ import {
   isDynamicMacro,
   normalizeValue,
   templateExample,
+  validateTargetUrl,
   validateRequired,
 } from '../assets/js/utm-utils.mjs';
 
@@ -57,6 +58,11 @@ const tests = [
   }],
   ['keeps only the verified VK Ads template macros', () => {
     assert.equal(DYNAMIC_TEMPLATES.vk.macros.some((macro) => macro.value === '{{ad_id}}'), false);
+  }],
+  ['explains how to complete a target URL without a protocol or domain zone', () => {
+    assert.equal(validateTargetUrl('test'), 'Укажите доменную зону (.ru, .com, .io и т. д.), например: https://site.com.');
+    assert.equal(validateTargetUrl('test.com'), 'Добавьте https:// перед адресом, например: https://site.com.');
+    assert.equal(validateTargetUrl('https://test.com'), '');
   }],
 ];
 

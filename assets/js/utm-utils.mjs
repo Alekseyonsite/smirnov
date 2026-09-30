@@ -124,6 +124,23 @@ export function validateRequired(values) {
   return errors;
 }
 
+export function validateTargetUrl(value) {
+  const rawValue = String(value ?? '').trim();
+  if (!rawValue) return 'Укажите ссылку на страницу.';
+  if (!/^https?:\/\//i.test(rawValue)) {
+    return rawValue.includes('.')
+      ? 'Добавьте https:// перед адресом, например: https://site.com.'
+      : 'Укажите доменную зону (.ru, .com, .io и т. д.), например: https://site.com.';
+  }
+
+  try {
+    const url = cleanTargetUrl(rawValue);
+    return /^https?:$/.test(url.protocol) ? '' : 'Введите корректную ссылку с http:// или https://.';
+  } catch {
+    return 'Введите корректную ссылку с http:// или https://.';
+  }
+}
+
 export function templateExample(platform) {
   const template = DYNAMIC_TEMPLATES[platform];
   if (!template) throw new Error('Неизвестная рекламная площадка.');
