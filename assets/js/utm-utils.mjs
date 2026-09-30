@@ -1,0 +1,113 @@
+const CYRILLIC_TO_LATIN = {
+  а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ё: 'e', ж: 'zh', з: 'z', и: 'i', й: 'y',
+  к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r', с: 's', т: 't', у: 'u', ф: 'f',
+  х: 'h', ц: 'ts', ч: 'ch', ш: 'sh', щ: 'sch', ъ: '', ы: 'y', ь: '', э: 'e', ю: 'yu', я: 'ya',
+};
+
+export const SOURCE_PRESETS = [
+  { label: 'Telegram', value: 'telegram' },
+  { label: 'Instagram', value: 'instagram' },
+  { label: 'Яндекс.Директ', value: 'yandex_direct' },
+  { label: 'Google Ads', value: 'google_ads' },
+  { label: 'VK Реклама', value: 'vk_ads' },
+];
+
+export const MEDIUM_PRESETS = [
+  'cpc', 'cpm', 'cpa', 'affiliate', 'social', 'paid_social', 'email', 'display', 'video', 'referral', 'messenger',
+];
+
+export const DYNAMIC_TEMPLATES = {
+  google: {
+    label: 'Google Ads',
+    macros: [
+      { value: '{campaignid}', label: 'ID кампании' },
+      { value: '{adgroupid}', label: 'ID группы' },
+      { value: '{creative}', label: 'ID объявления' },
+      { value: '{keyword}', label: 'Ключевое слово' },
+      { value: '{placement}', label: 'Площадка' },
+      { value: '{device}', label: 'Устройство' },
+      { value: '{network}', label: 'Сеть' },
+      { value: '{matchtype}', label: 'Тип соответствия' },
+      { value: '{targetid}', label: 'ID таргетинга' },
+      { value: '{loc_physical_ms}', label: 'ID геолокации' },
+    ],
+    fragment: 'utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}',
+  },
+  yandex: {
+    label: 'Яндекс.Директ',
+    macros: [
+      { value: '{campaign_id}', label: 'ID кампании' },
+      { value: '{campaign_name_lat}', label: 'Название кампании' },
+      { value: '{campaign_type}', label: 'Тип кампании' },
+      { value: '{ad_id}', label: 'ID объявления' },
+      { value: '{banner_id}', label: 'ID баннера' },
+      { value: '{creative_id}', label: 'ID креатива' },
+      { value: '{gbid}', label: 'ID группы' },
+      { value: '{keyword}', label: 'Ключевая фраза' },
+      { value: '{phrase_id}', label: 'ID ключевой фразы' },
+      { value: '{retargeting_id}', label: 'ID ретаргетинга' },
+      { value: '{source_type}', label: 'Тип площадки' },
+      { value: '{device_type}', label: 'Устройство' },
+      { value: '{region_id}', label: 'ID региона' },
+      { value: '{region_name}', label: 'Регион' },
+      { value: '{yclid}', label: 'ID клика' },
+    ],
+    fragment: 'utm_source=yandex_direct&utm_medium=cpc&utm_campaign={campaign_id}&utm_content={ad_id}&utm_term={keyword}',
+  },
+  vk: {
+    label: 'VK Реклама',
+    macros: [
+      { value: '{{campaign_id}}', label: 'ID кампании' },
+      { value: '{{banner_id}}', label: 'ID баннера' },
+      { value: '{{ad_id}}', label: 'ID объявления' },
+      { value: '{{geo}}', label: 'Гео показа' },
+      { value: '{{gender}}', label: 'Пол' },
+      { value: '{{age}}', label: 'Возраст' },
+    ],
+    fragment: 'utm_source=vk_ads&utm_medium=cpa&utm_campaign={{campaign_id}}&utm_content={{banner_id}}',
+  },
+};
+
+export function isDynamicMacro(value) {
+  return /^(?:\{[^{}]+\}|\{\{[^{}]+\}\})$/.test(String(value).trim());
+}
+
+export function normalizeValue(value) {
+  const original = String(value ?? '').trim();
+  if (!original || isDynamicMacro(original)) return original;
+
+  return original
+    .toLowerCase()
+    .replace(/[—–]/g, '-')
+    .split('')
+    .map((character) => CYRILLIC_TO_LATIN[character] ?? character)
+    .join('')
+    .replace(/\s+/g, '_')
+    .replace(/[^a-z0-9_-]/g, '')
+    .replace(/_+/g, '_');
+}
+
+export function cleanTargetUrl(value) {
+  const url = new URL(String(value).trim());
+  url.search = '';
+  url.hash = '';
+  return url;
+}
+
+export function buildUtmUrl(target, values) {
+  const url = cleanTargetUrl(target);
+  const entries = [
+    ['utm_source', values.source],
+    ['utm_medium', values.medium],
+    ['utm_campaign', values.campaign],
+    ['utm_content', values.content],
+    ['utm_term', values.term],
+  ];
+
+  entries.forEach(([key, value]) => {
+    const normalized = normalizeValue(value);
+    if (normalized) url.searchParams.set(key, normalized);
+  });
+
+  return url.toString();
+}
