@@ -12,6 +12,7 @@
     if (p.indexOf('/cases') === 0) return 'cases';
     if (p.indexOf('/blog/') === 0 && p.length > 7) return 'blog-post';
     if (p.indexOf('/blog') === 0) return 'blog';
+    if (p.indexOf('/utm/') === 0 || p === '/utm') return 'utm';
     return 'home';
   }
 
@@ -19,6 +20,7 @@
     var isActive = false;
     if (section === 'cases' && (activeSection === 'cases' || activeSection === 'case')) isActive = true;
     if (section === 'blog' && (activeSection === 'blog' || activeSection === 'blog-post')) isActive = true;
+    if (section === 'utm' && activeSection === 'utm') isActive = true;
     var style = isActive ? ' style="color:var(--text);border-bottom:2px solid var(--accent);padding-bottom:2px"' : '';
     return '<a href="' + href + '"' + style + '>' + label + '</a>';
   }
@@ -38,6 +40,7 @@
     navLink('/cases/', '\u041a\u0435\u0439\u0441\u044b', 'cases', s) +
     navLink(isHome ? '#advantages' : '/#advantages', '\u041f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u0430', '', s) +
     navLink('/blog/', '\u0411\u043b\u043e\u0433', 'blog', s) +
+    navLink('/utm/', 'UTM-\u0433\u0435\u043d\u0435\u0440\u0430\u0442\u043e\u0440', 'utm', s) +
     navLink(isHome ? '#contacts' : '/#contacts', '\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b', '', s) +
     '</div><div class="nav-right"><a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary">\u0421\u0432\u044f\u0437\u0430\u0442\u044c\u0441\u044f</a></div>' +
     '<button class="nav-burger" aria-label="\u041c\u0435\u043d\u044e"><span></span><span></span><span></span></button>' +
@@ -50,6 +53,7 @@
     navLink('/cases/', '\u041a\u0435\u0439\u0441\u044b', 'cases', s) +
     navLink(isHome ? '#advantages' : '/#advantages', '\u041f\u0440\u0435\u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u0430', '', s) +
     navLink('/blog/', '\u0411\u043b\u043e\u0433', 'blog', s) +
+    navLink('/utm/', 'UTM-\u0433\u0435\u043d\u0435\u0440\u0430\u0442\u043e\u0440', 'utm', s) +
     navLink(isHome ? '#contacts' : '/#contacts', '\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u044b', '', s) +
     '<a href="https://t.me/alx_smr" target="_blank" rel="noopener" class="btn btn-primary">\u0421\u0432\u044f\u0437\u0430\u0442\u044c\u0441\u044f</a>' +
     '</div>';

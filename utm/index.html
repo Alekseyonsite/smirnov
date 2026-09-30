@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTM-генератор — собрать ссылку с UTM-меткой | Алексей Смирнов</title>
+  <meta name="description" content="Бесплатный UTM-генератор: соберите, скопируйте или перешлите ссылку с UTM-метками без регистрации.">
+  <link rel="canonical" href="https://smirnovads.com/utm/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://smirnovads.com/utm/">
+  <meta property="og:title" content="UTM-генератор — собрать ссылку с UTM-меткой">
+  <meta property="og:description" content="Бесплатный инструмент для создания UTM-ссылок без путаницы и регистрации.">
+  <meta property="og:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Алексей Смирнов">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UTM-генератор — собрать ссылку с UTM-меткой">
+  <meta name="twitter:description" content="Бесплатный инструмент для создания UTM-ссылок без путаницы и регистрации.">
+  <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/utm.css">
+</head>
+<body>
+<script src="/assets/js/nav.js"></script>
+<main>
+  <section class="utm-hero">
+    <div class="container-sm">
+      <p class="utm-eyebrow">Бесплатный инструмент</p>
+      <h1>Соберите ссылку с UTM-меткой без путаницы</h1>
+      <p class="utm-lead">Выберите готовые значения или введите свои. Сервис приведёт метки к единому виду и соберёт чистую ссылку.</p>
+      <div class="utm-rules" aria-label="Правила преобразования значений">
+        <span>Кириллица → латиница</span><span>Пробелы → _</span><span>Все значения → строчные</span>
+      </div>
+      <div class="utm-explainer" aria-labelledby="utm-explainer-title">
+        <h2 id="utm-explainer-title">Как не запутаться в UTM</h2>
+        <div class="utm-tip-grid">
+          <article><h3>Источник</h3><p><code>utm_source</code> — откуда пришёл человек: <code>telegram</code>, <code>yandex_direct</code>.</p></article>
+          <article><h3>Канал</h3><p><code>utm_medium</code> — тип трафика: <code>cpc</code>, <code>cpm</code>, <code>cpa</code>.</p></article>
+          <article><h3>Кампания</h3><p><code>utm_campaign</code> — что именно продвигаете: <code>reels_utm_september</code>.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="utm-builder-section" aria-labelledby="utm-builder-title">
+    <div class="container-sm">
+      <form id="utm-form" class="utm-form" novalidate>
+        <div class="utm-form-heading"><h2 id="utm-builder-title">Заполните параметры</h2><p><span aria-hidden="true">*</span> обязательные поля</p></div>
+        <div class="utm-form-grid">
+          <div class="utm-field utm-field-full">
+            <label for="target-url">Ссылка на страницу <span class="utm-required" aria-hidden="true">*</span><small>старые UTM удалим</small></label>
+            <input id="target-url" name="target" type="url" inputmode="url" placeholder="https://example.com/offer" autocomplete="url" required>
+            <p class="utm-field-error" id="target-url-error" aria-live="polite"></p>
+          </div>
+          <div class="utm-field">
+            <label for="utm-source">Источник <span class="utm-required" aria-hidden="true">*</span><small>utm_source</small></label>
+            <input id="utm-source" name="source" type="text" placeholder="Например: telegram" required>
+            <div class="utm-chips" data-preset-group="source" aria-label="Пресеты источника"></div>
+          </div>
+          <div class="utm-field">
+            <label for="utm-medium">Канал <span class="utm-required" aria-hidden="true">*</span><small>utm_medium</small></label>
+            <input id="utm-medium" name="medium" type="text" placeholder="Например: cpc" required>
+            <div class="utm-chips" data-preset-group="medium" aria-label="Пресеты канала"></div>
+          </div>
+          <div class="utm-field">
+            <label for="utm-campaign">Название кампании <span class="utm-required" aria-hidden="true">*</span><small>utm_campaign</small></label>
+            <input id="utm-campaign" name="campaign" type="text" placeholder="Например: dubai_real_estate" required>
+          </div>
+          <div class="utm-field">
+            <label for="utm-content">Содержание / креатив <small>utm_content</small></label>
+            <input id="utm-content" name="content" type="text" placeholder="article_1 / banner_blue">
+          </div>
+          <div class="utm-field">
+            <label for="utm-term">Ключевое слово <small>utm_term</small></label>
+            <input id="utm-term" name="term" type="text" value="{keyword}" placeholder="{keyword}">
+            <p class="utm-field-hint">Можно оставить динамический параметр для рекламы.</p>
+          </div>
+        </div>
+      </form>
+
+      <section id="utm-result" class="utm-result" hidden aria-live="polite" aria-labelledby="utm-result-title">
+        <div><p id="utm-result-title" class="utm-result-label">Готовая UTM-ссылка</p><p id="utm-output" class="utm-output"></p></div>
+        <div class="utm-actions"><button id="copy-utm" type="button" class="btn utm-copy">Скопировать ссылку</button><button id="share-utm" type="button" class="btn utm-share">Переслать <span aria-hidden="true">➤</span></button></div>
+        <p id="utm-action-status" class="utm-action-status" aria-live="polite"></p>
+      </section>
+    </div>
+  </section>
+
+  <section class="utm-templates-section" aria-labelledby="templates-title">
+    <div class="container-sm">
+      <div class="utm-section-heading"><h2 id="templates-title">Динамические шаблоны</h2><p>Динамические параметры автоматически подставляют данные рекламы. Нажмите на макрос, чтобы скопировать его и вставить в нужное поле.</p></div>
+      <div class="utm-templates">
+        <div id="template-tabs" class="utm-template-tabs" role="tablist" aria-label="Рекламные площадки"></div>
+        <div id="template-content" class="utm-template-content" role="tabpanel"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="utm-case-section">
+    <div class="container-sm">
+      <article class="utm-case-card">
+        <div class="utm-case-art" aria-hidden="true"><span>ОАЭ · НЕДВИЖИМОСТЬ</span></div>
+        <div class="utm-case-body"><p class="utm-eyebrow">Кейс из практики</p><h2>Продажа недвижимости в ОАЭ</h2><p>Как перестроили рекламные кампании, чтобы снижать CPQL и повышать долю квалифицированных лидов при масштабировании бюджета.</p><a href="/cases/uae-real-estate/" class="utm-case-link">Читать кейс →</a></div>
+      </article>
+    </div>
+  </section>
+</main>
+<script src="/assets/js/main.js"></script>
+<script type="module" src="/assets/js/utm.js"></script>
+</body>
+</html>
