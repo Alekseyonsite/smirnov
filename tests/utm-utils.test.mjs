@@ -31,14 +31,31 @@ const tests = [
       buildUtmUrl('https://example.com/offer?old=1', {
         source: 'Яндекс Директ', medium: 'CPC', campaign: 'Дубай — Осень', content: '', term: '{keyword}',
       }),
-      'https://example.com/offer?utm_source=yandeks_direkt&utm_medium=cpc&utm_campaign=dubay_-_osen&utm_term=%7Bkeyword%7D',
+      'https://example.com/offer?utm_source=yandeks_direkt&utm_medium=cpc&utm_campaign=dubay_-_osen&utm_term={keyword}',
     );
   }],
   ['exposes the approved presets and documented Google and Yandex macros', () => {
     assert.deepEqual(SOURCE_PRESETS.map((preset) => preset.label), ['Telegram', 'Instagram', 'Яндекс.Директ', 'Google Ads', 'VK Реклама']);
-    assert.deepEqual(MEDIUM_PRESETS, ['cpc', 'cpa', 'affiliate', 'social']);
+    assert.deepEqual(MEDIUM_PRESETS, [
+      { label: 'CPC (оплата за клики)', value: 'cpc' },
+      { label: 'CPA (оплата за целевые действия)', value: 'cpa' },
+      { label: 'Affiliate (партнёрские программы)', value: 'affiliate' },
+      { label: 'Social (соцсети)', value: 'social' },
+      { label: 'Email (рассылки)', value: 'email' },
+    ]);
     assert.ok(DYNAMIC_TEMPLATES.google.macros.some((macro) => macro.value === '{campaignid}'));
     assert.ok(DYNAMIC_TEMPLATES.yandex.macros.some((macro) => macro.value === '{campaign_id}'));
+  }],
+  ['keeps dynamic macros in their respective ad platforms', () => {
+    assert.deepEqual(DYNAMIC_TEMPLATES.google.macros.map((macro) => macro.value), [
+      '{campaignid}', '{adgroupid}', '{creative}', '{keyword}', '{placement}', '{device}', '{network}', '{matchtype}', '{targetid}', '{loc_physical_ms}',
+    ]);
+    assert.deepEqual(DYNAMIC_TEMPLATES.yandex.macros.map((macro) => macro.value), [
+      '{campaign_id}', '{campaign_name_lat}', '{campaign_type}', '{ad_id}', '{banner_id}', '{creative_id}', '{gbid}', '{keyword}', '{phrase_id}', '{retargeting_id}', '{source_type}', '{device_type}', '{region_id}', '{region_name}', '{yclid}',
+    ]);
+    assert.deepEqual(DYNAMIC_TEMPLATES.vk.macros.map((macro) => macro.value), [
+      '{{campaign_id}}', '{{banner_id}}', '{{geo}}', '{{gender}}', '{{age}}',
+    ]);
   }],
   ['reports only missing required UTM fields', () => {
     assert.deepEqual(

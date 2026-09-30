@@ -13,7 +13,11 @@ export const SOURCE_PRESETS = [
 ];
 
 export const MEDIUM_PRESETS = [
-  'cpc', 'cpa', 'affiliate', 'social',
+  { label: 'CPC (оплата за клики)', value: 'cpc' },
+  { label: 'CPA (оплата за целевые действия)', value: 'cpa' },
+  { label: 'Affiliate (партнёрские программы)', value: 'affiliate' },
+  { label: 'Social (соцсети)', value: 'social' },
+  { label: 'Email (рассылки)', value: 'email' },
 ];
 
 export const DYNAMIC_TEMPLATES = {
@@ -111,7 +115,7 @@ export function buildUtmUrl(target, values) {
     if (normalized) url.searchParams.set(key, normalized);
   });
 
-  return url.toString();
+  return url.toString().replace(/%7B/gi, '{').replace(/%7D/gi, '}');
 }
 
 export function validateRequired(values) {

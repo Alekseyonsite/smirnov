@@ -4,7 +4,11 @@ const SOURCE_PRESETS = [
   { label: 'Telegram', value: 'telegram' }, { label: 'Instagram', value: 'instagram' },
   { label: 'Яндекс.Директ', value: 'yandex_direct' }, { label: 'Google Ads', value: 'google_ads' }, { label: 'VK Реклама', value: 'vk_ads' },
 ];
-const MEDIUM_PRESETS = ['cpc', 'cpa', 'affiliate', 'social'];
+const MEDIUM_PRESETS = [
+  { label: 'CPC (оплата за клики)', value: 'cpc' }, { label: 'CPA (оплата за целевые действия)', value: 'cpa' },
+  { label: 'Affiliate (партнёрские программы)', value: 'affiliate' }, { label: 'Social (соцсети)', value: 'social' },
+  { label: 'Email (рассылки)', value: 'email' },
+];
 const DYNAMIC_TEMPLATES = {
   google: { label: 'Google Ads', macros: [
     { value: '{campaignid}', label: 'ID кампании' }, { value: '{adgroupid}', label: 'ID группы' }, { value: '{creative}', label: 'ID объявления' }, { value: '{keyword}', label: 'Ключевое слово' }, { value: '{placement}', label: 'Площадка' }, { value: '{device}', label: 'Устройство' }, { value: '{network}', label: 'Сеть' }, { value: '{matchtype}', label: 'Тип соответствия' }, { value: '{targetid}', label: 'ID таргетинга' }, { value: '{loc_physical_ms}', label: 'ID геолокации' },
@@ -27,7 +31,7 @@ function cleanTargetUrl(value) { const rawValue = String(value).trim(); const ur
 function buildUtmUrl(target, values) {
   const url = cleanTargetUrl(target);
   [['utm_source', values.source], ['utm_medium', values.medium], ['utm_campaign', values.campaign], ['utm_content', values.content], ['utm_term', values.term]].forEach(([key, value]) => { const normalized = normalizeValue(value); if (normalized) url.searchParams.set(key, normalized); });
-  return url.toString();
+  return url.toString().replace(/%7B/gi, '{').replace(/%7D/gi, '}');
 }
 function validateRequired(values) {
   const errors = {};
@@ -157,10 +161,10 @@ async function copyText(value, message = 'Ссылка скопирована.')
       temporaryField.remove();
       if (!copied) throw new Error('copy command was rejected');
     }
-    setStatus(message);
+    if (message) setStatus(message);
     return true;
   } catch {
-    setStatus('Не получилось скопировать ссылку. Скопируйте её вручную.');
+    if (message) setStatus('Не получилось скопировать ссылку. Скопируйте её вручную.');
     return false;
   }
 }
@@ -200,7 +204,7 @@ function renderTemplates() {
     const label = document.createElement('span');
     label.textContent = macro.label;
     button.append(value, label);
-    button.addEventListener('click', () => copyText(macro.value, `Параметр ${macro.value} скопирован.`));
+    button.addEventListener('click', () => copyText(macro.value, null));
     macroGrid.append(button);
   });
 

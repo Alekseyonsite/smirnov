@@ -17,9 +17,14 @@ assert.match(page, /id="generate-utm"/);
 assert.match(page, /Собрать ссылку/);
 assert.match(page, /utm_content/);
 assert.match(page, /utm_term/);
+assert.match(page, /<label for="utm-content">Содержание <small>utm_content<\/small><\/label>/);
+assert.doesNotMatch(page, /Содержание \/ креатив/);
+assert.match(page, /placeholder="reels_01"/);
+assert.match(page, /Динамические шаблоны[\s\S]*для продвинутых/);
 assert.doesNotMatch(controller, /^import\s/m);
 assert.match(controller, /let hasSubmitted = false/);
 assert.doesNotMatch(controller, /Скопировать шаблон/);
 assert.match(controller, /const message = showErrors \? errors\[name\] \?\? '' : ''/);
+assert.match(controller, /copyText\(macro\.value, null\)/);
 
 console.log('PASS: UTM page assets use paths that work from /utm/ and file previews');
