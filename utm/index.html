@@ -30,14 +30,16 @@
       <h1>Соберите ссылку с UTM-меткой без путаницы</h1>
       <p class="utm-lead">Выберите готовые значения или введите свои. Сервис приведёт метки к единому виду и соберёт чистую ссылку.</p>
       <div class="utm-rules" aria-label="Правила преобразования значений">
-        <span>Кириллица → латиница</span><span>Пробелы → _</span><span>Все значения → строчные</span>
+        <span><b aria-hidden="true">↳</b>Кириллица → латиница</span><span><b aria-hidden="true">↳</b>Пробелы → _</span><span><b aria-hidden="true">↳</b>Все значения → строчные</span>
       </div>
       <div class="utm-explainer" aria-labelledby="utm-explainer-title">
         <h2 id="utm-explainer-title">Как не запутаться в UTM</h2>
         <div class="utm-tip-grid">
-          <article><h3>Источник</h3><p><code>utm_source</code> — откуда пришёл человек: <code>telegram</code>, <code>yandex_direct</code>.</p></article>
-          <article><h3>Канал</h3><p><code>utm_medium</code> — тип трафика: <code>cpc</code>, <code>cpm</code>, <code>cpa</code>.</p></article>
-          <article><h3>Кампания</h3><p><code>utm_campaign</code> — что именно продвигаете: <code>reels_utm_september</code>.</p></article>
+          <article><h3>Источник</h3><p><code>utm_source</code> <span>— откуда пришёл человек.</span><em>Например: telegram, yandex_direct.</em></p></article>
+          <article><h3>Канал</h3><p><code>utm_medium</code> <span>— тип трафика.</span><em>Например: cpc, cpm, cpa.</em></p></article>
+          <article><h3>Кампания</h3><p><code>utm_campaign</code> <span>— что именно продвигаете.</span><em>Например: reels_utm_september.</em></p></article>
+          <article><h3>Содержание</h3><p><code>utm_content</code> <span>— вариант объявления или креатива.</span><em>Например: reels_01.</em></p></article>
+          <article><h3>Ключевое слово</h3><p><code>utm_term</code> <span>— ключевое слово для рекламы.</span><em>Например: {keyword}.</em></p></article>
         </div>
       </div>
     </div>
@@ -49,13 +51,13 @@
         <div class="utm-form-heading"><h2 id="utm-builder-title">Заполните параметры</h2><p><span aria-hidden="true">*</span> обязательные поля</p></div>
         <div class="utm-form-grid">
           <div class="utm-field utm-field-full">
-            <label for="target-url">Ссылка на страницу <span class="utm-required" aria-hidden="true">*</span><small>старые UTM удалим</small></label>
+            <label for="target-url">Ссылка на страницу <span class="utm-required" aria-hidden="true">*</span></label>
             <input id="target-url" name="target" type="url" inputmode="url" placeholder="https://example.com/offer" autocomplete="url" required>
             <p class="utm-field-error" id="target-url-error" aria-live="polite"></p>
           </div>
           <div class="utm-field">
             <label for="utm-source">Источник <span class="utm-required" aria-hidden="true">*</span><small>utm_source</small></label>
-            <input id="utm-source" name="source" type="text" placeholder="Например: telegram" required>
+            <input id="utm-source" name="source" type="text" value="yandex_direct" placeholder="Например: yandex_direct" required>
             <div class="utm-chips" data-preset-group="source" aria-label="Пресеты источника"></div>
             <p class="utm-field-error" id="utm-source-error" aria-live="polite"></p>
           </div>
@@ -78,6 +80,9 @@
             <label for="utm-term">Ключевое слово <small>utm_term</small></label>
             <input id="utm-term" name="term" type="text" value="{keyword}" placeholder="{keyword}">
             <p class="utm-field-hint">Можно оставить динамический параметр для рекламы.</p>
+          </div>
+          <div class="utm-field utm-field-full utm-generate-field">
+            <button id="generate-utm" type="button" class="btn utm-generate">Собрать ссылку</button>
           </div>
         </div>
       </form>

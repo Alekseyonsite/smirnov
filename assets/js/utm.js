@@ -26,6 +26,7 @@ const output = document.getElementById('utm-output');
 const status = document.getElementById('utm-action-status');
 const copyButton = document.getElementById('copy-utm');
 const shareButton = document.getElementById('share-utm');
+const generateButton = document.getElementById('generate-utm');
 const tabs = document.getElementById('template-tabs');
 const templateContent = document.getElementById('template-content');
 
@@ -187,6 +188,10 @@ form.addEventListener('input', (event) => {
 });
 
 form.addEventListener('submit', (event) => event.preventDefault());
+generateButton.addEventListener('click', () => {
+  updateResult();
+  if (generatedUrl) result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
 copyButton.addEventListener('click', () => copyText(generatedUrl));
 shareButton.addEventListener('click', async () => {
   if (!generatedUrl) return;
