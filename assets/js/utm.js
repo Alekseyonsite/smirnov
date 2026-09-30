@@ -105,7 +105,7 @@ function updateResult(showErrors = hasSubmitted) {
   if (targetError) errors.target = targetError;
 
   setErrors(errors, showErrors);
-  if (Object.keys(errors).length) {
+  if (Object.keys(errors).length || !hasSubmitted) {
     generatedUrl = '';
     output.textContent = '';
     result.hidden = true;
