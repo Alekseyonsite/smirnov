@@ -13,7 +13,7 @@ export const SOURCE_PRESETS = [
 ];
 
 export const MEDIUM_PRESETS = [
-  'cpc', 'cpm', 'cpa', 'affiliate', 'social', 'paid_social', 'email', 'display', 'video', 'referral', 'messenger',
+  'cpc', 'cpa', 'affiliate', 'social',
 ];
 
 export const DYNAMIC_TEMPLATES = {
@@ -89,7 +89,8 @@ export function normalizeValue(value) {
 }
 
 export function cleanTargetUrl(value) {
-  const url = new URL(String(value).trim());
+  const rawValue = String(value).trim();
+  const url = new URL(/^https?:\/\//i.test(rawValue) ? rawValue : `https://${rawValue}`);
   url.search = '';
   url.hash = '';
   return url;
@@ -127,11 +128,8 @@ export function validateRequired(values) {
 export function validateTargetUrl(value) {
   const rawValue = String(value ?? '').trim();
   if (!rawValue) return 'Укажите ссылку на страницу.';
-  if (!/^https?:\/\//i.test(rawValue)) {
-    return rawValue.includes('.')
-      ? 'Добавьте https:// перед адресом, например: https://site.com.'
-      : 'Укажите доменную зону (.ru, .com, .io и т. д.), например: https://site.com.';
-  }
+  const host = rawValue.replace(/^https?:\/\//i, '').split(/[/?#]/)[0];
+  if (!host.includes('.') || host.startsWith('.') || host.endsWith('.')) return 'Укажите доменную зону (.ru, .com, .io и т. д.), например: https://site.com.';
 
   try {
     const url = cleanTargetUrl(rawValue);

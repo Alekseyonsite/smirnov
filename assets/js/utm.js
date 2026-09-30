@@ -4,7 +4,7 @@ const SOURCE_PRESETS = [
   { label: 'Telegram', value: 'telegram' }, { label: 'Instagram', value: 'instagram' },
   { label: 'Яндекс.Директ', value: 'yandex_direct' }, { label: 'Google Ads', value: 'google_ads' }, { label: 'VK Реклама', value: 'vk_ads' },
 ];
-const MEDIUM_PRESETS = ['cpc', 'cpm', 'cpa', 'affiliate', 'social', 'paid_social', 'email', 'display', 'video', 'referral', 'messenger'];
+const MEDIUM_PRESETS = ['cpc', 'cpa', 'affiliate', 'social'];
 const DYNAMIC_TEMPLATES = {
   google: { label: 'Google Ads', macros: [
     { value: '{campaignid}', label: 'ID кампании' }, { value: '{adgroupid}', label: 'ID группы' }, { value: '{creative}', label: 'ID объявления' }, { value: '{keyword}', label: 'Ключевое слово' }, { value: '{placement}', label: 'Площадка' }, { value: '{device}', label: 'Устройство' }, { value: '{network}', label: 'Сеть' }, { value: '{matchtype}', label: 'Тип соответствия' }, { value: '{targetid}', label: 'ID таргетинга' }, { value: '{loc_physical_ms}', label: 'ID геолокации' },
@@ -23,7 +23,7 @@ function normalizeValue(value) {
   if (!original || isDynamicMacro(original)) return original;
   return original.toLowerCase().replace(/[—–]/g, '-').split('').map((character) => CYRILLIC_TO_LATIN[character] ?? character).join('').replace(/\s+/g, '_').replace(/[^a-z0-9_-]/g, '').replace(/_+/g, '_');
 }
-function cleanTargetUrl(value) { const url = new URL(String(value).trim()); url.search = ''; url.hash = ''; return url; }
+function cleanTargetUrl(value) { const rawValue = String(value).trim(); const url = new URL(/^https?:\/\//i.test(rawValue) ? rawValue : `https://${rawValue}`); url.search = ''; url.hash = ''; return url; }
 function buildUtmUrl(target, values) {
   const url = cleanTargetUrl(target);
   [['utm_source', values.source], ['utm_medium', values.medium], ['utm_campaign', values.campaign], ['utm_content', values.content], ['utm_term', values.term]].forEach(([key, value]) => { const normalized = normalizeValue(value); if (normalized) url.searchParams.set(key, normalized); });
@@ -40,7 +40,8 @@ function validateRequired(values) {
 function validateTargetUrl(value) {
   const rawValue = String(value ?? '').trim();
   if (!rawValue) return 'Укажите ссылку на страницу.';
-  if (!/^https?:\/\//i.test(rawValue)) return rawValue.includes('.') ? 'Добавьте https:// перед адресом, например: https://site.com.' : 'Укажите доменную зону (.ru, .com, .io и т. д.), например: https://site.com.';
+  const host = rawValue.replace(/^https?:\/\//i, '').split(/[/?#]/)[0];
+  if (!host.includes('.') || host.startsWith('.') || host.endsWith('.')) return 'Укажите доменную зону (.ru, .com, .io и т. д.), например: https://site.com.';
   try { const url = cleanTargetUrl(rawValue); return /^https?:$/.test(url.protocol) ? '' : 'Введите корректную ссылку с http:// или https://.'; } catch { return 'Введите корректную ссылку с http:// или https://.'; }
 }
 function templateExample(platform) { const template = DYNAMIC_TEMPLATES[platform]; if (!template) throw new Error('Неизвестная рекламная площадка.'); return template.fragment; }
@@ -69,6 +70,7 @@ const templateContent = document.getElementById('template-content');
 
 let generatedUrl = '';
 let activeTemplate = 'google';
+let hasSubmitted = false;
 
 function getValues() {
   return Object.fromEntries(
@@ -80,21 +82,25 @@ function setStatus(message) {
   status.textContent = message;
 }
 
-function setErrors(errors) {
+function setErrors(errors, showErrors) {
   Object.entries(fields).forEach(([name, field]) => {
     const error = document.getElementById(`${field.id}-error`);
-    field.setAttribute('aria-invalid', String(Boolean(errors[name])));
-    if (error) error.textContent = errors[name] ?? '';
+    const message = showErrors ? errors[name] ?? '' : '';
+    field.setAttribute('aria-invalid', String(Boolean(message)));
+    if (error) {
+      error.textContent = message ?? '';
+      error.dataset.hint = String(name === 'target' && message.includes('доменную зону'));
+    }
   });
 }
 
-function updateResult() {
+function updateResult(showErrors = hasSubmitted) {
   const values = getValues();
   const errors = validateRequired(values);
   const targetError = validateTargetUrl(values.target);
   if (targetError) errors.target = targetError;
 
-  setErrors(errors);
+  setErrors(errors, showErrors);
   if (Object.keys(errors).length) {
     generatedUrl = '';
     output.textContent = '';
@@ -198,17 +204,7 @@ function renderTemplates() {
     macroGrid.append(button);
   });
 
-  const fragment = document.createElement('div');
-  fragment.className = 'utm-template-fragment';
-  const fragmentValue = document.createElement('code');
-  fragmentValue.textContent = templateExample(activeTemplate);
-  const fragmentCopy = document.createElement('button');
-  fragmentCopy.type = 'button';
-  fragmentCopy.className = 'utm-template-copy';
-  fragmentCopy.textContent = 'Скопировать шаблон';
-  fragmentCopy.addEventListener('click', () => copyText(templateExample(activeTemplate), 'Шаблон скопирован.'));
-  fragment.append(fragmentValue, fragmentCopy);
-  templateContent.append(title, intro, macroGrid, fragment);
+  templateContent.append(title, intro, macroGrid);
 }
 
 form.addEventListener('input', (event) => {
@@ -219,6 +215,7 @@ form.addEventListener('input', (event) => {
 
 form.addEventListener('submit', (event) => event.preventDefault());
 generateButton.addEventListener('click', () => {
+  hasSubmitted = true;
   updateResult();
   if (generatedUrl) result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 });
@@ -242,5 +239,5 @@ shareButton.addEventListener('click', async () => {
 renderPresetGroup('source', SOURCE_PRESETS);
 renderPresetGroup('medium', MEDIUM_PRESETS);
 renderTemplates();
-updateResult();
+updateResult(false);
 })();

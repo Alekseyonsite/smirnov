@@ -18,5 +18,8 @@ assert.match(page, /Собрать ссылку/);
 assert.match(page, /utm_content/);
 assert.match(page, /utm_term/);
 assert.doesNotMatch(controller, /^import\s/m);
+assert.match(controller, /let hasSubmitted = false/);
+assert.doesNotMatch(controller, /Скопировать шаблон/);
+assert.match(controller, /const message = showErrors \? errors\[name\] \?\? '' : ''/);
 
 console.log('PASS: UTM page assets use paths that work from /utm/ and file previews');

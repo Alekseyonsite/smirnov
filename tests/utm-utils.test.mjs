@@ -36,7 +36,7 @@ const tests = [
   }],
   ['exposes the approved presets and documented Google and Yandex macros', () => {
     assert.deepEqual(SOURCE_PRESETS.map((preset) => preset.label), ['Telegram', 'Instagram', 'Яндекс.Директ', 'Google Ads', 'VK Реклама']);
-    assert.deepEqual(MEDIUM_PRESETS.slice(0, 4), ['cpc', 'cpm', 'cpa', 'affiliate']);
+    assert.deepEqual(MEDIUM_PRESETS, ['cpc', 'cpa', 'affiliate', 'social']);
     assert.ok(DYNAMIC_TEMPLATES.google.macros.some((macro) => macro.value === '{campaignid}'));
     assert.ok(DYNAMIC_TEMPLATES.yandex.macros.some((macro) => macro.value === '{campaign_id}'));
   }],
@@ -59,10 +59,12 @@ const tests = [
   ['keeps only the verified VK Ads template macros', () => {
     assert.equal(DYNAMIC_TEMPLATES.vk.macros.some((macro) => macro.value === '{{ad_id}}'), false);
   }],
-  ['explains how to complete a target URL without a protocol or domain zone', () => {
+  ['requires a domain zone but adds https to a complete domain', () => {
     assert.equal(validateTargetUrl('test'), 'Укажите доменную зону (.ru, .com, .io и т. д.), например: https://site.com.');
-    assert.equal(validateTargetUrl('test.com'), 'Добавьте https:// перед адресом, например: https://site.com.');
+    assert.equal(validateTargetUrl('test.com'), '');
     assert.equal(validateTargetUrl('https://test.com'), '');
+    assert.equal(cleanTargetUrl('test.com?old=1').toString(), 'https://test.com/');
+    assert.equal(buildUtmUrl('test.com', { source: 'yandex_direct', medium: 'cpc', campaign: 'test', content: '', term: '' }), 'https://test.com/?utm_source=yandex_direct&utm_medium=cpc&utm_campaign=test');
   }],
 ];
 
