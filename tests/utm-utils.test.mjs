@@ -45,9 +45,18 @@ const tests = [
       { target: 'Укажите ссылку на страницу.', medium: 'Укажите канал.', campaign: 'Укажите название кампании.' },
     );
   }],
+  ['rejects required UTM values that become empty after normalization', () => {
+    assert.deepEqual(
+      validateRequired({ target: 'https://example.com', source: '!!!', medium: '🚀', campaign: '💥', content: '', term: '' }),
+      { source: 'Укажите источник.', medium: 'Укажите канал.', campaign: 'Укажите название кампании.' },
+    );
+  }],
   ['returns a documented platform template and rejects an unknown platform', () => {
     assert.equal(templateExample('google'), 'utm_campaign={campaignid}&utm_content={creative}&utm_term={keyword}');
     assert.throws(() => templateExample('unknown'), /Неизвестная рекламная площадка/);
+  }],
+  ['keeps only the verified VK Ads template macros', () => {
+    assert.equal(DYNAMIC_TEMPLATES.vk.macros.some((macro) => macro.value === '{{ad_id}}'), false);
   }],
 ];
 

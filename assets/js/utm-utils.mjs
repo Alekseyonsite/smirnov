@@ -61,7 +61,6 @@ export const DYNAMIC_TEMPLATES = {
     macros: [
       { value: '{{campaign_id}}', label: 'ID кампании' },
       { value: '{{banner_id}}', label: 'ID баннера' },
-      { value: '{{ad_id}}', label: 'ID объявления' },
       { value: '{{geo}}', label: 'Гео показа' },
       { value: '{{gender}}', label: 'Пол' },
       { value: '{{age}}', label: 'Возраст' },
@@ -118,9 +117,9 @@ export function validateRequired(values) {
   const errors = {};
 
   if (!String(values.target ?? '').trim()) errors.target = 'Укажите ссылку на страницу.';
-  if (!String(values.source ?? '').trim()) errors.source = 'Укажите источник.';
-  if (!String(values.medium ?? '').trim()) errors.medium = 'Укажите канал.';
-  if (!String(values.campaign ?? '').trim()) errors.campaign = 'Укажите название кампании.';
+  if (!normalizeValue(values.source)) errors.source = 'Укажите источник.';
+  if (!normalizeValue(values.medium)) errors.medium = 'Укажите канал.';
+  if (!normalizeValue(values.campaign)) errors.campaign = 'Укажите название кампании.';
 
   return errors;
 }

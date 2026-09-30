@@ -116,8 +116,9 @@ async function copyText(value, message = 'Ссылка скопирована.')
       temporaryField.className = 'utm-copy-fallback';
       document.body.append(temporaryField);
       temporaryField.select();
-      document.execCommand('copy');
+      const copied = document.execCommand('copy');
       temporaryField.remove();
+      if (!copied) throw new Error('copy command was rejected');
     }
     setStatus(message);
     return true;
