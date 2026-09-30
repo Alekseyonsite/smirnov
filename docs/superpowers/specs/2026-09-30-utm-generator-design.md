@@ -78,7 +78,8 @@ When the visitor enters a URL that already contains query parameters or old UTM 
 The URL updates as the form changes. It is displayed only after the required values are valid.
 
 - Secondary button: `Скопировать ссылку`; copies the result and briefly confirms success.
-- Primary amber button: `Сохранить себе в заметки •••`; no leading icon. It opens the native share sheet where supported, so a visitor can send the result to Notes, Telegram, email, or another application. If the share API is unavailable, fall back to copying the URL and show an explanatory success message.
+- Primary amber button: `Сохранить себе` with a trailing paper-plane share icon. It opens the native share sheet where supported, so a visitor can send the result to Notes, Telegram, email, or another application. If the share API is unavailable, fall back to copying the URL and show an explanatory success message.
+- Render the generated URL itself in the site's normal light text color, not accent yellow. The result container may retain a restrained amber outline or label.
 
 No account, history, database, analytics event storage, or cross-device state is required.
 
@@ -168,7 +169,7 @@ The new page must include:
 ## Acceptance criteria
 
 - A mobile visitor can create and copy a valid UTM URL in one short pass without registration.
-- The mobile layout matches the approved dark design, including red asterisks and the amber `Сохранить себе в заметки •••` action.
+- The mobile layout matches the approved dark design, including red asterisks and the amber `Сохранить себе` action with a paper-plane share icon.
 - The desktop layout maintains the approved two-column arrangement.
 - Dynamic templates are useful, copyable, documented, and accurate for their platform.
 - The page integrates with the existing site navigation and sends interested visitors to the existing UAE real-estate case.
