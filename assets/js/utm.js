@@ -69,6 +69,7 @@ const status = document.getElementById('utm-action-status');
 const copyButton = document.getElementById('copy-utm');
 const shareButton = document.getElementById('share-utm');
 const generateButton = document.getElementById('generate-utm');
+const formStatus = document.getElementById('utm-form-status');
 const tabs = document.getElementById('template-tabs');
 const templateContent = document.getElementById('template-content');
 const keywordMacro = document.getElementById('insert-keyword-macro');
@@ -107,6 +108,7 @@ function updateResult(showErrors = hasSubmitted) {
 
   setErrors(errors, showErrors);
   if (Object.keys(errors).length || !hasSubmitted) {
+    formStatus.textContent = showErrors ? `Не удалось собрать ссылку: ${Object.values(errors).join(' ')}` : '';
     generatedUrl = '';
     output.textContent = '';
     result.hidden = true;
@@ -114,6 +116,7 @@ function updateResult(showErrors = hasSubmitted) {
   }
 
   generatedUrl = buildUtmUrl(values.target, values);
+  formStatus.textContent = '';
   output.textContent = generatedUrl;
   result.hidden = false;
 }

@@ -15,6 +15,7 @@ assert.match(page, /id="utm-source"[^>]*value="yandex_direct"/);
 assert.doesNotMatch(page, /старые UTM удалим/);
 assert.match(page, /id="generate-utm"/);
 assert.match(page, /Собрать ссылку/);
+assert.match(page, /id="utm-form-status"[^>]*aria-live="polite"/);
 assert.match(page, /utm_content/);
 assert.match(page, /utm_term/);
 assert.match(page, /<label for="utm-content">Содержание <small>utm_content<\/small><\/label>/);
@@ -34,6 +35,7 @@ assert.match(controller, /keywordMacro\.addEventListener\('click'/);
 assert.doesNotMatch(controller, /Скопировать шаблон/);
 assert.match(controller, /const message = showErrors \? errors\[name\] \?\? '' : ''/);
 assert.match(controller, /if \(Object\.keys\(errors\)\.length \|\| !hasSubmitted\)/);
+assert.match(controller, /formStatus\.textContent = showErrors \? `Не удалось собрать ссылку: \$\{Object\.values\(errors\)\.join\(' '\)\}` : ''/);
 assert.match(controller, /copyText\(macro\.value, null\)/);
 
 console.log('PASS: UTM page assets use paths that work from /utm/ and file previews');

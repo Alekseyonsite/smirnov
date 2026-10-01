@@ -24,9 +24,10 @@
 .utm-form-heading p span{color:var(--red);font-size:15px}
 .utm-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .utm-field-full{grid-column:1/-1}
-.utm-generate-field{display:flex;justify-content:flex-end;margin-top:2px}
+.utm-generate-field{display:flex;flex-wrap:wrap;justify-content:flex-end;margin-top:2px}
 .utm-generate{background:var(--accent);color:#17120a;border:1px solid var(--accent)}
 .utm-generate:hover{background:var(--accent2);transform:translateY(-1px)}
+.utm-form-status{width:100%;min-height:15px;margin-top:8px;color:var(--red);font-size:11px;text-align:right}
 .utm-field label{display:block;color:var(--text);font-size:12px;font-weight:700;margin-bottom:7px}
 .utm-field label small{font-size:10px;font-weight:500;color:var(--text3);margin-left:5px}
 .utm-required{color:var(--red);font-size:15px;line-height:0}
@@ -103,6 +104,7 @@
   .utm-field-full{grid-column:auto}
   .utm-generate-field{justify-content:stretch}
   .utm-generate{width:100%;justify-content:center;height:42px}
+  .utm-form-status{text-align:left}
   .utm-field input{height:40px}
   .utm-chip{font-size:9px;padding:6px 8px}
   .utm-result{grid-template-columns:1fr;padding:13px}
