@@ -53,7 +53,7 @@ p{color:var(--text2)}
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);background:rgba(14,13,13,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--col);height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .nav-logo{font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--text);flex-shrink:0}
-.nav-links{display:flex;align-items:center;gap:28px;flex:1;justify-content:center}
+.nav-links{display:flex;align-items:center;gap:clamp(12px,2vw,28px);flex:1;justify-content:center}
 .nav-links a{font-size:13px;color:var(--text2);transition:color .18s;position:relative}
 .nav-links a:hover,.nav-links a.active{color:var(--text)}
 .nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--accent);border-radius:1px}
@@ -165,6 +165,10 @@ p{color:var(--text2)}
 .fade-up.visible{opacity:1;transform:none}
 
 /* RESPONSIVE */
+@media(max-width:1100px){
+  .nav-links,.nav-right .btn-primary{display:none}
+  .nav-burger{display:flex}
+}
 @media(max-width:900px){
   :root{--col:24px}
   section{padding:64px 0}

@@ -1,0 +1,72 @@
+/* Prompt landing page; shared site colors, typography and buttons live in main.css. */
+.prompt-hero{padding:132px 0 38px}
+.prompt-eyebrow{display:flex;align-items:center;gap:10px;color:var(--accent);font-size:13px;font-weight:600;margin-bottom:24px}
+.prompt-dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.prompt-hero h1{font-size:clamp(30px,4.8vw,56px);line-height:1.18;max-width:950px;letter-spacing:-.035em}
+.prompt-lead{font-size:18px;line-height:1.75;max-width:740px;margin-top:24px}
+.prompt-steps{display:flex;gap:30px;list-style:none;margin-top:30px;font-size:13px;color:var(--text)}
+.prompt-steps span{color:var(--accent);font-size:11px;margin-right:8px}
+.prompt-help{font-size:12px;margin-top:12px;color:var(--text3)}
+.prompt-section{padding:0 0 72px}
+.prompt-card{border:1px solid var(--border2);border-radius:var(--radius-lg);background:var(--bg2);padding:28px 32px}
+.prompt-toolbar{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.prompt-label{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--text3);display:block;margin-bottom:10px}
+.prompt-toolbar h2{font-size:18px;line-height:1.4}
+.prompt-copy-status{font-size:12px;margin:14px 0 22px;min-height:20px}
+.prompt-preview pre,.prompt-details pre{white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--font-body);font-size:14px;line-height:1.85;color:var(--text2)}
+.prompt-preview{padding-top:22px;border-top:1px solid var(--border)}
+.prompt-details summary{list-style:none;display:flex;align-items:center;justify-content:space-between;color:var(--accent);font-size:13px;cursor:pointer;padding:22px 0 0}
+.prompt-details summary::-webkit-details-marker{display:none}
+.prompt-hide,.prompt-details[open] .prompt-show{display:none}
+.prompt-details[open] .prompt-hide{display:inline}
+.prompt-details[open] summary{padding-bottom:22px}
+.prompt-card:has(.prompt-details[open]) .prompt-preview{display:none}
+.prompt-details[open] summary span:last-child{transform:rotate(180deg)}
+.prompt-after{font-size:12px;margin-top:16px;color:var(--text3)}
+.prompt-after code{color:var(--text2);font-size:12px}
+#manual-copy label{display:block;font-size:13px;margin:20px 0 10px}
+#manual-prompt{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border2);border-radius:8px;padding:14px;font:13px/1.6 var(--font-body)}
+.prompt-cases{padding:0 0 72px}
+.prompt-section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+.prompt-section-head h2{font-size:clamp(23px,3vw,32px)}
+.prompt-text-link{font-size:13px;color:var(--accent);white-space:nowrap}
+.prompt-case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prompt-case{display:flex;flex-direction:column;align-items:start;padding:24px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);transition:border-color .2s}
+.prompt-case:hover{border-color:var(--border2)}
+.prompt-case .tag{font-size:10px}
+.prompt-case h3{font-size:17px;line-height:1.45;margin:22px 0 12px}
+.prompt-case p{font-size:13px;line-height:1.7;flex:1}
+.prompt-case strong{font-size:22px;color:var(--green);margin:24px 0}
+.prompt-case-link{border-top:1px solid var(--border);padding-top:16px;font-size:12px;color:var(--text2);width:100%}
+.prompt-contact{padding:0 0 80px}
+.prompt-contact-box{border:1px solid var(--border2);border-radius:var(--radius-lg);padding:36px;display:flex;align-items:center;justify-content:space-between;gap:36px;background:var(--accent-bg)}
+.prompt-contact-box h2{font-size:clamp(23px,3vw,32px);line-height:1.3}
+.prompt-contact-box p{font-size:14px;margin-top:16px;max-width:440px}
+.prompt-contact-box .btn-lg{font-family:var(--font-body);font-size:14px;padding:16px 22px}
+.prompt-page :is(button,summary,a,textarea):focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+@media(max-width:700px){
+  .prompt-hero{padding:104px 0 30px}
+  .prompt-hero h1 br{display:none}
+  .prompt-lead{font-size:15px;margin-top:20px}
+  .prompt-steps{flex-direction:column;gap:10px;margin-top:22px}
+  .prompt-help{line-height:1.6}
+  .prompt-card{padding:22px 20px}
+  .prompt-toolbar{flex-direction:column;align-items:stretch;gap:18px}
+  .prompt-toolbar .btn{justify-content:center;min-height:48px}
+  .prompt-toolbar h2{font-size:16px}
+  .prompt-preview pre,.prompt-details pre{font-size:13px}
+  .prompt-case-grid{grid-template-columns:1fr}
+  .prompt-section-head{align-items:start;flex-direction:column;gap:14px}
+  .prompt-section,.prompt-cases{padding-bottom:48px}
+  .prompt-contact-box{padding:24px;flex-direction:column;align-items:stretch;gap:24px}
+  .prompt-contact-box .btn{white-space:normal;justify-content:center;text-align:center}
+}
+
+.prompt-note{margin-bottom:24px;padding:22px 24px;border-left:2px solid var(--accent);border-radius:0 10px 10px 0;background:var(--bg2)}
+.prompt-note h3{font-size:14px;line-height:1.5;margin-bottom:12px}
+.prompt-note p{font-size:13px;line-height:1.8}
+.prompt-note p+p{margin-top:10px}
+.prompt-catalog-card{display:flex;flex-direction:column;align-items:flex-start;gap:20px;max-width:760px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:28px;transition:border-color .2s}
+.prompt-catalog-card:hover{border-color:var(--accent)}
+.prompt-catalog-card h3{font-size:clamp(18px,2.5vw,24px);line-height:1.4}
+.prompt-catalog-card p{font-size:14px;line-height:1.8}

@@ -4,9 +4,9 @@ import { readFile } from 'node:fs/promises';
 const page = await readFile(new URL('../utm/index.html', import.meta.url), 'utf8');
 const controller = await readFile(new URL('../assets/js/utm.js', import.meta.url), 'utf8');
 
-assert.match(page, /href="\.\.\/assets\/css\/main\.css"/);
+assert.match(page, /href="\.\.\/assets\/css\/main\.css(?:\?[^"\s]*)?"/);
 assert.match(page, /href="\.\.\/assets\/css\/utm\.css"/);
-assert.match(page, /src="\.\.\/assets\/js\/nav\.js"/);
+assert.match(page, /src="\.\.\/assets\/js\/nav\.js(?:\?[^"\s]*)?"/);
 assert.match(page, /src="\.\.\/assets\/js\/main\.js"/);
 assert.match(page, /src="\.\.\/assets\/js\/utm\.js"/);
 assert.doesNotMatch(page, /<script type="module" src="\.\.\/assets\/js\/utm\.js"><\/script>/);
