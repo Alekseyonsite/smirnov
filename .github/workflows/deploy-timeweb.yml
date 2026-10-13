@@ -15,14 +15,14 @@ concurrency:
 jobs:
   publish:
     if: github.ref == 'refs/heads/main' && vars.TIMEWEB_DEPLOY_ENABLED == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       TIMEWEB_HOST: vh460.timeweb.ru
       TIMEWEB_USER: alekseyaa3
       SITE_MODE: ${{ vars.TIMEWEB_SITE_MODE }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
       - name: Check UTM generator
@@ -56,6 +56,6 @@ jobs:
           printf '%s\n' 'vh460.timeweb.ru ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZgp4mt0IQjn2ep1FFT3Sp37tK9HItDovo+bpEvjtGA' > "$hosts_file"
           # Destination is relative to the public_html directory enforced by rrsync.
           # Do not use --delete: unrelated server files must remain untouched.
-          rsync -rt --delay-updates --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
+          rsync -rpt --delay-updates --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
             -e "ssh -i $key_file -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o HostKeyAlgorithms=ssh-ed25519 -o UserKnownHostsFile=$hosts_file -o ConnectTimeout=15" \
             "$RUNNER_TEMP/site/" "$TIMEWEB_USER@$TIMEWEB_HOST:./"
