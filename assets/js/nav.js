@@ -33,7 +33,7 @@
   }
 
   var s = getActiveSection();
-  var isHome = (s === 'home');
+  var isHome = (window.location.pathname === '/' || window.location.pathname === '/index.html');
 
   /* ---- NAV HTML ---- */
   var navOnlyHTML = '<nav class="site-nav"><div class="nav-inner"><a href="/" class="nav-logo">\u0410. \u0421\u043c\u0438\u0440\u043d\u043e\u0432</a><div class="nav-links">' +

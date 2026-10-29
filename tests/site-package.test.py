@@ -1,5 +1,6 @@
 """Verify deployment exports and filesystem boundaries using a disposable repository."""
 import importlib.util
+import hashlib
 from pathlib import Path
 import subprocess
 import tempfile
@@ -50,6 +51,29 @@ class SiteExportTests(unittest.TestCase):
         self.assertEqual((output / 'index.html').read_text(), (self.root / 'index.html').read_text())
         self.assertEqual((output / 'robots.txt').read_text(), (self.root / 'robots.txt').read_text())
         self.assertNotIn('noindex', (output / '.htaccess').read_text())
+
+    def test_asset_urls_follow_content_without_rewriting_other_urls(self):
+        self.put('utm/index.html', '<head><link href="../assets/js/main.js?v=old&amp;mode=one#part"></head>'
+                 '<script src="https://example.com/assets/js/main.js?v=old"></script>'
+                 '<a href="../privacy/?v=old">Privacy</a>')
+        subprocess.run(['git', 'add', 'utm/index.html'], cwd=str(self.root), check=True)
+        output = self.export(False)
+        version = hashlib.sha256(b'console.log("site");').hexdigest()[:12]
+        page = (output / 'utm/index.html').read_text()
+        self.assertIn('../assets/js/main.js?mode=one&amp;v=' + version + '#part', page)
+        self.assertIn('https://example.com/assets/js/main.js?v=old', page)
+        self.assertIn('../privacy/?v=old', page)
+
+    def test_changed_asset_changes_reference_but_identical_build_is_stable(self):
+        self.put('index.html', '<head></head><script src="/assets/js/main.js"></script>')
+        first = self.export(False)
+        same = Path(self.temp.name) / 'same'
+        package.export(self.root, same, False)
+        self.assertEqual((first / 'index.html').read_bytes(), (same / 'index.html').read_bytes())
+        self.put('assets/js/main.js', 'console.log("updated");')
+        changed = Path(self.temp.name) / 'changed'
+        package.export(self.root, changed, False)
+        self.assertNotEqual((first / 'index.html').read_bytes(), (changed / 'index.html').read_bytes())
 
     def test_tracked_symlink_is_rejected_before_export(self):
         outside = Path(self.temp.name) / 'private.txt'
