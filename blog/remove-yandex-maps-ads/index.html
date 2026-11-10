@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Как отключить рекламу в Яндекс Картах на сайте</title>
+  <meta name="description" content="Как подключить тариф Яндекс Карт без рекламы, оплатить счёт и добавить API-ключ в код карты на сайте. Пошаговая инструкция со скриншотами.">
+  <meta name="author" content="Алексей Смирнов">
+  <link rel="canonical" href="https://smirnovads.com/blog/remove-yandex-maps-ads/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://smirnovads.com/blog/remove-yandex-maps-ads/">
+  <meta property="og:title" content="Как отключить рекламу в Яндекс Картах на сайте">
+  <meta property="og:description" content="Как подключить тариф Яндекс Карт без рекламы, оплатить счёт и добавить API-ключ в код карты на сайте. Пошаговая инструкция со скриншотами.">
+  <meta property="og:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Алексей Смирнов">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Как отключить рекламу в Яндекс Картах на сайте">
+  <meta name="twitter:description" content="Как подключить тариф Яндекс Карт без рекламы, оплатить счёт и добавить API-ключ в код карты на сайте.">
+  <meta name="twitter:image" content="https://smirnovads.com/assets/img/og-home.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Как отключить рекламу в Яндекс Картах на сайте",
+    "description": "Как подключить тариф Яндекс Карт без рекламы, оплатить счёт и добавить API-ключ в код карты на сайте. Пошаговая инструкция со скриншотами.",
+    "author": {"@type": "Person", "name": "Алексей Смирнов", "url": "https://smirnovads.com/"},
+    "publisher": {"@type": "Person", "name": "Алексей Смирнов", "url": "https://smirnovads.com/"},
+    "datePublished": "2026-11-10",
+    "dateModified": "2026-11-10",
+    "url": "https://smirnovads.com/blog/remove-yandex-maps-ads/",
+    "mainEntityOfPage": "https://smirnovads.com/blog/remove-yandex-maps-ads/",
+    "image": "https://smirnovads.com/assets/img/og-home.png",
+    "inLanguage": "ru"
+  }
+  </script>
+  <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108992580', 'ym');
+
+      ym(108992580, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/remove-yandex-maps-ads.css">
+</head>
+<body>
+  <noscript><img class="maps-guide-counter" src="https://mc.yandex.ru/watch/108992580" alt=""></noscript>
+  <script src="/assets/js/nav.js"></script>
+  <main class="maps-guide">
+    <article>
+      <header class="article-hero">
+        <div class="container-sm">
+          <nav class="breadcrumb" aria-label="Хлебные крошки">
+            <a href="/">Главная</a><span aria-hidden="true">/</span>
+            <a href="/blog/">Блог</a><span aria-hidden="true">/</span>
+            <span aria-current="page">Яндекс Карты без рекламы</span>
+          </nav>
+          <div class="article-tags"><span class="tag">Яндекс Карты</span><span class="tag">Инструкция</span></div>
+          <h1 class="article-title">Как отключить рекламу в Яндекс Картах на сайте</h1>
+          <div class="article-meta"><span>Алексей Смирнов</span><time datetime="2026-11-10">10 ноября 2026</time></div>
+        </div>
+      </header>
+
+      <div class="article-body container-sm">
+        <p>Если на странице «Контакты» или в блоке «Как добраться» стоит интерактивная карта Яндекса, внутри неё может появиться рекламный баннер. Это касается карт из Конструктора и готовых виджетов Яндекс Карт. В условиях от 1 сентября 2026 года Яндекс описал возможность отключать рекламу в отдельных сервисах. <a href="https://yandex.ru/legal/maps_api/ru/">Условия использования Яндекс Карт</a>.</p>
+
+        <div class="tip-box">
+          <p>Для публичного сайта подходит <strong>«Тариф Базовый (без рекламы)»</strong> в разделе JavaScript API. На 10 ноября 2026 года он стоит <strong>2 000 ₽ за месяц</strong> или <strong>20 000 ₽ за год</strong> для одного домена. После оплаты нужно добавить API-ключ в код карты. <a href="https://yandex.ru/dev/tariffs/doc/ru/jsapi/prices/">Тарифы Яндекса, таблица 4</a>.</p>
+        </div>
+
+        <nav class="maps-guide-toc" aria-label="Оглавление">
+          <strong>Шаги</strong>
+          <ol>
+            <li><a href="#account">Войти в кабинет и выбрать страну</a></li>
+            <li><a href="#connect">Подключить JavaScript API</a></li>
+            <li><a href="#tariff">Выбрать базовый тариф без рекламы</a></li>
+            <li><a href="#payment">Оплатить счёт</a></li>
+            <li><a href="#api-key">Открыть раздел «Ключи»</a></li>
+            <li><a href="#add-key">Настроить ключ и обновить карту на сайте</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="account">1. Войдите в кабинет API Яндекс Карт и выберите страну</h2>
+        <p>Откройте <a href="https://yandex.ru/maps-api/tariffs">страницу тарифов</a> и нажмите <strong>«В кабинет»</strong> в правом верхнем углу. Войдите с Яндекс ID. Если аккаунта ещё нет, зарегистрируйте его. Для сайта компании Яндекс рекомендует отдельный рабочий логин, поскольку перенести подключённые продукты и ключи в другой аккаунт нельзя. <a href="https://yandex.ru/maps-api/docs/developer/quickstart.html">Инструкция Яндекса по входу</a>.</p>
+        <figure>
+          <a class="maps-guide-shot" href="/assets/img/remove-yandex-maps-ads/01-tariffs.png" target="_blank" rel="noopener">
+            <img src="/assets/img/remove-yandex-maps-ads/01-tariffs.png" width="2880" height="1388" alt="На странице тарифов API Яндекс Карт кнопка «В кабинет» находится справа вверху" loading="lazy">
+            <svg class="maps-guide-arrows" viewBox="0 0 2048 987" aria-hidden="true" focusable="false">
+              <path d="M1740 223 L1862 115 M1819 123 L1862 115 L1848 156"/>
+            </svg>
+          </a>
+          <figcaption>Кнопка «В кабинет» на странице тарифов.</figcaption>
+        </figure>
+        <p>Когда кабинет попросит выбрать страну, укажите страну налогового резидентства, из которой будете оплачивать тариф. Если это Россия, выберите <strong>«Россия»</strong> и нажмите <strong>«Продолжить»</strong>. После подтверждения изменить страну в кабинете нельзя.</p>
+        <figure>
+          <a class="maps-guide-shot" href="/assets/img/remove-yandex-maps-ads/02-country.png" target="_blank" rel="noopener">
+            <img src="/assets/img/remove-yandex-maps-ads/02-country.png" width="2880" height="1250" alt="Россия в списке стран и кнопка «Продолжить»" loading="lazy">
+            <svg class="maps-guide-arrows" viewBox="0 0 2048 889" aria-hidden="true" focusable="false">
+              <path d="M670 467 L806 408 M765 401 L806 408 L784 442"/>
+              <path d="M1346 756 L1225 670 M1240 710 L1225 670 L1268 673"/>
+            </svg>
+          </a>
+          <figcaption>Выбор страны налогового резидентства.</figcaption>
+        </figure>
+
+        <h2 id="connect">2. Подключите JavaScript API</h2>
+        <p>На главной странице кабинета в блоке <strong>«Все продукты»</strong> найдите карточку <strong>JavaScript API</strong> и нажмите <strong>«Подключить»</strong>. Если продукт уже подключён, откройте его и перейдите в <strong>«Тарифы»</strong>.</p>
+        <figure>
+          <a class="maps-guide-shot" href="/assets/img/remove-yandex-maps-ads/03-javascript-api.png" target="_blank" rel="noopener">
+            <img src="/assets/img/remove-yandex-maps-ads/03-javascript-api.png" width="2880" height="1226" alt="Карточка JavaScript API с кнопкой «Подключить»" loading="lazy">
+            <svg class="maps-guide-arrows" viewBox="0 0 2048 872" aria-hidden="true" focusable="false">
+              <path d="M692 691 L561 634 M584 668 L561 634 L602 630"/>
+            </svg>
+          </a>
+          <figcaption>Карточка JavaScript API в списке продуктов.</figcaption>
+        </figure>
+
+        <h2 id="tariff">3. Выберите «Тариф Базовый (без рекламы)»</h2>
+        <p>Прокрутите страницу тарифов вниз. Нужная карточка находится над <strong>«Бесплатным тарифом»</strong>. В верхней карточке <strong>«Параметры использования JavaScript API»</strong> настраивается другой тариф. Для отключения баннеров в готовой карте достаточно базового.</p>
+        <figure>
+          <a class="maps-guide-shot" href="/assets/img/remove-yandex-maps-ads/04-basic-plan.png" target="_blank" rel="noopener">
+            <img src="/assets/img/remove-yandex-maps-ads/04-basic-plan.png" width="2880" height="1218" alt="Базовый тариф без рекламы на год за 20 000 рублей расположен над бесплатным тарифом" loading="lazy">
+            <svg class="maps-guide-arrows" viewBox="0 0 2048 866" aria-hidden="true" focusable="false">
+              <path d="M328 400 L428 348 M388 346 L428 348 L408 382"/>
+              <path d="M370 540 L480 478 M439 476 L480 478 L461 514"/>
+            </svg>
+          </a>
+          <figcaption>Базовый тариф с предоплатой 20 000 ₽ за год.</figcaption>
+        </figure>
+        <p>Выберите период <strong>«На 1 месяц»</strong> за 2 000 ₽ или <strong>«На 1 год»</strong> за 20 000 ₽. Укажите дату начала действия. Проверьте название тарифа и сумму в правой колонке. Затем ознакомьтесь с офертой, отметьте согласие и нажмите <strong>«Подключить»</strong>.</p>
+        <figure>
+          <a class="maps-guide-shot" href="/assets/img/remove-yandex-maps-ads/05-monthly-plan.png" target="_blank" rel="noopener">
+            <img src="/assets/img/remove-yandex-maps-ads/05-monthly-plan.png" width="2880" height="1244" alt="В правой колонке выбран базовый тариф на месяц, указана сумма 2 000 рублей и видна кнопка «Подключить»" loading="lazy">
+            <svg class="maps-guide-arrows" viewBox="0 0 2048 885" aria-hidden="true" focusable="false">
+              <path d="M1491 367 L1608 318 M1567 313 L1608 318 L1584 352"/>
+              <path d="M2020 485 L1930 397 M1940 437 L1930 397 L1971 407"/>
+            </svg>
+          </a>
+          <figcaption>Проверка суммы при подключении тарифа на месяц.</figcaption>
+        </figure>
+
+        <h2 id="payment">4. Выберите плательщика и оплатите счёт</h2>
+        <p>На странице <strong>«Оплата тарифа»</strong> выберите плательщика из списка. Если нужной компании там нет, нажмите <strong>«Добавить плательщика»</strong> и заполните её реквизиты.</p>
+        <p>В блоке <strong>«Пополнение счёта»</strong> проверьте сумму платежа и нажмите <strong>«Выставить счёт»</strong>. В Яндекс Балансе проверьте реквизиты, выберите способ оплаты и оплатите счёт. Тариф активируется в выбранную дату при условии, что деньги поступили на лицевой счёт. <a href="https://yandex.ru/maps-api/docs/developer/quickstart.html">Инструкция Яндекса по оплате</a>.</p>
+        <figure>
+          <a class="maps-guide-shot" href="/assets/img/remove-yandex-maps-ads/06-payment.png" target="_blank" rel="noopener">
+            <img src="/assets/img/remove-yandex-maps-ads/06-payment.png" width="2880" height="1234" alt="Экран оплаты с закрытыми данными плательщиков, суммой 2 000 рублей и кнопкой «Выставить счёт»" loading="lazy">
+            <svg class="maps-guide-arrows" viewBox="0 0 2048 878" aria-hidden="true" focusable="false">
+              <path d="M797 480 L639 480 M670 455 L639 480 L670 505"/>
+              <path d="M2021 657 L1930 585 M1943 623 L1930 585 L1970 590"/>
+            </svg>
+          </a>
+          <figcaption>Выбор плательщика и выставление счёта.</figcaption>
+        </figure>
+
+        <h2 id="api-key">5. Откройте раздел «Ключи»</h2>
+        <p>В кабинете API Яндекс Карт откройте <strong>«Ключи»</strong> в левом меню. На скриншоте показан кабинет до подключения продукта, поэтому список пока пуст.</p>
+        <figure class="maps-guide-keys">
+          <a class="maps-guide-shot" href="/assets/img/remove-yandex-maps-ads/07-keys.png" target="_blank" rel="noopener">
+            <img src="/assets/img/remove-yandex-maps-ads/07-keys.png" width="2880" height="1230" alt="Раздел «Ключи» в левом меню кабинета API Яндекс Карт. До подключения продукта список ключей пуст" loading="lazy">
+            <svg class="maps-guide-arrows" viewBox="0 0 2048 875" aria-hidden="true" focusable="false">
+              <path d="M344 209 L166 159 M193 190 L166 159 L206 149"/>
+            </svg>
+          </a>
+          <figcaption>Раздел «Ключи» до подключения JavaScript API.</figcaption>
+        </figure>
+        <h2 id="add-key">6. Настройте ключ и обновите карту на сайте</h2>
+        <p>В разделе <strong>«Ключи»</strong> найдите ключ для <strong>JavaScript API</strong>. Первый ключ Яндекс создаёт автоматически при подключении продукта. <a href="https://yandex.ru/maps-api/docs/developer/quickstart.html">Инструкция Яндекса со скриншотами</a>.</p>
+        <p>Откройте настройки ключа. В поле <strong>«Ограничение по HTTP Referer»</strong> укажите адрес сайта без <code>https://</code> и без пути к странице. Например, <code>example.ru</code>. Сохраните настройки и проверьте, что после начала действия тарифа ключ отображается как <strong>«Активен»</strong>. <a href="https://yandex.ru/maps-api/docs/constructor/concept/ads.html">Справка Яндекса по настройке ключа</a>.</p>
+
+        <p><strong>После оплаты карту нужно обновить на сайте.</strong> Если сайт обслуживает разработчик, попросите его добавить ключ тарифа без рекламы в код вашей карты. Схему проезда и метки можно сохранить.</p>
+
+        <details class="maps-guide-code-help">
+          <summary>Если вы сами редактируете код карты</summary>
+          <p>Посмотрите, где вы взяли код карты и с чего он начинается.</p>
+          <ol>
+            <li><strong>Собрали карту в Конструкторе, код начинается с <code>&lt;script&gt;</code>.</strong> Оставьте текущую вставку и добавьте <code>apikey</code> в ссылку внутри неё. <a href="https://yandex.ru/maps-api/docs/constructor/api.html">Пример кода Яндекса</a>.</li>
+            <li><strong>Собрали карту в Конструкторе, код начинается с <code>&lt;iframe&gt;</code>.</strong> Откройте ту же карту в Конструкторе, нажмите <strong>«Получить код карты»</strong> и выберите <strong>JavaScript</strong>. Замените старую вставку этим кодом и добавьте <code>apikey</code>, как в предыдущем пункте. <a href="https://yandex.ru/maps-api/docs/constructor/concept/markers_2.html">Как получить код карты</a>.</li>
+            <li><strong>Взяли готовый виджет из меню «Поделиться» в Яндекс Картах.</strong> Оставьте текущую вставку и добавьте <code>jsApiKey</code> в ссылку внутри неё. Соблюдайте регистр букв. <a href="https://yandex.ru/maps-api/docs/constructor/concept/ads.html">Справка Яндекса о готовом виджете</a>.</li>
+          </ol>
+          <p>Впишите сам ключ после знака <code>=</code>. Если нужный параметр уже есть, замените только его значение.</p>
+        </details>
+
+        <p>После обновления откройте страницу на рабочем домене без блокировщика рекламы. Проверьте, что карта и метки загружаются, а баннер не появляется.</p>
+      </div>
+    </article>
+  </main>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

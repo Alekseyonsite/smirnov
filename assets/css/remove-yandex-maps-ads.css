@@ -1,0 +1,101 @@
+.maps-guide .article-title {
+  margin-top: 16px;
+  font-size: clamp(30px, 4.5vw, 46px);
+}
+
+.maps-guide .article-hero {
+  padding-bottom: 0;
+}
+
+.maps-guide .article-meta {
+  color: var(--text2);
+}
+
+.maps-guide .article-body {
+  padding-bottom: 48px;
+}
+
+.maps-guide h2 {
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+}
+
+.maps-guide-toc,
+.maps-guide-code-help {
+  padding: 20px 24px;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  background: var(--bg2);
+}
+
+.maps-guide-toc ol {
+  margin: 8px 0 0;
+}
+
+.maps-guide figure {
+  margin: 24px 0 28px;
+}
+
+.maps-guide figure img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.maps-guide figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text2);
+}
+
+.maps-guide code {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.maps-guide-code-help {
+  margin: 24px 0;
+}
+
+.maps-guide-code-help summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.maps-guide-code-help p {
+  margin: 12px 0;
+}
+
+.maps-guide-code-help ol {
+  margin-bottom: 0;
+}
+
+.maps-guide-shot {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.maps-guide-arrows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  fill: none;
+  stroke: #0055d6;
+  stroke-width: 13;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 1px 2px #fff) drop-shadow(0 -1px 2px #fff);
+}
+
+.maps-guide-keys .maps-guide-shot {
+  aspect-ratio: 2048 / 402;
+}
+
+.maps-guide-counter {
+  position: absolute;
+  left: -9999px;
+}
