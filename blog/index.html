@@ -48,18 +48,14 @@
     .blog-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px;border-top:1px solid var(--border)}
     .read-more,.read-soon{font-size:12px;font-weight:700;color:var(--accent)}
     .tag{display:inline-block;border:1px solid var(--border2);border-radius:20px;padding:4px 12px;font-size:11px;color:var(--text2)}
-    .cat-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
-    .cat-btn{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--text2);background:var(--bg2);cursor:pointer;transition:all .18s;font-family:var(--font-body)}
-    .cat-btn:hover,.cat-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
-    .blog-card.hidden{display:none}
-    .blog-featured{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:48px;text-decoration:none;color:inherit;transition:border-color .2s}
-    .blog-featured:hover{border-color:var(--accent)}
-    .blog-featured-cover{background:linear-gradient(135deg,#1a1a2e 0%,#0d1b2a 100%);display:flex;align-items:center;justify-content:center;font-size:64px;min-height:240px}
-    .blog-featured-body{padding:32px}
-    .blog-featured-label{font-size:10px;font-weight:700;font-family:var(--font-head);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px}
-    .blog-featured-title{font-family:var(--font-head);font-size:22px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:12px}
-    .blog-featured-excerpt{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:20px}
-    .blog-featured-meta{font-size:12px;color:var(--text3)}
+    .blog-filters{margin-bottom:36px}
+    .cat-filters,.topic-filters{display:flex;gap:8px;flex-wrap:wrap}
+    .topic-filters{margin-top:12px;padding-left:12px;border-left:2px solid var(--border2)}
+    .cat-btn,.topic-btn{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--text2);background:var(--bg2);cursor:pointer;transition:all .18s;font-family:var(--font-body)}
+    .topic-btn{padding:5px 11px;border-radius:8px;background:transparent}
+    .cat-btn:hover,.cat-btn[aria-pressed="true"],.topic-btn:hover,.topic-btn[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
+    .category-page-link{display:inline-block;margin-top:10px;color:var(--accent);font-size:12px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+    .blog-card[hidden],.topic-filters[hidden],.category-page-link[hidden]{display:none}
     .soon-overlay{display:none;position:fixed;inset:0;z-index:600;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px}
     .soon-overlay.open{display:flex}
     .soon-box{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:36px;max-width:400px;width:100%;text-align:center}
@@ -67,8 +63,8 @@
     .soon-title{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px}
     .soon-text{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:20px}
     .soon-close{background:var(--bg3);border:none;color:var(--text2);border-radius:8px;padding:8px 20px;font-size:13px;cursor:pointer;font-family:var(--font-body)}
-    @media(max-width:900px){.blog-grid{grid-template-columns:repeat(2,1fr)}.blog-featured{grid-template-columns:1fr}}
-    @media(max-width:600px){.blog-grid{grid-template-columns:1fr}.blog-featured-cover{min-height:160px}}
+    @media(max-width:900px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -76,26 +72,53 @@
 <main>
 <section style="padding-top:calc(var(--nav-h) + 48px);padding-bottom:24px"><div class="container"><div style="text-align:center;margin-bottom:8px"><div style="display:inline-flex;align-items:center;gap:12px;font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-family:var(--font-head)"><span style="height:1px;background:var(--accent);width:40px;display:inline-block"></span>Performance Marketing<span style="height:1px;background:var(--accent);width:40px;display:inline-block"></span></div></div><h1 class="section-title" style="font-size:clamp(28px,4vw,48px);margin-bottom:10px">Блог</h1><p class="section-sub">Разбираю реальные кейсы, инструменты и подходы к рекламе</p></div></section>
 <section style="padding-top:0;padding-bottom:96px"><div class="container">
-  <a href="../cases/usa-auto-ecommerce/" class="blog-featured fade-up"><div class="blog-featured-cover">🛒</div><div class="blog-featured-body"><div class="blog-featured-label">Кейс · E-commerce</div><div class="blog-featured-title">Как мы увеличили ROAS в e-commerce США при росте бюджета</div><div class="blog-featured-excerpt">Интернет-магазин автоковриков, 48 штатов, Shopify + Google Ads. Покупки +147.6%, CPO −73.1%.</div><div class="blog-featured-meta">Кейс · E-commerce · Google Ads</div></div></a>
-  <div class="cat-filters" id="cat-filters"><button class="cat-btn active" data-cat="all">Все статьи</button><button class="cat-btn" data-cat="google-ads">Google Ads</button><button class="cat-btn" data-cat="yandex">Яндекс.Директ</button><button class="cat-btn" data-cat="b2b">B2B</button><button class="cat-btn" data-cat="ecommerce">E-commerce</button><button class="cat-btn" data-cat="analytics">Аналитика</button></div>
+  <div class="blog-filters">
+    <div class="cat-filters" id="cat-filters" role="group" aria-label="Рубрики блога">
+      <button type="button" class="cat-btn" data-cat="all" aria-controls="blog-grid" aria-pressed="true">Все статьи</button>
+      <button type="button" class="cat-btn" data-cat="google-ads" aria-controls="blog-grid" aria-pressed="false">Google Ads</button>
+      <button type="button" class="cat-btn" data-cat="yandex" aria-controls="blog-grid" aria-pressed="false">Яндекс Директ</button>
+      <button type="button" class="cat-btn" data-cat="maps" aria-controls="blog-grid" aria-pressed="false">Карты</button>
+      <button type="button" class="cat-btn" data-cat="b2b" aria-controls="blog-grid" aria-pressed="false">B2B</button>
+      <button type="button" class="cat-btn" data-cat="ecommerce" aria-controls="blog-grid" aria-pressed="false">E-commerce</button>
+      <button type="button" class="cat-btn" data-cat="analytics" aria-controls="blog-grid" aria-pressed="false">Аналитика</button>
+    </div>
+    <div class="topic-filters" id="topic-filters" role="group" aria-label="Темы рубрики" hidden></div>
+    <div id="category-pages">
+      <a class="category-page-link" href="/blog/yandex-direct/" data-cat="yandex" aria-label="Открыть рубрику Яндекс Директ" hidden>Открыть рубрику →</a>
+      <a class="category-page-link" href="/blog/google-ads/" data-cat="google-ads" aria-label="Открыть рубрику Google Ads" hidden>Открыть рубрику →</a>
+      <a class="category-page-link" href="/blog/yandex-maps/" data-cat="maps" aria-label="Открыть рубрику Яндекс Карты" hidden>Открыть рубрику →</a>
+      <a class="category-page-link" href="/blog/b2b/" data-cat="b2b" aria-label="Открыть рубрику B2B" hidden>Открыть рубрику →</a>
+      <a class="category-page-link" href="/blog/analytics/" data-cat="analytics" aria-label="Открыть рубрику Аналитика" hidden>Открыть рубрику →</a>
+      <a class="category-page-link" href="/blog/ecommerce/" data-cat="ecommerce" aria-label="Открыть рубрику E-commerce" hidden>Открыть рубрику →</a>
+    </div>
+  </div>
   <div class="blog-grid" id="blog-grid">
-    <a href="remove-yandex-maps-ads/" class="blog-card fade-up" data-cat="yandex">
-      <div class="blog-card-cover" aria-hidden="true">🗺️</div>
+    <a href="yandex-direct-net-zayavok/" class="blog-card fade-up" data-cat="yandex analytics" data-topic="diagnostics">
+      <div class="blog-card-cover" aria-hidden="true">🔍</div>
       <div class="blog-card-body">
-        <div class="blog-card-meta"><span>Яндекс Карты</span><span>·</span><time datetime="2026-11-10">Ноябрь 2026</time></div>
-        <div class="blog-card-title">Как отключить рекламу в Яндекс Картах на сайте</div>
-        <div class="blog-card-excerpt">Как выбрать тариф без рекламы, оплатить счёт и добавить API-ключ в код карты.</div>
-        <div class="blog-card-footer"><span class="tag">Яндекс Карты</span><span class="read-more">Читать →</span></div>
+        <div class="blog-card-meta"><span>Яндекс Директ · Диагностика</span><span>·</span><time datetime="2026-11">Ноябрь 2026</time><span>·</span><span>5 мин</span></div>
+        <div class="blog-card-title">Яндекс Директ тратит бюджет, а заявок нет: три проверки</div>
+        <div class="blog-card-excerpt">Как проверить цели Метрики и данные CRM, поисковые запросы и площадки РСЯ.</div>
+        <div class="blog-card-footer"><span class="tag">Яндекс Директ</span><span class="read-more">Читать →</span></div>
       </div>
     </a>
-    <a href="pmax-signaly/" class="blog-card fade-up" data-cat="google-ads"><div class="blog-card-cover">🧭</div><div class="blog-card-body"><div class="blog-card-meta"><span>Google Ads · PMax</span><span>·</span><span>Июль 2026</span><span>·</span><span>3 мин</span></div><div class="blog-card-title">Что такое сигнал в Performance Max и зачем он нужен</div><div class="blog-card-excerpt">Простое объяснение audience signals: что можно добавить, почему это не look-alike и чем сигналы помогают алгоритму.</div><div class="blog-card-footer"><span class="tag">Google Ads</span><span class="read-more">Читать →</span></div></div></a>
-    <a href="deshevye-lidy-necelevye-b2b/" class="blog-card fade-up" data-cat="b2b yandex analytics"><div class="blog-card-cover">👁️</div><div class="blog-card-body"><div class="blog-card-meta"><span>B2B · Сайт</span><span>·</span><span>Июнь 2026</span><span>·</span><span>6 мин</span></div><div class="blog-card-title">Как первый экран сайта влияет на качество B2B-лидов</div><div class="blog-card-excerpt">Разбор про контекстную рекламу, внимание пользователя на сайте и фильтрацию нецелевых заявок.</div><div class="blog-card-footer"><span class="tag">B2B</span><span class="read-more">Читать →</span></div></div></a>
-    <a href="qr-kod-yandex-karty-prilozhenie/" class="blog-card fade-up" data-cat="yandex analytics"><div class="blog-card-cover">🗺️</div><div class="blog-card-body"><div class="blog-card-meta"><span>Яндекс.Карты · QR</span><span>·</span><span>Июнь 2026</span><span>·</span><span>5 мин</span></div><div class="blog-card-title">QR-код на Яндекс.Карты, который сразу открывает приложение</div><div class="blog-card-excerpt">Пошаговая инструкция: deep link, fallback-страница, проверка на смартфоне и UTM-метки для офлайн-баннера.</div><div class="blog-card-footer"><span class="tag">Яндекс.Карты</span><span class="read-more">Читать →</span></div></div></a>
-    <a href="master-kampanii-ploshchadki-byudzhet/" class="blog-card fade-up" data-cat="yandex"><div class="blog-card-cover">🎯</div><div class="blog-card-body"><div class="blog-card-meta"><span>Яндекс.Директ</span><span>·</span><span>Май 2026</span><span>·</span><span>8 мин</span></div><div class="blog-card-title">Мастер кампаний в Яндекс Директ: настройка и анализ площадок</div><div class="blog-card-excerpt">Где смотреть площадки, как чистить нерелевантные размещения и что проверить в настройках кампании.</div><div class="blog-card-footer"><span class="tag">Мастер кампаний</span><span class="read-more">Читать →</span></div></div></a>
-    <a href="kak-snizit-cpql-v-b2b/" class="blog-card fade-up" data-cat="b2b"><div class="blog-card-cover">📉</div><div class="blog-card-body"><div class="blog-card-meta"><span>B2B · Performance</span><span>·</span><span>Май 2026</span><span>·</span><span>4 мин</span></div><div class="blog-card-title">Как снизить CPQL в B2B без уменьшения бюджета</div><div class="blog-card-excerpt">5 рабочих способов улучшить качество лидов, не сокращая расходы на рекламу.</div><div class="blog-card-footer"><span class="tag">B2B</span><span class="read-more">Читать →</span></div></div></a>
-    <a href="struktura-google-ads-2026/" class="blog-card fade-up" data-cat="google-ads"><div class="blog-card-cover">⚙️</div><div class="blog-card-body"><div class="blog-card-meta"><span>Google Ads</span><span>·</span><span>Май 2026</span><span>·</span><span>5 мин</span></div><div class="blog-card-title">Структура рекламного кабинета Google Ads в 2026 году</div><div class="blog-card-excerpt">Как выстроить кампании, настроить конверсии и UTM-аналитику.</div><div class="blog-card-footer"><span class="tag">Google Ads</span><span class="read-more">Читать →</span></div></div></a>
-    <a href="google-ads-offline-conversions-qualified-leads/" class="blog-card fade-up" data-cat="google-ads analytics"><div class="blog-card-cover">🔗</div><div class="blog-card-body"><div class="blog-card-meta"><span>Аналитика · Google Ads</span><span>·</span><span>Май 2026</span><span>·</span><span>6 мин</span></div><div class="blog-card-title">60% квал-лидов не доходили до Google Ads</div><div class="blog-card-excerpt">Разбор на основе EdTech-проекта: почему CRM, n8n и GA4 передавали неполные данные и как это влияло на обучение кампаний.</div><div class="blog-card-footer"><span class="tag">Аналитика</span><span class="read-more">Читать →</span></div></div></a>
-    <div class="blog-card fade-up" data-cat="analytics" onclick="showSoon()"><div class="blog-card-cover">📊</div><div class="blog-card-body"><div class="blog-card-meta"><span>Performance</span><span>·</span><span>7 мин</span></div><div class="blog-card-title">CPL vs CPQL: почему нельзя оптимизировать рекламу только по лидам</div><div class="blog-card-excerpt">Разница между лидом и квалифицированным лидом. Как выстроить воронку метрик.</div><div class="blog-card-footer"><span class="tag">Аналитика</span><span class="read-soon">Скоро →</span></div></div></div>
+    <a href="remove-yandex-maps-ads/" class="blog-card fade-up" data-cat="maps" data-topic="map-widget">
+      <div class="blog-card-cover" aria-hidden="true">🗺️</div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span>Яндекс Карты</span><span>·</span><time datetime="2026-11-10">Ноябрь 2026</time><span>·</span><span>4&nbsp;мин</span></div>
+        <div class="blog-card-title">Как отключить рекламу в Яндекс Картах на вашем сайте</div>
+        <div class="blog-card-excerpt">Как выбрать тариф без рекламы, оплатить счёт и добавить API-ключ в код карты.</div>
+        <div class="blog-card-footer"><span class="tag">Карты</span><span class="read-more">Читать →</span></div>
+      </div>
+    </a>
+    <a href="pmax-signaly/" class="blog-card fade-up" data-cat="google-ads" data-topic="pmax"><div class="blog-card-cover">🧭</div><div class="blog-card-body"><div class="blog-card-meta"><span>Google Ads · PMax</span><span>·</span><span>Июль 2026</span><span>·</span><span>3 мин</span></div><div class="blog-card-title">Что такое сигнал в Performance Max и зачем он нужен</div><div class="blog-card-excerpt">Простое объяснение audience signals: что можно добавить, почему это не look-alike и чем сигналы помогают алгоритму.</div><div class="blog-card-footer"><span class="tag">Google Ads</span><span class="read-more">Читать →</span></div></div></a>
+    <a href="deshevye-lidy-necelevye-b2b/" class="blog-card fade-up" data-cat="b2b yandex analytics" data-topic="lead-quality"><div class="blog-card-cover">👁️</div><div class="blog-card-body"><div class="blog-card-meta"><span>B2B · Сайт</span><span>·</span><span>Июнь 2026</span><span>·</span><span>6 мин</span></div><div class="blog-card-title">Как первый экран сайта влияет на качество B2B-лидов</div><div class="blog-card-excerpt">Разбор про контекстную рекламу, внимание пользователя на сайте и фильтрацию нецелевых заявок.</div><div class="blog-card-footer"><span class="tag">B2B</span><span class="read-more">Читать →</span></div></div></a>
+    <a href="qr-kod-yandex-karty-prilozhenie/" class="blog-card fade-up" data-cat="analytics maps" data-topic="qr-codes"><div class="blog-card-cover">🗺️</div><div class="blog-card-body"><div class="blog-card-meta"><span>Яндекс.Карты · QR</span><span>·</span><span>Июнь 2026</span><span>·</span><span>5 мин</span></div><div class="blog-card-title">QR-код на Яндекс.Карты, который сразу открывает приложение</div><div class="blog-card-excerpt">Пошаговая инструкция: deep link, fallback-страница, проверка на смартфоне и UTM-метки для офлайн-баннера.</div><div class="blog-card-footer"><span class="tag">Карты</span><span class="read-more">Читать →</span></div></div></a>
+    <a href="master-kampanii-ploshchadki-byudzhet/" class="blog-card fade-up" data-cat="yandex" data-topic="setup"><div class="blog-card-cover">🎯</div><div class="blog-card-body"><div class="blog-card-meta"><span>Яндекс.Директ</span><span>·</span><span>Май 2026</span><span>·</span><span>8 мин</span></div><div class="blog-card-title">Мастер кампаний в Яндекс Директ: настройка и анализ площадок</div><div class="blog-card-excerpt">Где смотреть площадки, как чистить нерелевантные размещения и что проверить в настройках кампании.</div><div class="blog-card-footer"><span class="tag">Мастер кампаний</span><span class="read-more">Читать →</span></div></div></a>
+    <a href="kak-snizit-cpql-v-b2b/" class="blog-card fade-up" data-cat="b2b" data-topic="ad-economics"><div class="blog-card-cover">📉</div><div class="blog-card-body"><div class="blog-card-meta"><span>B2B · Performance</span><span>·</span><span>Май 2026</span><span>·</span><span>4 мин</span></div><div class="blog-card-title">Как снизить CPQL в B2B без уменьшения бюджета</div><div class="blog-card-excerpt">5 рабочих способов улучшить качество лидов, не сокращая расходы на рекламу.</div><div class="blog-card-footer"><span class="tag">B2B</span><span class="read-more">Читать →</span></div></div></a>
+    <a href="struktura-google-ads-2026/" class="blog-card fade-up" data-cat="google-ads" data-topic="setup"><div class="blog-card-cover">⚙️</div><div class="blog-card-body"><div class="blog-card-meta"><span>Google Ads</span><span>·</span><span>Май 2026</span><span>·</span><span>5 мин</span></div><div class="blog-card-title">Структура рекламного кабинета Google Ads в 2026 году</div><div class="blog-card-excerpt">Как выстроить кампании, настроить конверсии и UTM-аналитику.</div><div class="blog-card-footer"><span class="tag">Google Ads</span><span class="read-more">Читать →</span></div></div></a>
+    <a href="google-ads-offline-conversions-qualified-leads/" class="blog-card fade-up" data-cat="google-ads analytics" data-topic="conversions"><div class="blog-card-cover">🔗</div><div class="blog-card-body"><div class="blog-card-meta"><span>Аналитика · Google Ads</span><span>·</span><span>Май 2026</span><span>·</span><span>6 мин</span></div><div class="blog-card-title">60% квал-лидов не доходили до Google Ads</div><div class="blog-card-excerpt">Разбор на основе EdTech-проекта: почему CRM, n8n и GA4 передавали неполные данные и как это влияло на обучение кампаний.</div><div class="blog-card-footer"><span class="tag">Аналитика</span><span class="read-more">Читать →</span></div></div></a>
+    <div class="blog-card fade-up" data-cat="analytics" data-topic="ad-economics" onclick="showSoon()"><div class="blog-card-cover">📊</div><div class="blog-card-body"><div class="blog-card-meta"><span>Performance</span><span>·</span><span>7 мин</span></div><div class="blog-card-title">CPL vs CPQL: почему нельзя оптимизировать рекламу только по лидам</div><div class="blog-card-excerpt">Разница между лидом и квалифицированным лидом. Как выстроить воронку метрик.</div><div class="blog-card-footer"><span class="tag">Аналитика</span><span class="read-soon">Скоро →</span></div></div></div>
     <div class="blog-card fade-up" data-cat="ecommerce" onclick="showSoon()"><div class="blog-card-cover">💡</div><div class="blog-card-body"><div class="blog-card-meta"><span>E-commerce</span><span>·</span><span>8 мин</span></div><div class="blog-card-title">Квиз вместо лендинга: когда это работает и когда нет</div><div class="blog-card-excerpt">4 проекта, где квиз дал рост конверсии, и 2 кейса, где он не сработал.</div><div class="blog-card-footer"><span class="tag">E-commerce</span><span class="read-soon">Скоро →</span></div></div></div>
   </div>
 </div></section>
@@ -106,7 +129,49 @@
   function showSoon(){document.getElementById('soon-overlay').classList.add('open');}
   document.getElementById('soon-overlay').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('soon-overlay').classList.remove('open');});
-  document.querySelectorAll('.cat-btn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');const cat=this.dataset.cat;document.querySelectorAll('#blog-grid .blog-card').forEach(card=>{if(cat==='all'||card.dataset.cat.includes(cat)){card.classList.remove('hidden');}else{card.classList.add('hidden');}});});});
+  const categoryButtons = document.querySelectorAll('#cat-filters button');
+  const topicFilters = document.getElementById('topic-filters');
+  const categoryPages = document.querySelectorAll('#category-pages a');
+  const cards = [...document.querySelectorAll('#blog-grid .blog-card')];
+  const topics = {
+    diagnostics: 'Диагностика',
+    setup: 'Настройка',
+    'lead-quality': 'Качество лидов',
+    pmax: 'Performance Max',
+    conversions: 'Конверсии',
+    'map-widget': 'Виджет карты',
+    'qr-codes': 'QR-коды',
+    'ad-economics': 'Экономика рекламы'
+  };
+
+  function showCategory(category) {
+    const matching = category === 'all' ? cards : cards.filter(card => card.dataset.cat.split(' ').includes(category));
+    categoryButtons.forEach(button => button.setAttribute('aria-pressed', button.dataset.cat === category));
+    cards.forEach(card => { card.hidden = !matching.includes(card); });
+    categoryPages.forEach(link => { link.hidden = link.dataset.cat !== category; });
+
+    const availableTopics = Object.entries(topics).filter(([topic]) => matching.some(card => card.dataset.topic === topic));
+    topicFilters.replaceChildren();
+    topicFilters.hidden = category === 'all' || availableTopics.length < 2;
+    if (topicFilters.hidden) return;
+
+    for (const [topic, label] of [['', 'Все темы'], ...availableTopics]) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'topic-btn';
+      button.dataset.topic = topic;
+      button.textContent = label;
+      button.setAttribute('aria-controls', 'blog-grid');
+      button.setAttribute('aria-pressed', topic === '');
+      button.addEventListener('click', () => {
+        for (const filter of topicFilters.children) filter.setAttribute('aria-pressed', filter === button);
+        matching.forEach(card => { card.hidden = topic !== '' && card.dataset.topic !== topic; });
+      });
+      topicFilters.append(button);
+    }
+  }
+
+  categoryButtons.forEach(button => button.addEventListener('click', () => showCategory(button.dataset.cat)));
 </script>
 </body>
 </html>
